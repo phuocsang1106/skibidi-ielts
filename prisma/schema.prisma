@@ -1,0 +1,277 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum VocabularyLevel {
+  LEVEL_1
+  LEVEL_2
+}
+
+enum TopicCategory {
+  CORE
+  ADDITIONAL
+}
+
+enum TaskType {
+  TASK_1
+  TASK_2
+}
+
+enum Plan {
+  FREE
+  PRO
+}
+
+enum EntitlementSource {
+  FREE_CYCLE
+  PAYMENT
+  ADMIN_GRANT
+}
+
+enum PaymentStatus {
+  PENDING
+  AWAITING_VERIFICATION
+  PAID
+  REJECTED
+}
+
+enum WritingStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum ReservationStatus {
+  RESERVED
+  CONSUMED
+  RELEASED
+}
+
+enum UserReportCategory {
+  BAND_SCORE_INACCURATE
+  FEEDBACK_INCORRECT
+  QUESTION_MISUNDERSTOOD
+  IMAGE_UNREADABLE
+  OTHER
+}
+
+enum UserReportStatus {
+  OPEN
+  REVIEWED
+  RESOLVED
+}
+
+model User {
+  id                 String               @id @default(cuid())
+  username           String
+  normalizedUsername String               @unique
+  passwordHash       String
+  role               Role                 @default(USER)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  sessions           Session[]
+  vocabularyProgress VocabularyProgress[]
+  writingSubmissions WritingSubmission[]
+  entitlementPeriods EntitlementPeriod[]
+  writingReservations WritingReservation[]
+  paymentOrders      PaymentOrder[]       @relation("PaymentUser")
+  confirmedPayments  PaymentOrder[]       @relation("PaymentAdmin")
+  reports            UserReport[]         @relation("ReportUser")
+  reviewedReports    UserReport[]         @relation("ReportAdmin")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model LoginRateLimit {
+  key          String    @id
+  attempts     Int       @default(0)
+  windowStart  DateTime
+  blockedUntil DateTime?
+  updatedAt    DateTime  @updatedAt
+}
+
+model VocabularyTopic {
+  id        String          @id @default(cuid())
+  name      String
+  slug      String
+  level     VocabularyLevel
+  category  TopicCategory
+  order     Int
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+  items     VocabularyItem[]
+
+  @@unique([level, slug])
+  @@index([level, category, order])
+}
+
+model VocabularyItem {
+  id                  String               @id @default(cuid())
+  topicId             String
+  level               VocabularyLevel
+  word                String
+  normalizedWord      String               @unique
+  ipa                 String
+  partOfSpeech        String
+  vietnameseMeaning   String
+  readingDefinition   String
+  exampleSentence     String
+  wordFamily          Json
+  collocations        Json
+  audioMetadata       Json?
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  topic               VocabularyTopic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  progress            VocabularyProgress[]
+
+  @@index([topicId, word])
+  @@index([level])
+}
+
+model VocabularyProgress {
+  userId           String
+  vocabularyItemId String
+  learned          Boolean        @default(false)
+  learnedAt        DateTime?
+  updatedAt        DateTime       @updatedAt
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  vocabularyItem   VocabularyItem @relation(fields: [vocabularyItemId], references: [id], onDelete: Cascade)
+
+  @@id([userId, vocabularyItemId])
+  @@index([userId, learned])
+}
+
+model WritingSubmission {
+  id                    String        @id @default(cuid())
+  userId                String
+  taskType              TaskType
+  questionText          String
+  structuredQuestionData Json?
+  essayText             String
+  wordCount             Int
+  estimatedOverallBand  Float?
+  criterionScores       Json?
+  resultJson            Json?
+  planAtSubmission      Plan?
+  status                WritingStatus @default(PENDING)
+  failureCode           String?
+  gradingProvider       String?
+  gradingModel          String?
+  createdAt             DateTime      @default(now())
+  completedAt           DateTime?
+  user                  User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reports               UserReport[]
+  reservation           WritingReservation?
+
+  @@index([userId, createdAt])
+  @@index([status])
+}
+
+model EntitlementPeriod {
+  id                   String               @id @default(cuid())
+  userId               String
+  plan                 Plan
+  source               EntitlementSource
+  startAt              DateTime
+  endAt                DateTime
+  quotaLimit           Int
+  quotaUsed            Int                  @default(0)
+  isActive              Boolean              @default(true)
+  sourcePaymentOrderId String?               @unique
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
+  user                  User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sourcePaymentOrder    PaymentOrder?         @relation(fields: [sourcePaymentOrderId], references: [id])
+  reservations          WritingReservation[]
+
+  @@index([userId, startAt, endAt])
+  @@index([userId, plan, isActive])
+}
+
+model WritingReservation {
+  id                  String            @id @default(cuid())
+  userId              String
+  entitlementPeriodId String
+  writingSubmissionId String            @unique
+  status              ReservationStatus @default(RESERVED)
+  expiresAt           DateTime
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+  user                User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  entitlementPeriod   EntitlementPeriod @relation(fields: [entitlementPeriodId], references: [id], onDelete: Cascade)
+  writingSubmission   WritingSubmission @relation(fields: [writingSubmissionId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status, expiresAt])
+}
+
+model PaymentOrder {
+  id                   String               @id @default(cuid())
+  userId               String
+  transferCode         String               @unique
+  amount               Int
+  status               PaymentStatus        @default(PENDING)
+  createdAt            DateTime             @default(now())
+  updatedAt            DateTime             @updatedAt
+  confirmedAt          DateTime?
+  confirmedByAdminId   String?
+  rejectionReason      String?
+  user                 User                 @relation("PaymentUser", fields: [userId], references: [id], onDelete: Cascade)
+  confirmedByAdmin     User?                @relation("PaymentAdmin", fields: [confirmedByAdminId], references: [id])
+  entitlementPeriod    EntitlementPeriod?
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+}
+
+model UserReport {
+  id                  String             @id @default(cuid())
+  userId              String
+  writingSubmissionId String
+  category            UserReportCategory
+  message             String?
+  status              UserReportStatus   @default(OPEN)
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  reviewedAt          DateTime?
+  reviewedByAdminId   String?
+  user                User               @relation("ReportUser", fields: [userId], references: [id], onDelete: Cascade)
+  writingSubmission   WritingSubmission  @relation(fields: [writingSubmissionId], references: [id], onDelete: Cascade)
+  reviewedByAdmin     User?              @relation("ReportAdmin", fields: [reviewedByAdminId], references: [id])
+
+  @@index([status, createdAt])
+}
+
+model AppSetting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model AiRateLimit {
+  key          String    @id
+  attempts     Int       @default(0)
+  windowStart  DateTime
+  blockedUntil DateTime?
+  updatedAt    DateTime  @updatedAt
+}

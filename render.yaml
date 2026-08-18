@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: skibidi-ielts
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: bash scripts/render-build.sh
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.0
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.7-flash
+      - key: BANK_NAME
+        sync: false
+      - key: BANK_ACCOUNT_NUMBER
+        sync: false
+      - key: BANK_ACCOUNT_HOLDER
+        sync: false
+      - key: BANK_QR_IMAGE_URL
+        sync: false
+      - key: PRO_PRICE_VND
+        value: "50000"
