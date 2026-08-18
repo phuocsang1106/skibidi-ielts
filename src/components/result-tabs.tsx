@@ -9,13 +9,68 @@ export function ResultTabs({ result }: { result: FinalWritingResult }) {
   const taskLabel = result.taskType === "TASK_1" ? "TA" : "TR";
   const taskFull = result.taskType === "TASK_1" ? "Task Achievement" : "Task Response";
   const c = result.criteria;
-  return <div className="mt-6"><div className="flex gap-1 overflow-x-auto border-b border-gray-200" role="tablist">{tabs.map(tab => <button key={tab} type="button" role="tab" aria-selected={active === tab} onClick={() => setActive(tab)} className={`whitespace-nowrap border-b-2 px-3 py-3 text-sm font-medium ${active === tab ? "border-gray-900 text-gray-900" : "border-transparent text-gray-500"}`}>{tab}</button>)}</div>
-    <div className="py-6">
-      {active === "Overview" && <div><div className="surface p-6"><div className="text-5xl font-semibold tracking-tight">{result.estimatedOverallBand.toFixed(1)}</div><div className="mt-1 text-sm font-medium">Estimated IELTS Band</div><div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">{[[taskLabel,c.taskCriterion.band],["CC",c.coherenceCohesion.band],["LR",c.lexicalResource.band],["GRA",c.grammaticalRangeAccuracy.band]].map(([label,band]) => <div className="rounded-lg border border-gray-200 p-3" key={String(label)}><div className="text-xs font-medium text-gray-500">{label}</div><div className="mt-1 text-xl font-semibold">{Number(band).toFixed(1)}</div></div>)}</div></div><div className="mt-5 surface p-5"><h3 className="font-semibold">Main issue</h3><p className="mt-2 text-sm leading-6 text-gray-700">{result.mainIssue}</p><h3 className="mt-5 font-semibold">Priority improvements</h3><ol className="mt-2 list-decimal space-y-2 pl-5 text-sm leading-6">{result.priorityImprovements.map(item => <li key={item}>{item}</li>)}</ol>{result.nextBandGuidance && <><h3 className="mt-5 font-semibold">Next-band guidance</h3><ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6">{result.nextBandGuidance.map(item => <li key={item}>{item}</li>)}</ul></>}</div></div>}
-      {active === "Criteria" && <div className="space-y-4">{[[taskFull,c.taskCriterion,result.detailedCriterionAnalysis?.taskCriterion],["Coherence & Cohesion",c.coherenceCohesion,result.detailedCriterionAnalysis?.coherenceCohesion],["Lexical Resource",c.lexicalResource,result.detailedCriterionAnalysis?.lexicalResource],["Grammatical Range & Accuracy",c.grammaticalRangeAccuracy,result.detailedCriterionAnalysis?.grammaticalRangeAccuracy]].map(([name,criterion,detail]) => { const x = criterion as typeof c.taskCriterion; return <section className="surface p-5" key={String(name)}><div className="flex justify-between gap-4"><h3 className="font-semibold">{String(name)}</h3><span className="font-semibold">{x.band.toFixed(1)}</span></div><p className="mt-3 text-sm leading-6">{x.summary}</p>{detail && <p className="mt-3 border-t border-gray-100 pt-3 text-sm leading-6 text-gray-700">{String(detail)}</p>}<div className="mt-4 grid gap-4 md:grid-cols-2"><div><h4 className="text-xs font-semibold uppercase tracking-wide text-gray-500">Evidence</h4><ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{x.evidence.map(e => <li key={e}>{e}</li>)}</ul></div><div><h4 className="text-xs font-semibold uppercase tracking-wide text-gray-500">Key weaknesses</h4><ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{x.keyWeaknesses.map(e => <li key={e}>{e}</li>)}</ul></div></div></section>; })}</div>}
-      {active === "Errors" && <div className="space-y-4">{result.errors.length ? result.errors.map((item, index) => <article className="surface p-5" key={`${index}-${item.original}`}><div className="text-xs font-semibold uppercase tracking-wide text-gray-500">{item.issue}</div><dl className="mt-3 space-y-3 text-sm leading-6"><div><dt className="font-medium">Original</dt><dd>{item.original}</dd></div><div><dt className="font-medium">Correction</dt><dd>{item.correction}</dd></div><div><dt className="font-medium">Explanation</dt><dd>{item.explanation}</dd></div></dl></article>) : <div className="surface p-5 text-sm">No specific errors were returned for this submission.</div>}<section className="surface p-5"><h3 className="font-semibold">Sentence improvements</h3><div className="mt-3 space-y-4">{result.sentenceImprovements.map((item, index) => <div key={`${index}-${item.original}`} className="border-t border-gray-100 pt-3 text-sm"><p><span className="font-medium">Original:</span> {item.original}</p><p className="mt-1"><span className="font-medium">Improved:</span> {item.improved}</p><p className="muted mt-1">{item.reason}</p></div>)}</div></section></div>}
-      {active === "Improved Essay" && result.improvedEssay && <section className="surface p-6"><h3 className="font-semibold">Improved version of your essay</h3><p className="muted mt-1 text-sm">Preserves your core ideas while improving grammar, clarity, coherence and vocabulary.</p><div className="mt-5 whitespace-pre-wrap text-sm leading-7">{result.improvedEssay}</div></section>}
-      {active === "Band 7 Sample" && <section className="surface p-6"><h3 className="font-semibold">Band 7 sample answer</h3><p className="muted mt-1 text-sm">Independent answer to the exact question, not a rewrite of your essay.</p><div className="mt-5 whitespace-pre-wrap text-sm leading-7">{result.band7Sample}</div></section>}
+
+  return (
+    <div className="result-v7">
+      <div className="result-tabs-v7" role="tablist">
+        {tabs.map((tab) => (
+          <button key={tab} type="button" role="tab" aria-selected={active === tab} onClick={() => setActive(tab)} className={active === tab ? "active" : ""}>{tab}</button>
+        ))}
+      </div>
+
+      <div className="result-v7-body">
+        {active === "Overview" && (
+          <div className="result-v7-stack">
+            <section className="result-score-card">
+              <div className="result-score-main"><span className="result-band-number">{result.estimatedOverallBand.toFixed(1)}</span><span className="result-band-label">Band</span></div>
+              <div className="result-criteria-grid">
+                {[[taskLabel, c.taskCriterion.band], ["CC", c.coherenceCohesion.band], ["LR", c.lexicalResource.band], ["GRA", c.grammaticalRangeAccuracy.band]].map(([label, band]) => (
+                  <div className="result-criterion" key={String(label)}><span>{label}</span><strong>{Number(band).toFixed(1)}</strong></div>
+                ))}
+              </div>
+            </section>
+            <section className="result-content-card">
+              <h3>Main issue</h3>
+              <p>{result.mainIssue}</p>
+              <h3>Priority improvements</h3>
+              <ol>{result.priorityImprovements.map((item) => <li key={item}>{item}</li>)}</ol>
+              {result.nextBandGuidance && <><h3>Next-band guidance</h3><ul>{result.nextBandGuidance.map((item) => <li key={item}>{item}</li>)}</ul></>}
+            </section>
+          </div>
+        )}
+
+        {active === "Criteria" && (
+          <div className="result-v7-stack">
+            {[[taskFull, c.taskCriterion, result.detailedCriterionAnalysis?.taskCriterion], ["Coherence & Cohesion", c.coherenceCohesion, result.detailedCriterionAnalysis?.coherenceCohesion], ["Lexical Resource", c.lexicalResource, result.detailedCriterionAnalysis?.lexicalResource], ["Grammatical Range & Accuracy", c.grammaticalRangeAccuracy, result.detailedCriterionAnalysis?.grammaticalRangeAccuracy]].map(([name, criterion, detail]) => {
+              const x = criterion as typeof c.taskCriterion;
+              return (
+                <section className="result-content-card" key={String(name)}>
+                  <div className="result-section-head"><h3>{String(name)}</h3><strong className="band-red">{x.band.toFixed(1)}</strong></div>
+                  <p>{x.summary}</p>
+                  {detail && <p className="result-detail-copy">{String(detail)}</p>}
+                  <div className="result-two-col"><div><h4>Evidence</h4><ul>{x.evidence.map((e) => <li key={e}>{e}</li>)}</ul></div><div><h4>Key weaknesses</h4><ul>{x.keyWeaknesses.map((e) => <li key={e}>{e}</li>)}</ul></div></div>
+                </section>
+              );
+            })}
+          </div>
+        )}
+
+        {active === "Errors" && (
+          <div className="result-v7-stack">
+            {result.errors.length ? result.errors.map((item, index) => (
+              <article className="result-content-card" key={`${index}-${item.original}`}>
+                <div className="result-error-type">{item.issue}</div>
+                <div className="result-error-grid"><div><span>Original</span><p>{item.original}</p></div><div><span>Correction</span><p>{item.correction}</p></div></div>
+                <div className="result-explanation"><span>Explanation</span><p>{item.explanation}</p></div>
+              </article>
+            )) : <div className="result-content-card">No specific errors were returned for this submission.</div>}
+            <section className="result-content-card"><h3>Sentence improvements</h3><div className="sentence-list">{result.sentenceImprovements.map((item, index) => <div key={`${index}-${item.original}`}><p><strong>Original:</strong> {item.original}</p><p><strong>Improved:</strong> {item.improved}</p><p className="muted">{item.reason}</p></div>)}</div></section>
+          </div>
+        )}
+
+        {active === "Improved Essay" && result.improvedEssay && <section className="result-content-card"><h3>Improved version of your essay</h3><div className="result-long-copy">{result.improvedEssay}</div></section>}
+        {active === "Band 7 Sample" && <section className="result-content-card"><h3>Band 7 sample answer</h3><div className="result-long-copy">{result.band7Sample}</div></section>}
+      </div>
     </div>
-  </div>;
+  );
 }

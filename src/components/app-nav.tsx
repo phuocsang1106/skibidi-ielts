@@ -73,7 +73,7 @@ export function AppNav({ username, role }: { username: string; role: "USER" | "A
           {open && (
             <div className="account-menu" role="menu">
               <Link href="/app/settings" role="menuitem" onClick={() => setOpen(false)}>Settings</Link>
-              <Link href="/app/upgrade" role="menuitem" onClick={() => setOpen(false)}>Pricing</Link>
+              <Link href="/pricing" role="menuitem" onClick={() => setOpen(false)}>Pricing</Link>
               <div className="account-menu-separator" />
               <form action={logoutAction}><button type="submit" role="menuitem">Log out</button></form>
             </div>
