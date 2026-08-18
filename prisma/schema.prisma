@@ -112,6 +112,19 @@ model LoginRateLimit {
   updatedAt    DateTime  @updatedAt
 }
 
+
+model AiRateLimit {
+  key          String    @id
+  count        Int       @default(0)
+  requests     Int       @default(0)
+  requestCount Int       @default(0)
+  attempts     Int       @default(0)
+  windowStart  DateTime
+  resetAt      DateTime?
+  blockedUntil DateTime?
+  updatedAt    DateTime  @updatedAt
+}
+
 model VocabularyTopic {
   id        String          @id @default(cuid())
   name      String
