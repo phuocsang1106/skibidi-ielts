@@ -4,5 +4,19 @@ import { ChangePasswordForm } from "@/components/change-password-form";
 
 export default async function SettingsPage() {
   const user = await requireUser();
-  return <div><h1 className="text-2xl font-semibold">Settings</h1><p className="muted mt-2">Signed in as {user.username}</p><div className="mt-7"><ChangePasswordForm /></div><section className="surface mt-5 max-w-xl p-5"><h2 className="font-semibold">Session</h2><form action={logoutAction} className="mt-4"><button className="btn-secondary">Log out</button></form></section></div>;
+  return (
+    <div style={{ maxWidth: 760 }}>
+      <h1 className="page-title">Settings</h1>
+      <section className="product-card" style={{ marginTop: 26 }}>
+        <h2 className="section-title">Account</h2>
+        <div className="muted" style={{ marginTop: 14, fontSize: 12 }}>Username</div>
+        <div style={{ marginTop: 4, fontSize: 14, fontWeight: 680 }}>{user.username}</div>
+      </section>
+      <div style={{ marginTop: 14 }}><ChangePasswordForm /></div>
+      <section className="product-card" style={{ marginTop: 14 }}>
+        <h2 className="section-title">Session</h2>
+        <form action={logoutAction} style={{ marginTop: 16 }}><button className="btn-secondary">Log out</button></form>
+      </section>
+    </div>
+  );
 }

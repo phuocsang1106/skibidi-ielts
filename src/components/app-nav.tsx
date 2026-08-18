@@ -1,20 +1,108 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { logoutAction } from "@/lib/auth/actions";
+import { ToiletIcon } from "@/components/toilet-icon";
 
-const nav = [
-  ["Dashboard", "/app"],
-  ["Vocabulary", "/app/vocabulary"],
-  ["Writing", "/app/writing"],
-  ["History", "/app/history"]
-] as const;
+function UserIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+      <circle cx="12" cy="8" r="3.5" />
+      <path d="M5.5 19c.8-3.3 3.1-5 6.5-5s5.7 1.7 6.5 5" />
+    </svg>
+  );
+}
 
-export function AppNav({ username, admin }: { username: string; admin: boolean }) {
-  return <>
-    <aside className="fixed inset-y-0 left-0 hidden w-60 border-r border-gray-200 bg-white md:flex md:flex-col">
-      <Link href="/app" className="border-b border-gray-100 px-5 py-5 font-semibold">Skibidi IELTS</Link>
-      <nav className="flex-1 p-3" aria-label="Application navigation">{nav.map(([label, href]) => <Link key={href} href={href} className="block rounded-md px-3 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-black">{label}</Link>)}{admin && <Link href="/app/admin" className="mt-2 block rounded-md px-3 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50">Admin</Link>}</nav>
-      <div className="border-t border-gray-100 p-4"><div className="truncate text-sm font-medium">{username}</div><Link href="/app/settings" className="mt-1 block text-sm text-gray-500 hover:text-black">Settings</Link></div>
-    </aside>
-    <header className="sticky top-0 z-20 border-b border-gray-200 bg-white md:hidden"><div className="flex h-14 items-center justify-between px-4"><Link href="/app" className="font-semibold">Skibidi IELTS</Link><div className="flex items-center gap-4 text-sm"><Link href="/app/history">History</Link><Link href="/app/settings">Settings</Link>{admin && <Link href="/app/admin">Admin</Link>}</div></div></header>
-    <nav className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-3 border-t border-gray-200 bg-white md:hidden" aria-label="Primary mobile navigation"><Link className="flex min-h-14 items-center justify-center text-sm font-medium" href="/app">Home</Link><Link className="flex min-h-14 items-center justify-center text-sm font-medium" href="/app/vocabulary">Vocabulary</Link><Link className="flex min-h-14 items-center justify-center text-sm font-medium" href="/app/writing">Writing</Link></nav>
-  </>;
+function HomeIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4v9Zm10 7h6v-9h-6v9ZM4 20h6v-3H4v3Zm10-13h6V4h-6v3Z" /></svg>;
+}
+function BookIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h9a3 3 0 0 1 3 3V19H8a3 3 0 0 0-3 3V4.5Z" /><path d="M5 19h11.5A2.5 2.5 0 0 1 19 21.5" /></svg>;
+}
+function PenIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4l11-11-4-4L4 16v4Z" /><path d="m13.5 6.5 4 4" /></svg>;
+}
+function HistoryIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3 2" /><path d="M4.9 5.5A8 8 0 1 1 4 9" /><path d="M4 4v5h5" /></svg>;
+}
+function ShieldIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5.5 5.5v5.7c0 4.2 2.7 7.7 6.5 9.3 3.8-1.6 6.5-5.1 6.5-9.3V5.5L12 3Z" /></svg>;
+}
+
+const primaryItems = [
+  { href: "/app", label: "Dashboard", icon: HomeIcon },
+  { href: "/app/vocabulary", label: "Vocabulary", icon: BookIcon },
+  { href: "/app/writing", label: "Writing", icon: PenIcon },
+  { href: "/app/history", label: "History", icon: HistoryIcon },
+];
+
+export function AppNav({ username, role }: { username: string; role: "USER" | "ADMIN" }) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  const isActive = (href: string) => href === "/app" ? pathname === href : pathname.startsWith(href);
+
+  return (
+    <>
+      <aside className="app-sidebar">
+        <Link href="/" className="app-brand" aria-label="Go to Skibidi IELTS landing page">
+          <ToiletIcon className="app-brand-icon" />
+          <span>Skibidi IELTS</span>
+        </Link>
+        <nav className="app-nav" aria-label="Main navigation">
+          {primaryItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <Link key={item.href} href={item.href} className={isActive(item.href) ? "active" : ""}>
+                <Icon />
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
+          {role === "ADMIN" && (
+            <Link href="/app/admin" className={pathname.startsWith("/app/admin") ? "active" : ""}>
+              <ShieldIcon />
+              <span>Admin</span>
+            </Link>
+          )}
+        </nav>
+
+        <div className="account-wrap">
+          {open && (
+            <div className="account-menu" role="menu">
+              <Link href="/app/settings" role="menuitem" onClick={() => setOpen(false)}>Settings</Link>
+              <Link href="/app/upgrade" role="menuitem" onClick={() => setOpen(false)}>Pricing</Link>
+              <div className="account-menu-separator" />
+              <form action={logoutAction}><button type="submit" role="menuitem">Log out</button></form>
+            </div>
+          )}
+          <button
+            type="button"
+            className="account-button"
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="account-main">
+              <span className="account-avatar"><UserIcon /></span>
+              <span className="account-name">{username}</span>
+            </span>
+            <span className="account-chevron" aria-hidden="true">{open ? "▲" : "▼"}</span>
+          </button>
+        </div>
+      </aside>
+
+      <header className="mobile-header">
+        <Link href="/" className="mobile-brand"><ToiletIcon className="app-brand-icon" /><span>Skibidi IELTS</span></Link>
+        <Link href="/app/settings" className="mobile-account" aria-label="Account settings"><UserIcon /></Link>
+      </header>
+
+      <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
+        <Link href="/app" className={pathname === "/app" ? "active" : ""}>Home</Link>
+        <Link href="/app/vocabulary" className={pathname.startsWith("/app/vocabulary") ? "active" : ""}>Vocabulary</Link>
+        <Link href="/app/writing" className={pathname.startsWith("/app/writing") ? "active" : ""}>Writing</Link>
+      </nav>
+    </>
+  );
 }
