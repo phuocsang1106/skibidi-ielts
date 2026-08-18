@@ -1,0 +1,1 @@
+ALTER TYPE "VocabularyLevel" ADD VALUE IF NOT EXISTS 'LEVEL_3';

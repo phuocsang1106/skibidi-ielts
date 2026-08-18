@@ -15,6 +15,7 @@ enum Role {
 enum VocabularyLevel {
   LEVEL_1
   LEVEL_2
+  LEVEL_3
 }
 
 enum TopicCategory {
@@ -73,22 +74,22 @@ enum UserReportStatus {
 }
 
 model User {
-  id                 String               @id @default(cuid())
-  username           String
-  normalizedUsername String               @unique
-  passwordHash       String
-  role               Role                 @default(USER)
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime             @updatedAt
-  sessions           Session[]
-  vocabularyProgress VocabularyProgress[]
-  writingSubmissions WritingSubmission[]
-  entitlementPeriods EntitlementPeriod[]
+  id                  String                @id @default(cuid())
+  username            String
+  normalizedUsername  String                @unique
+  passwordHash        String
+  role                Role                  @default(USER)
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  sessions            Session[]
+  vocabularyProgress  VocabularyProgress[]
+  writingSubmissions  WritingSubmission[]
+  entitlementPeriods  EntitlementPeriod[]
   writingReservations WritingReservation[]
-  paymentOrders      PaymentOrder[]       @relation("PaymentUser")
-  confirmedPayments  PaymentOrder[]       @relation("PaymentAdmin")
-  reports            UserReport[]         @relation("ReportUser")
-  reviewedReports    UserReport[]         @relation("ReportAdmin")
+  paymentOrders       PaymentOrder[]        @relation("PaymentUser")
+  confirmedPayments   PaymentOrder[]        @relation("PaymentAdmin")
+  reports             UserReport[]          @relation("ReportUser")
+  reviewedReports     UserReport[]          @relation("ReportAdmin")
 }
 
 model Session {
@@ -127,23 +128,23 @@ model VocabularyTopic {
 }
 
 model VocabularyItem {
-  id                  String               @id @default(cuid())
-  topicId             String
-  level               VocabularyLevel
-  word                String
-  normalizedWord      String               @unique
-  ipa                 String
-  partOfSpeech        String
-  vietnameseMeaning   String
-  readingDefinition   String
-  exampleSentence     String
-  wordFamily          Json
-  collocations        Json
-  audioMetadata       Json?
-  createdAt           DateTime             @default(now())
-  updatedAt           DateTime             @updatedAt
-  topic               VocabularyTopic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  progress            VocabularyProgress[]
+  id                String               @id @default(cuid())
+  topicId           String
+  level             VocabularyLevel
+  word              String
+  normalizedWord    String               @unique
+  ipa               String
+  partOfSpeech      String
+  vietnameseMeaning String
+  readingDefinition String
+  exampleSentence   String
+  wordFamily        Json
+  collocations      Json
+  audioMetadata     Json?
+  createdAt         DateTime             @default(now())
+  updatedAt         DateTime             @updatedAt
+  topic             VocabularyTopic      @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  progress          VocabularyProgress[]
 
   @@index([topicId, word])
   @@index([level])
@@ -163,47 +164,47 @@ model VocabularyProgress {
 }
 
 model WritingSubmission {
-  id                    String        @id @default(cuid())
-  userId                String
-  taskType              TaskType
-  questionText          String
+  id                     String        @id @default(cuid())
+  userId                 String
+  taskType               TaskType
+  questionText           String
   structuredQuestionData Json?
-  essayText             String
-  wordCount             Int
-  estimatedOverallBand  Float?
-  criterionScores       Json?
-  resultJson            Json?
-  planAtSubmission      Plan?
-  status                WritingStatus @default(PENDING)
-  failureCode           String?
-  gradingProvider       String?
-  gradingModel          String?
-  createdAt             DateTime      @default(now())
-  completedAt           DateTime?
-  user                  User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  reports               UserReport[]
-  reservation           WritingReservation?
+  essayText              String
+  wordCount              Int
+  estimatedOverallBand   Float?
+  criterionScores        Json?
+  resultJson             Json?
+  planAtSubmission       Plan?
+  status                 WritingStatus @default(PENDING)
+  failureCode            String?
+  gradingProvider        String?
+  gradingModel           String?
+  createdAt              DateTime      @default(now())
+  completedAt            DateTime?
+  user                   User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reports                UserReport[]
+  reservation            WritingReservation?
 
   @@index([userId, createdAt])
   @@index([status])
 }
 
 model EntitlementPeriod {
-  id                   String               @id @default(cuid())
+  id                   String                @id @default(cuid())
   userId               String
   plan                 Plan
   source               EntitlementSource
   startAt              DateTime
   endAt                DateTime
   quotaLimit           Int
-  quotaUsed            Int                  @default(0)
-  isActive              Boolean              @default(true)
-  sourcePaymentOrderId String?               @unique
-  createdAt             DateTime             @default(now())
-  updatedAt             DateTime             @updatedAt
-  user                  User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
-  sourcePaymentOrder    PaymentOrder?         @relation(fields: [sourcePaymentOrderId], references: [id])
-  reservations          WritingReservation[]
+  quotaUsed            Int                   @default(0)
+  isActive             Boolean               @default(true)
+  sourcePaymentOrderId String?                @unique
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  user                 User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sourcePaymentOrder   PaymentOrder?          @relation(fields: [sourcePaymentOrderId], references: [id])
+  reservations         WritingReservation[]
 
   @@index([userId, startAt, endAt])
   @@index([userId, plan, isActive])
@@ -226,19 +227,19 @@ model WritingReservation {
 }
 
 model PaymentOrder {
-  id                   String               @id @default(cuid())
-  userId               String
-  transferCode         String               @unique
-  amount               Int
-  status               PaymentStatus        @default(PENDING)
-  createdAt            DateTime             @default(now())
-  updatedAt            DateTime             @updatedAt
-  confirmedAt          DateTime?
-  confirmedByAdminId   String?
-  rejectionReason      String?
-  user                 User                 @relation("PaymentUser", fields: [userId], references: [id], onDelete: Cascade)
-  confirmedByAdmin     User?                @relation("PaymentAdmin", fields: [confirmedByAdminId], references: [id])
-  entitlementPeriod    EntitlementPeriod?
+  id                 String            @id @default(cuid())
+  userId             String
+  transferCode       String            @unique
+  amount             Int
+  status             PaymentStatus     @default(PENDING)
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+  confirmedAt        DateTime?
+  confirmedByAdminId String?
+  rejectionReason    String?
+  user               User              @relation("PaymentUser", fields: [userId], references: [id], onDelete: Cascade)
+  confirmedByAdmin   User?             @relation("PaymentAdmin", fields: [confirmedByAdminId], references: [id])
+  entitlementPeriod  EntitlementPeriod?
 
   @@index([userId, createdAt])
   @@index([status, createdAt])
@@ -266,12 +267,4 @@ model AppSetting {
   key       String   @id
   value     String
   updatedAt DateTime @updatedAt
-}
-
-model AiRateLimit {
-  key          String    @id
-  attempts     Int       @default(0)
-  windowStart  DateTime
-  blockedUntil DateTime?
-  updatedAt    DateTime  @updatedAt
 }
