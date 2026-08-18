@@ -4,7 +4,7 @@ const envSchema = z.object({
   DATABASE_URL: z.string().min(1),
   SESSION_SECRET: z.string().min(32),
   GEMINI_API_KEY: z.string().optional().default(""),
-  GEMINI_MODEL: z.string().min(1).default("gemini-3.7-flash"),
+  GEMINI_MODEL: z.string().min(1).default("gemini-3.6-flash"),
   APP_URL: z.string().url().default("http://localhost:3000"),
   BANK_NAME: z.string().optional().default(""),
   BANK_ACCOUNT_NUMBER: z.string().optional().default(""),

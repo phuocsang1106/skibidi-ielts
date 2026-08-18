@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/db/prisma";
+import type { Prisma } from "@/generated/prisma/client";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const CYCLE_MS = 30 * DAY_MS;
@@ -150,9 +151,11 @@ export async function consumeWritingReservation(
       where: { id: lockedReservation.writingSubmissionId },
       data: {
         ...submissionData,
-        structuredQuestionData: submissionData.structuredQuestionData ?? undefined,
-        criterionScores: submissionData.criterionScores,
-        resultJson: submissionData.resultJson,
+        structuredQuestionData: submissionData.structuredQuestionData == null
+          ? undefined
+          : submissionData.structuredQuestionData as Prisma.InputJsonValue,
+        criterionScores: submissionData.criterionScores as Prisma.InputJsonValue,
+        resultJson: submissionData.resultJson as Prisma.InputJsonValue,
         status: "COMPLETED",
         completedAt: new Date(),
         failureCode: null
