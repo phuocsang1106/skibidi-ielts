@@ -1,0 +1,20 @@
+1. Extract this ZIP.
+2. Open the folder skibidi-openrouter-3request.
+3. Upload these items to the ROOT of your GitHub repo:
+   - src/
+   - tests/
+   - scripts/
+   - OPENROUTER-3-REQUEST.md
+   - OPENROUTER.env.example
+4. Commit directly to main.
+5. In Render > Environment, add:
+   OPENROUTER_API_KEY = your OpenRouter key
+   OPENROUTER_MODEL = google/gemini-3.7-flash
+   OPENROUTER_BASE_URL = https://openrouter.ai/api/v1
+6. Keep APP_URL as your live Render URL.
+7. Deploy latest commit.
+
+IMPORTANT:
+- Never upload your real API key to GitHub.
+- If OpenRouter's model page shows a different API model ID for Gemini 3.7 Flash,
+  use that exact ID in OPENROUTER_MODEL.
