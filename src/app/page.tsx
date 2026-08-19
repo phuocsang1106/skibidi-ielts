@@ -83,16 +83,16 @@ export default async function LandingPage() {
               <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Flashcards that keep the signal, remove the noise.</h2>
               <p className="mt-5 max-w-xl leading-7 text-slate-600">Học theo Group → Topic → Word. Mỗi card tập trung vào word, meaning, example, giải thích tiếng Việt và synonyms khi cần.</p>
               <div className="mt-7 space-y-3 text-sm text-slate-700">
-                {["Smooth 3D flip animation", "Topic-based vocabulary structure", "Responsive touch-friendly cards"].map((text) => <p key={text} className="flex items-center gap-3"><span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-50 text-emerald-700"><Check className="h-3.5 w-3.5" /></span>{text}</p>)}
+                {["3 band-based learning groups", "15 main + 7 supplementary topics per group", "Automatic English pronunciation"].map((text) => <p key={text} className="flex items-center gap-3"><span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-50 text-emerald-700"><Check className="h-3.5 w-3.5" /></span>{text}</p>)}
               </div>
             </div>
             <div className="relative mx-auto w-full max-w-xl">
               <div className="absolute -left-5 -top-5 h-full w-full rounded-3xl bg-slate-100" />
               <Card className="relative min-h-80 p-8 shadow-soft">
-                <div className="flex items-center justify-between"><Badge>Environment</Badge><Layers3 className="h-5 w-5 text-slate-400" /></div>
+                <div className="flex items-center justify-between"><Badge>Environment & Energy</Badge><Layers3 className="h-5 w-5 text-slate-400" /></div>
                 <p className="mt-16 text-center text-4xl font-black tracking-tight">sustainable</p>
                 <p className="mt-3 text-center text-sm text-slate-400">Tap to flip</p>
-                <div className="mt-16 flex justify-between text-xs font-medium text-slate-400"><span>12 / 36 words</span><span>Academic Vocabulary</span></div>
+                <div className="mt-16 flex justify-between text-xs font-medium text-slate-400"><span>1 / 14 words</span><span>Band 5.0-6.5</span></div>
               </Card>
             </div>
           </Reveal>

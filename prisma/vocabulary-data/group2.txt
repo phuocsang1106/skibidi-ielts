@@ -1,0 +1,323 @@
+@group|g2|Nhóm 2 - Phát triển Band 5.0-6.5
+@topic|Higher Education|main
+curriculum|the subjects and content taught in an education programme|chương trình học|Universities should update the curriculum to match changing workplace needs.|course content
+tuition fees|money charged for teaching at a college or university|học phí|High tuition fees can discourage students from low-income families.|education fees
+scholarship|money awarded to help a student pay for education|học bổng|Scholarships can widen access to higher education.|study grant
+undergraduate|a student studying for a first university degree|sinh viên bậc đại học|Many undergraduates combine study with part-time employment.|degree student
+postgraduate|a student studying after completing a first degree|học viên sau đại học|Postgraduate study often requires independent research.|graduate student
+academic performance|how well a student performs in formal study|thành tích học tập|Sleep and study habits can affect academic performance.|study results
+vocational education|education that prepares people for a specific trade or occupation|giáo dục nghề nghiệp|Vocational education can provide a direct route into skilled employment.|career training
+practical skills|abilities used to perform real tasks effectively|kỹ năng thực hành|Employers often value practical skills as well as academic knowledge.|hands-on skills
+critical thinking|the ability to analyse ideas and judge evidence carefully|tư duy phản biện|Higher education should develop students' critical thinking.|analytical thinking
+distance learning|education completed away from a physical classroom|học từ xa|Distance learning gives working adults greater flexibility.|remote education
+assessment|a method of measuring knowledge or performance|đánh giá|Continuous assessment can reduce pressure from final exams.|evaluation
+qualification|an official record showing that someone completed education or training|bằng cấp|Professional qualifications may improve employment prospects.|credential
+campus|the buildings and grounds of a university or college|khuôn viên trường|A well-designed campus can support both study and social life.|university grounds
+compulsory education|education that children are legally required to receive|giáo dục bắt buộc|Compulsory education helps ensure basic literacy for all children.|mandatory schooling
+@topic|Employment & Workplace|main
+workforce|all the people available to work in a country or organisation|lực lượng lao động|An ageing workforce can create labour shortages.|labour force
+productivity|the amount of useful work produced in a given time|năng suất|Better training can increase workplace productivity.|efficiency
+promotion|a move to a more senior position at work|thăng chức|Clear promotion opportunities can motivate employees.|advancement
+job satisfaction|the feeling of being pleased with one's work|sự hài lòng trong công việc|Flexible hours can improve job satisfaction.|work satisfaction
+flexible working|work arrangements that allow changes in time or location|làm việc linh hoạt|Flexible working can help parents manage family duties.|flexible employment
+remote work|paid work completed away from a traditional workplace|làm việc từ xa|Remote work reduces commuting time for many employees.|working from home
+work-life balance|a healthy division of time between work and personal life|cân bằng công việc và cuộc sống|Long working hours can damage work-life balance.|life-work balance
+recruitment|the process of finding and hiring workers|tuyển dụng|Online recruitment allows companies to reach more applicants.|hiring
+internship|a temporary period of work for gaining experience|thực tập|An internship can help graduates understand a profession.|work placement
+profession|a type of skilled occupation requiring training or education|nghề nghiệp chuyên môn|Medicine is a profession that requires years of study.|occupation
+workload|the amount of work a person is expected to do|khối lượng công việc|An excessive workload can lead to stress and burnout.|amount of work
+shift work|work organised into different periods of the day or night|làm việc theo ca|Shift work can disrupt normal sleep patterns.|rotating work
+job security|the likelihood that a person will keep their job|sự ổn định việc làm|Permanent contracts usually provide greater job security.|employment stability
+self-employed|working for oneself rather than an employer|tự kinh doanh|Self-employed workers often have more control over their schedules.|independent worker
+@topic|Public Health|main
+healthcare|services for maintaining and improving people's health|chăm sóc sức khỏe|Affordable healthcare can reduce inequality in health outcomes.|medical care
+obesity|the condition of having an unhealthy amount of body fat|béo phì|Childhood obesity is linked to diet and low physical activity.|severe overweight
+vaccination|the use of a vaccine to protect against disease|tiêm chủng|Vaccination programmes can prevent the spread of infectious diseases.|immunisation
+prevention|action taken to stop a problem or disease before it occurs|phòng ngừa|Prevention is often cheaper than treating serious illness.|avoidance
+mental health|a person's emotional and psychological condition|sức khỏe tinh thần|Schools are paying more attention to students' mental health.|psychological well-being
+sedentary lifestyle|a way of life involving very little physical activity|lối sống ít vận động|A sedentary lifestyle increases the risk of several health problems.|inactive lifestyle
+balanced diet|a diet containing suitable amounts of different nutrients|chế độ ăn cân bằng|A balanced diet is important for long-term health.|healthy diet
+life expectancy|the average number of years a person is expected to live|tuổi thọ|Improved sanitation has increased life expectancy in many countries.|expected lifespan
+healthcare access|the ability to obtain medical services when needed|khả năng tiếp cận y tế|Rural communities may have limited healthcare access.|access to care
+medical staff|people who work professionally in healthcare|nhân viên y tế|Hospitals need enough medical staff to provide safe treatment.|health workers
+public awareness|general knowledge and understanding among the public|nhận thức cộng đồng|Public awareness campaigns can encourage healthier behaviour.|social awareness
+addiction|a strong dependence on a substance or activity|nghiện|Digital addiction can interfere with sleep and study.|dependence
+well-being|the state of being healthy, comfortable and satisfied|sức khỏe và hạnh phúc|Green spaces can improve residents' well-being.|welfare
+chronic disease|a health condition that lasts for a long time|bệnh mãn tính|Regular exercise can reduce the risk of chronic disease.|long-term illness
+@topic|Digital Life & Social Media|main
+digital literacy|the ability to use digital tools safely and effectively|năng lực số|Schools should teach digital literacy from an early age.|digital competence
+privacy|the right to keep personal information and life protected|quyền riêng tư|Social media users should understand online privacy risks.|personal privacy
+cyberbullying|bullying carried out through digital technology|bắt nạt trên mạng|Cyberbullying can seriously affect teenagers' mental health.|online bullying
+screen time|time spent using phones, computers or other screens|thời gian sử dụng màn hình|Parents often worry about children's excessive screen time.|device time
+online learning|education delivered through the internet|học trực tuyến|Online learning can improve access for students in remote areas.|e-learning
+virtual communication|communication that takes place through digital systems|giao tiếp trực tuyến|Virtual communication is convenient but may feel less personal.|online interaction
+content creator|a person who produces material for online audiences|nhà sáng tạo nội dung|Some young people hope to become professional content creators.|online creator
+internet access|the ability to connect to and use the internet|khả năng truy cập internet|Reliable internet access is essential for many students.|online access
+digital divide|the gap between people with and without effective access to digital technology|khoảng cách số|The digital divide can deepen educational inequality.|technology gap
+online platform|a digital service where users interact or access content|nền tảng trực tuyến|Online platforms have changed how people shop and communicate.|digital platform
+user data|information collected about people who use a digital service|dữ liệu người dùng|Companies should protect user data from misuse.|personal data
+e-commerce|buying and selling goods and services online|thương mại điện tử|E-commerce allows small businesses to reach national markets.|online trade
+streaming service|an online service that delivers video or audio on demand|dịch vụ phát trực tuyến|Streaming services have changed viewing habits.|on-demand service
+mobile application|software designed to run on a smartphone or tablet|ứng dụng di động|A mobile application can make public services easier to access.|app
+@topic|Environment & Energy|main
+sustainable|able to continue without causing serious environmental harm|bền vững|Cities need sustainable transport and housing policies.|environmentally sound
+biodiversity|the variety of living species in an area|đa dạng sinh học|Deforestation can cause major losses of biodiversity.|biological diversity
+pollution|harmful contamination of air, water or land|ô nhiễm|Industrial pollution can damage both ecosystems and human health.|contamination
+renewable energy|energy from sources that can naturally be replaced|năng lượng tái tạo|Renewable energy can reduce dependence on fossil fuels.|clean energy
+fossil fuel|coal, oil or gas formed from ancient organic matter|nhiên liệu hóa thạch|Burning fossil fuels releases large amounts of carbon dioxide.|coal oil and gas
+carbon emissions|carbon gases released into the atmosphere|khí thải carbon|Public transport can help reduce carbon emissions.|carbon output
+greenhouse gas|a gas that traps heat in the atmosphere|khí nhà kính|Governments are setting targets to cut greenhouse gas emissions.|heat-trapping gas
+deforestation|the large-scale removal of forests|nạn phá rừng|Deforestation threatens wildlife and increases soil erosion.|forest loss
+conservation|the protection of nature and natural resources|bảo tồn|Wildlife conservation requires long-term funding.|protection of nature
+recycling|the process of turning waste into reusable material|tái chế|Effective recycling systems can reduce landfill waste.|material recovery
+environmental impact|the effect of an activity on the natural environment|tác động môi trường|New infrastructure should be assessed for environmental impact.|ecological effect
+natural resources|materials from nature that people can use|tài nguyên thiên nhiên|Countries must manage natural resources carefully.|natural assets
+energy efficiency|using less energy to achieve the same result|hiệu quả năng lượng|Better insulation can improve household energy efficiency.|efficient energy use
+climate change|long-term changes in global or regional climate|biến đổi khí hậu|Climate change is increasing the frequency of extreme weather.|global warming
+@topic|Urbanisation & Housing|main
+urbanisation|the growth of cities as more people live in urban areas|đô thị hóa|Rapid urbanisation creates pressure on housing and transport.|city growth
+housing shortage|a lack of enough homes for the population|thiếu nhà ở|A housing shortage can push rents higher.|lack of housing
+affordable housing|homes that people on normal incomes can reasonably pay for|nhà ở giá phải chăng|Cities need more affordable housing near employment centres.|low-cost housing
+urban sprawl|the uncontrolled spread of a city into surrounding land|đô thị lan rộng|Urban sprawl can increase car dependence.|city expansion
+infrastructure|basic systems such as roads, water and power needed by society|cơ sở hạ tầng|Population growth requires investment in infrastructure.|public infrastructure
+residential area|a part of a town or city mainly used for housing|khu dân cư|New residential areas should include schools and parks.|housing district
+living standards|the level of comfort and material well-being people experience|mức sống|Economic growth does not always improve living standards equally.|quality of life
+overcrowding|a situation where too many people live in a limited space|quá tải dân cư|Overcrowding can place pressure on public services.|excess crowding
+city centre|the central business and commercial part of a city|trung tâm thành phố|Housing in the city centre is often expensive.|downtown
+rural area|land and communities outside large towns and cities|khu vực nông thôn|Young adults often leave rural areas for better job opportunities.|countryside
+migration to cities|the movement of people from other areas into urban centres|di cư vào thành phố|Migration to cities can create both economic growth and congestion.|urban migration
+property prices|the amount of money homes and land cost|giá bất động sản|Property prices have risen faster than incomes in many capitals.|housing prices
+public facilities|buildings and services available for community use|cơ sở công cộng|New housing developments should include adequate public facilities.|community amenities
+green space|an area of grass, trees or plants in a town or city|không gian xanh|Green spaces can reduce heat and improve mental health.|urban greenery
+@topic|Transport & Infrastructure|main
+commuter|a person who regularly travels between home and work or study|người đi làm hằng ngày|Commuters benefit from reliable train services.|daily traveller
+rail network|a connected system of railway lines|mạng lưới đường sắt|Expanding the rail network can reduce road traffic.|rail system
+road safety|measures and conditions that reduce traffic injuries|an toàn đường bộ|Stricter speed limits can improve road safety.|traffic safety
+cycle lane|a part of a road reserved for bicycles|làn đường xe đạp|Protected cycle lanes encourage more people to ride.|bike lane
+pedestrian|a person travelling on foot|người đi bộ|City centres should be safer for pedestrians.|walker
+rush hour|the busiest travel period at the start or end of the working day|giờ cao điểm|Buses are often crowded during rush hour.|peak travel time
+transport system|the network used to move people and goods|hệ thống giao thông|An efficient transport system supports economic activity.|transit system
+public transit|shared transport services such as buses and trains|giao thông công cộng|Affordable public transit can improve access to employment.|mass transport
+fuel consumption|the amount of fuel used by vehicles or machines|mức tiêu thụ nhiên liệu|Smaller cars often have lower fuel consumption.|fuel use
+electric vehicle|a vehicle powered mainly by electricity|xe điện|Electric vehicles can reduce local air pollution.|EV
+parking space|an area where a vehicle can be left|chỗ đỗ xe|Limited parking spaces may discourage car use in city centres.|parking spot
+transport investment|money spent to improve transport systems|đầu tư giao thông|Transport investment should focus on long-term public needs.|transit funding
+road network|the connected system of roads in an area|mạng lưới đường bộ|A stronger road network can improve rural access to markets.|road system
+travel time|the amount of time needed to complete a journey|thời gian di chuyển|Better rail services can reduce travel time between cities.|journey time
+@topic|Crime & Justice|main
+offender|a person who commits a crime|người phạm tội|Young offenders may benefit from education and counselling.|lawbreaker
+punishment|a penalty given for breaking a law or rule|hình phạt|Punishment should be proportionate to the seriousness of the crime.|penalty
+rehabilitation|help that enables an offender to return to normal society|cải tạo, phục hồi|Rehabilitation can reduce the risk of future crime.|reform
+juvenile crime|illegal behaviour committed by young people|tội phạm vị thành niên|Family support may help prevent juvenile crime.|youth crime
+law enforcement|the organisations and actions used to make people obey the law|thực thi pháp luật|Effective law enforcement depends on public trust.|policing
+prison sentence|a period that an offender must spend in prison|án tù|Serious violent offences may result in a long prison sentence.|jail term
+community service|unpaid work ordered as a punishment or done for public benefit|lao động công ích|Community service can be suitable for some minor offences.|unpaid public work
+reoffend|to commit another crime after being punished|tái phạm|Training and employment may reduce the chance that prisoners reoffend.|commit crime again
+deterrent|something intended to discourage harmful or illegal behaviour|biện pháp răn đe|High fines can act as a deterrent to dangerous driving.|discouragement
+legal system|the institutions and rules used to apply law|hệ thống pháp luật|A fair legal system should treat people equally.|justice system
+criminal record|an official history of a person's criminal convictions|tiền án|A criminal record can make finding employment difficult.|record of offences
+victim support|services that help people affected by crime|hỗ trợ nạn nhân|Victim support should include legal and psychological assistance.|help for victims
+violent crime|crime involving physical force or threat|tội phạm bạo lực|Communities are especially concerned about violent crime.|serious violence
+petty crime|relatively minor offences such as small thefts|tội phạm nhỏ|Better street lighting may reduce some forms of petty crime.|minor crime
+@topic|Government & Public Policy|main
+public spending|money spent by government on services and programmes|chi tiêu công|Public spending on education can produce long-term benefits.|government expenditure
+taxation|the system of collecting taxes|hệ thống thuế|Taxation can be used to fund healthcare and infrastructure.|tax system
+welfare|financial and social support provided to people in need|phúc lợi xã hội|Welfare programmes can protect families during unemployment.|social support
+regulation|an official rule controlling an activity|quy định|Environmental regulation can limit harmful industrial practices.|official rule
+legislation|laws considered collectively or a new law introduced by government|pháp luật|New legislation may be needed to protect online privacy.|law
+government funding|money provided by the state for a purpose|tài trợ của chính phủ|Government funding can keep rural hospitals open.|state funding
+public sector|the part of the economy controlled or funded by government|khu vực công|Teachers and nurses are important public-sector workers.|state sector
+private sector|businesses and organisations owned by individuals or companies|khu vực tư|The private sector can contribute investment and innovation.|business sector
+social policy|government action designed to improve social conditions|chính sách xã hội|Effective social policy should consider vulnerable groups.|welfare policy
+decision-making|the process of choosing between possible actions|quá trình ra quyết định|Public consultation can improve government decision-making.|choice process
+public interest|the well-being or benefit of society as a whole|lợi ích công cộng|Transport policy should serve the public interest.|common good
+state support|help provided by government|hỗ trợ của nhà nước|Small businesses may need temporary state support during crises.|government assistance
+local government|official administration of a town, city or region|chính quyền địa phương|Local government is responsible for many everyday services.|municipal authority
+national priority|an issue considered especially important for a country|ưu tiên quốc gia|Affordable healthcare should be treated as a national priority.|major national goal
+@topic|Economy & Consumerism|main
+economy|the system of producing, trading and using goods and services|nền kinh tế|A strong economy can create more employment opportunities.|economic system
+economic growth|an increase in the value of goods and services produced|tăng trưởng kinh tế|Economic growth can raise incomes but also increase resource use.|economic expansion
+income|money received from work, business or investments|thu nhập|Housing costs take up a large share of household income.|earnings
+income inequality|unequal distribution of income across society|bất bình đẳng thu nhập|Income inequality can limit access to education and healthcare.|earnings gap
+consumer|a person who buys or uses goods and services|người tiêu dùng|Consumers are increasingly concerned about product sustainability.|buyer
+consumerism|a strong focus on buying and owning goods|chủ nghĩa tiêu dùng|Consumerism can encourage wasteful spending and production.|material consumption
+living costs|the amount of money needed for everyday life|chi phí sinh hoạt|Rising living costs place pressure on low-income households.|cost of living
+inflation|a general increase in prices over time|lạm phát|High inflation reduces the purchasing power of salaries.|rising prices
+unemployment|the state of being without work while seeking a job|thất nghiệp|Youth unemployment can create long-term social problems.|joblessness
+financial pressure|stress caused by money problems|áp lực tài chính|High rent can create financial pressure for young workers.|money stress
+household income|the total income received by people in one household|thu nhập hộ gia đình|Household income strongly affects spending choices.|family earnings
+standard of living|the material comfort available to a person or society|mức sống|Access to clean water is a basic part of a decent standard of living.|living standard
+demand|the amount of a product or service that people want to buy|nhu cầu|Demand for affordable housing remains high.|market demand
+supply|the amount of a product or service available|nguồn cung|Limited housing supply can push prices upward.|availability
+@topic|Media & Advertising|main
+advertising|the activity of promoting products, services or ideas|quảng cáo|Advertising can shape consumer preferences.|promotion
+marketing|activities used to promote and sell products|tiếp thị|Digital marketing allows companies to target specific audiences.|promotion strategy
+commercial|an advertisement on television, radio or online video|quảng cáo thương mại|A memorable commercial can increase brand recognition.|advert
+consumer behaviour|the way people choose, buy and use products|hành vi người tiêu dùng|Social media has changed consumer behaviour.|buying behaviour
+target market|the group of customers a product is intended for|thị trường mục tiêu|Companies design campaigns for a specific target market.|customer segment
+advertising campaign|a planned series of promotional messages|chiến dịch quảng cáo|The advertising campaign focused on young adults.|marketing campaign
+mass communication|the sharing of information with large audiences|truyền thông đại chúng|Television remains an important form of mass communication.|public communication
+press freedom|the right of journalists to report without improper control|tự do báo chí|Press freedom supports public debate and accountability.|media freedom
+news coverage|the way news organisations report an event or issue|việc đưa tin|Extensive news coverage can influence public concern.|media reporting
+public opinion|the views held by many people in society|dư luận|Media stories can affect public opinion about social policies.|popular view
+media influence|the effect that media has on attitudes or behaviour|ảnh hưởng truyền thông|Media influence is especially strong among frequent users.|media impact
+celebrity endorsement|promotion of a product by a famous person|quảng cáo nhờ người nổi tiếng|Celebrity endorsement can make products more attractive to teenagers.|famous-person promotion
+persuasive|good at convincing people to believe or do something|có sức thuyết phục|Advertisements often use persuasive language.|convincing
+sensational|designed to create strong excitement or shock|giật gân|Sensational headlines may attract clicks but reduce trust.|dramatic
+@topic|Globalisation & Migration|main
+globalisation|the increasing connection of economies and societies worldwide|toàn cầu hóa|Globalisation has increased trade and cultural exchange.|global integration
+immigration|the movement of people into another country to live|nhập cư|Immigration can help countries fill labour shortages.|inward migration
+emigration|the movement of people out of their country to live elsewhere|di cư ra nước ngoài|High emigration can reduce the number of skilled workers.|outward migration
+migrant|a person who moves to another place for work or life|người di cư|Migrant workers often contribute to essential industries.|mobile worker
+international trade|the buying and selling of goods and services between countries|thương mại quốc tế|International trade can give consumers more product choices.|global trade
+cultural exchange|the sharing of ideas, customs and experiences between cultures|giao lưu văn hóa|Student travel can encourage cultural exchange.|cross-cultural exchange
+multicultural society|a society containing people from many cultural backgrounds|xã hội đa văn hóa|A multicultural society may benefit from diverse languages and traditions.|diverse society
+border|the official line separating two countries|biên giới|Border policies affect tourism, trade and migration.|boundary
+overseas|in or to another country, especially across the sea|ở nước ngoài|Many graduates seek employment overseas.|abroad
+global market|the international system for buying and selling goods and services|thị trường toàn cầu|Small firms can now reach the global market online.|world market
+foreign investment|money invested in a country by overseas businesses or individuals|đầu tư nước ngoài|Foreign investment can create jobs and infrastructure.|overseas investment
+brain drain|the loss of skilled people who move to work abroad|chảy máu chất xám|Brain drain can weaken public services in poorer countries.|skills loss
+integration|the process of becoming part of a wider society or system|hội nhập|Language education can support migrant integration.|inclusion
+cultural diversity|the presence of many different cultures in one place|đa dạng văn hóa|Cultural diversity can enrich urban life.|cultural variety
+@topic|Culture & Heritage|main
+cultural heritage|traditions, places and objects inherited from the past|di sản văn hóa|Protecting cultural heritage can support both identity and tourism.|heritage
+historic site|a place important because of its history|di tích lịch sử|Historic sites require careful maintenance.|heritage site
+preserve|to keep something important in its original or good condition|bảo tồn|Museums help preserve objects from the past.|protect
+museum|a place where objects of historical, scientific or artistic value are displayed|bảo tàng|Museums can make history accessible to the public.|gallery
+traditional values|long-standing beliefs about acceptable behaviour and society|giá trị truyền thống|Traditional values may change as societies modernise.|conventional values
+local customs|traditional practices of a particular place|phong tục địa phương|Visitors should respect local customs.|regional traditions
+generation gap|differences in attitudes between younger and older generations|khoảng cách thế hệ|Technology can widen the generation gap in some families.|age divide
+modernisation|the process of becoming more modern|hiện đại hóa|Modernisation can improve services while changing traditional lifestyles.|development
+cultural influence|the effect one culture has on another|ảnh hưởng văn hóa|Global media increases cultural influence across borders.|cultural impact
+indigenous|originating naturally from a particular place or people|bản địa|Indigenous languages may need support to survive.|native
+language preservation|efforts to keep a language in active use|bảo tồn ngôn ngữ|Schools can contribute to language preservation.|language protection
+national identity|a shared sense of belonging to a nation|bản sắc quốc gia|Sporting events can strengthen national identity.|national belonging
+cultural tourism|tourism based on history, arts and local traditions|du lịch văn hóa|Cultural tourism can create income for historic towns.|heritage tourism
+historical value|importance that something has because of its connection with the past|giá trị lịch sử|Old buildings may have historical value even when they are not practical.|heritage importance
+@topic|Science & Innovation|main
+science|systematic study of the natural and physical world|khoa học|Science can improve health, energy and communication.|scientific study
+scientific research|careful investigation designed to produce new knowledge|nghiên cứu khoa học|Scientific research often requires long-term investment.|research
+innovation|a new idea, method or product that improves something|đổi mới|Innovation can help businesses remain competitive.|new development
+invention|a newly created device, process or idea|phát minh|Some inventions completely change everyday life.|new creation
+experiment|a controlled test used to discover or prove something|thí nghiệm|A scientific experiment should be designed to produce reliable evidence.|test
+research funding|money provided to support research|kinh phí nghiên cứu|Research funding is essential for expensive medical studies.|research finance
+scientific evidence|information from research that supports or challenges a claim|bằng chứng khoa học|Public policy should consider strong scientific evidence.|research evidence
+breakthrough|an important discovery or major advance|bước đột phá|A medical breakthrough can save many lives.|major advance
+laboratory|a place equipped for scientific experiments|phòng thí nghiệm|The laboratory follows strict safety procedures.|lab
+researcher|a person who carries out systematic investigation|nhà nghiên cứu|Researchers must report their methods clearly.|scientist
+technological development|the creation and improvement of technology|phát triển công nghệ|Technological development can create new industries.|technology progress
+medical research|research aimed at improving health and treatment|nghiên cứu y khoa|Medical research has increased survival rates for many diseases.|health research
+space research|scientific study related to space and astronomy|nghiên cứu vũ trụ|Space research can produce technologies with uses on Earth.|space science
+research findings|the results produced by a study|kết quả nghiên cứu|Research findings should be communicated accurately.|study results
+@topic|Family & Demographics|main
+birth rate|the number of births in a population over a period|tỷ lệ sinh|The birth rate has fallen in many developed countries.|fertility rate
+ageing population|a population with a growing share of older people|dân số già|An ageing population increases demand for healthcare.|older population
+nuclear family|a family consisting mainly of parents and their children|gia đình hạt nhân|The nuclear family is common in many urban societies.|small family unit
+extended family|a family including relatives beyond parents and children|gia đình mở rộng|Extended families can share childcare responsibilities.|large family network
+childcare|care provided for children while parents are unavailable|dịch vụ chăm sóc trẻ|Affordable childcare can help parents return to work.|child care
+parental leave|time away from work given to parents after a child is born|nghỉ phép cha mẹ|Paid parental leave can support family well-being.|family leave
+working parents|parents who have paid employment|cha mẹ đi làm|Working parents often need flexible childcare arrangements.|employed parents
+single-parent family|a family in which one parent raises the children|gia đình đơn thân|Single-parent families may face greater financial pressure.|one-parent household
+family size|the number of people or children in a family|quy mô gia đình|Average family size has decreased in many countries.|household size
+ageing society|a society in which older people form an increasing share|xã hội già hóa|An ageing society may need changes to pension policy.|older society
+population growth|an increase in the number of people living in a place|tăng dân số|Rapid population growth can strain public infrastructure.|demographic growth
+life stage|a particular period in a person's life|giai đoạn cuộc đời|Housing needs change at different life stages.|stage of life
+elderly care|support and services provided to older people|chăm sóc người cao tuổi|Governments must plan for rising elderly-care needs.|senior care
+@topic|Tourism Management|supp
+tourist attraction|a place or activity that visitors want to see|điểm thu hút khách du lịch|A famous tourist attraction can bring income to a region.|visitor attraction
+peak season|the busiest period for tourism or business|mùa cao điểm|Hotel prices often rise during peak season.|high season
+local economy|the economic activity of a town or region|kinh tế địa phương|Tourism can support the local economy through jobs and spending.|regional economy
+sustainable tourism|tourism designed to limit environmental and social harm|du lịch bền vững|Sustainable tourism should protect natural and cultural resources.|responsible tourism
+package holiday|a holiday sold as one deal including travel and accommodation|tour trọn gói|Package holidays can make international travel simpler.|package tour
+tourist industry|businesses that provide services to visitors|ngành du lịch|The tourist industry employs large numbers of seasonal workers.|tourism sector
+visitor numbers|the number of people visiting a place|lượng khách tham quan|High visitor numbers can damage fragile natural sites.|tourist numbers
+tourism revenue|money earned from tourism|doanh thu du lịch|Tourism revenue can fund local infrastructure.|visitor income
+seasonal jobs|jobs available only during certain parts of the year|việc làm thời vụ|Coastal resorts often depend on seasonal jobs.|temporary tourism work
+tourist behaviour|the way visitors act while travelling|hành vi du khách|Responsible tourist behaviour can reduce damage to local communities.|visitor conduct
+local residents|people who live permanently in a particular area|cư dân địa phương|Local residents should benefit from tourism development.|local people
+overcrowded destination|a tourist place receiving too many visitors|điểm đến quá tải|An overcrowded destination may need limits on daily visitors.|overtouristed place
+tourism management|planning and controlling tourism development|quản lý du lịch|Good tourism management balances income with environmental protection.|destination management
+@topic|Agriculture & Food Systems|supp
+agriculture|the activity of farming crops and animals|nông nghiệp|Agriculture remains a major source of employment in many regions.|farming
+farmer|a person who grows crops or keeps animals|nông dân|Farmers need reliable access to water and markets.|agricultural worker
+crop|a plant grown on a large scale for food or other use|cây trồng|Drought can reduce crop yields.|farm produce
+farmland|land used for growing crops or keeping animals|đất nông nghiệp|Urban expansion can reduce available farmland.|agricultural land
+food production|the process of growing, processing and preparing food|sản xuất thực phẩm|Climate change may threaten food production in dry regions.|food output
+food supply|the amount and availability of food for a population|nguồn cung thực phẩm|Reliable transport is important for the national food supply.|food availability
+organic food|food produced without many synthetic chemicals|thực phẩm hữu cơ|Organic food is often more expensive than conventional alternatives.|organic produce
+pesticide|a chemical used to kill insects or other organisms that damage crops|thuốc trừ sâu|Excessive pesticide use can harm wildlife and water quality.|crop chemical
+fertiliser|a substance added to soil to help plants grow|phân bón|Farmers use fertiliser to improve crop growth.|plant nutrient
+food waste|edible food that is thrown away or lost|lãng phí thực phẩm|Reducing food waste can lower both costs and environmental damage.|wasted food
+processed food|food changed from its natural state through industrial methods|thực phẩm chế biến|Highly processed food often contains large amounts of salt or sugar.|manufactured food
+food safety|practices that keep food free from harmful contamination|an toàn thực phẩm|Strong food-safety rules protect public health.|safe food handling
+farming methods|techniques used to grow crops or raise animals|phương pháp canh tác|Modern farming methods can increase output but also affect ecosystems.|agricultural techniques
+@topic|Gender Equality|supp
+gender equality|equal rights, opportunities and treatment regardless of gender|bình đẳng giới|Gender equality can increase economic participation.|equality between genders
+equal opportunity|the same chance to succeed without unfair barriers|cơ hội bình đẳng|Recruitment should provide equal opportunity to qualified applicants.|fair chance
+discrimination|unfair treatment based on personal characteristics|phân biệt đối xử|Workplace discrimination can limit career progression.|unfair treatment
+gender roles|social expectations about how men and women should behave|vai trò giới|Traditional gender roles are changing in many societies.|social roles
+equal pay|the principle of paying people equally for comparable work|trả lương bình đẳng|Equal pay remains an important workplace issue.|pay equality
+workplace equality|fair treatment and opportunity at work|bình đẳng nơi làm việc|Workplace equality can improve staff morale and retention.|employment equality
+women's rights|legal and social rights held by women|quyền phụ nữ|Education has played a major role in expanding women's rights.|female rights
+male-dominated|mainly controlled or occupied by men|do nam giới chiếm đa số|Some engineering fields remain male-dominated.|mostly male
+female participation|the involvement of women in an activity or sector|sự tham gia của phụ nữ|Affordable childcare can increase female participation in employment.|women's participation
+career break|a period away from employment, often for family or personal reasons|thời gian tạm nghỉ sự nghiệp|A long career break can make returning to work more difficult.|employment break
+childcare duties|responsibilities involved in caring for children|trách nhiệm chăm sóc trẻ|Childcare duties are increasingly shared by both parents.|care responsibilities
+social expectations|ideas about how people are expected to behave|kỳ vọng xã hội|Social expectations can influence career choices.|social norms
+representation|the presence of people from a group in positions or institutions|sự đại diện|Greater representation of women can broaden decision-making.|presence
+@topic|Sport & Society|supp
+professional sport|sport played as paid employment|thể thao chuyên nghiệp|Professional sport attracts large audiences and sponsorship.|elite sport
+spectator|a person who watches a sports event|khán giả thể thao|Spectators contribute to revenue through tickets and merchandise.|viewer
+sports facilities|places and equipment provided for physical activity|cơ sở thể thao|Public sports facilities can encourage healthier lifestyles.|sport amenities
+sportsmanship|fair and respectful behaviour in sport|tinh thần thể thao|Schools can use competitions to teach sportsmanship.|fair play
+physical education|school lessons focused on exercise and sport|giáo dục thể chất|Physical education helps children develop active habits.|PE
+competitive sport|sport in which individuals or teams compete to win|thể thao cạnh tranh|Competitive sport can build discipline but also create pressure.|organised competition
+team spirit|a feeling of cooperation and loyalty within a team|tinh thần đồng đội|Team sports can strengthen team spirit among students.|group unity
+sports funding|money provided to support sport|kinh phí thể thao|Sports funding should include community as well as elite programmes.|sport finance
+public participation|involvement of ordinary people in an activity|sự tham gia của công chúng|Low-cost programmes can increase public participation in sport.|community involvement
+elite athlete|a sportsperson competing at a very high level|vận động viên đỉnh cao|Elite athletes often require specialist coaching and medical support.|top athlete
+sporting event|an organised competition or match|sự kiện thể thao|A major sporting event can attract international visitors.|sports event
+exercise habits|regular patterns of physical activity|thói quen vận động|Exercise habits formed in childhood may continue into adulthood.|activity habits
+inactive lifestyle|a lifestyle involving too little physical movement|lối sống thiếu vận động|An inactive lifestyle contributes to obesity and poor fitness.|low-activity lifestyle
+@topic|Arts & Public Funding|supp
+arts funding|money provided to support artistic activities|kinh phí nghệ thuật|Arts funding can help theatres and museums serve wider audiences.|cultural finance
+cultural institution|an organisation such as a museum, theatre or gallery|tổ chức văn hóa|Cultural institutions preserve and present shared heritage.|arts institution
+performing arts|creative activities performed for audiences, such as music or theatre|nghệ thuật biểu diễn|Performing arts can create jobs and enrich city life.|stage arts
+visual arts|art forms mainly seen, such as painting and sculpture|nghệ thuật thị giác|Public galleries make visual arts accessible to more people.|fine arts
+public funding|money provided by government for a public purpose|tài trợ công|Public funding can support arts that are not commercially profitable.|state funding
+creative industry|business sectors based on creativity, culture and intellectual work|ngành công nghiệp sáng tạo|The creative industry contributes to employment and tourism.|creative sector
+artist|a person who creates art|nghệ sĩ|Artists often need affordable spaces in large cities.|creator
+exhibition|a public display of art or other objects|triển lãm|The museum organised an exhibition about local history.|display
+theatre|a place or activity involving live dramatic performance|nhà hát, sân khấu|Theatre can introduce audiences to difficult social issues.|drama
+cultural programme|an organised set of activities related to arts or culture|chương trình văn hóa|A cultural programme can increase community participation.|arts programme
+artistic expression|the communication of ideas or emotions through art|biểu đạt nghệ thuật|Artistic expression should be protected even when it is controversial.|creative expression
+entertainment industry|businesses that produce films, music, games and similar content|ngành giải trí|The entertainment industry increasingly depends on digital platforms.|media industry
+public value|benefit created for society rather than private profit|giá trị công|Free museums can create public value through education.|social value
+@topic|Ageing Population|supp
+elderly|old or relating to older people|cao tuổi|Elderly people may need accessible transport and healthcare.|older
+retirement|the period after a person stops regular paid work|nghỉ hưu|People are living longer after retirement than in the past.|post-work life
+pension|regular money paid to a person after retirement|lương hưu|Governments must ensure that pension systems remain affordable.|retirement income
+retirement age|the age at which people usually stop working|tuổi nghỉ hưu|Some countries are raising the retirement age.|pension age
+senior citizen|a polite term for an older adult|người cao tuổi|Senior citizens can contribute through volunteering and part-time work.|older adult
+elderly population|the older people within a population|dân số cao tuổi|The elderly population is growing in many developed economies.|older population
+care home|a residential place that provides care for older or disabled people|nhà dưỡng lão|Care homes require well-trained staff.|residential care
+healthcare costs|money spent on medical services and treatment|chi phí y tế|An ageing population can increase national healthcare costs.|medical expenses
+social isolation|a lack of regular social contact with other people|cô lập xã hội|Social isolation is a serious risk for some older adults.|loneliness
+active ageing|remaining healthy and involved in society as one grows older|già hóa năng động|Community exercise programmes can support active ageing.|healthy ageing
+family care|care provided by relatives rather than formal services|chăm sóc trong gia đình|Family care remains important in many cultures.|informal care
+older workforce|employees who are relatively advanced in age|lực lượng lao động lớn tuổi|An older workforce may have valuable experience but different training needs.|ageing workforce
+age discrimination|unfair treatment because of a person's age|phân biệt tuổi tác|Age discrimination can prevent capable older workers from finding jobs.|ageism
+@topic|Language Learning|supp
+second language|a language learned in addition to one's first language|ngôn ngữ thứ hai|Learning a second language can improve study and job opportunities.|additional language
+foreign language|a language from another country|ngoại ngữ|Many schools introduce a foreign language in primary education.|other language
+bilingual|able to use two languages|song ngữ|Bilingual children may switch languages depending on context.|two-language
+fluency|the ability to use a language smoothly and easily|sự lưu loát|Regular conversation practice can improve fluency.|smooth speech
+pronunciation|the way words are spoken|phát âm|Clear pronunciation helps listeners understand unfamiliar words.|speech sound
+vocabulary|the words known and used by a person|từ vựng|Reading widely is an effective way to build vocabulary.|word knowledge
+grammar|the rules for forming sentences in a language|ngữ pháp|Accurate grammar is important in formal writing.|language rules
+language barrier|difficulty communicating because people do not share a language|rào cản ngôn ngữ|A language barrier can limit migrants' access to services.|communication barrier
+language skills|abilities in reading, writing, listening and speaking|kỹ năng ngôn ngữ|Employers increasingly value strong language skills.|linguistic skills
+native speaker|a person who learned a language from early childhood|người bản ngữ|Learners do not need to sound exactly like a native speaker.|first-language speaker
+language course|a planned programme for learning a language|khóa học ngôn ngữ|An intensive language course can prepare students for overseas study.|language class
+immersion|learning a language through extensive exposure and use|học theo môi trường nhập vai|Immersion can accelerate language learning when learners use the language daily.|full exposure
+communication skills|abilities used to exchange ideas clearly with others|kỹ năng giao tiếp|Communication skills are important in both study and employment.|interpersonal skills

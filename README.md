@@ -240,3 +240,10 @@ Seed tạo sẵn:
 ---
 
 Skibidi IELTS is ready to be used as the application baseline; payment and persistent object storage are deliberately isolated integration points rather than hard-coded assumptions.
+
+
+## Vocabulary Library v5
+
+The vocabulary system ships with **2,500 unique IELTS-oriented headwords and phrases** across three learning tiers: 700 foundation, 850 developing and 950 advanced entries. Each tier retains 15 main topics and 7 supplementary topics. The corpus is designed for all four skills: everyday/service language for Listening and Speaking, academic/receptive language for Reading, and precise collocations/paraphrases for Writing and Speaking Part 3.
+
+Use `npm run vocab:validate` and `npm run vocab:audit` after editing the source files. Production expansion is deployed through migration `0004_vocab_four_skill_expansion`; no reseed is required.

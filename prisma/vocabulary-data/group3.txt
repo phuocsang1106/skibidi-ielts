@@ -1,0 +1,323 @@
+@group|g3|Nhóm 3 - Nâng cao Band 6.5+
+@topic|AI & Automation|main
+artificial intelligence|computer systems designed to perform tasks that normally require human intelligence|trí tuệ nhân tạo|Artificial intelligence is transforming education, healthcare and employment.|AI
+machine learning|a branch of AI in which systems learn patterns from data|học máy|Machine learning can improve predictions but depends heavily on data quality.|ML
+generative AI|AI systems that create new text, images, audio or code|AI tạo sinh|Generative AI raises questions about authorship and academic integrity.|generative technology
+algorithmic decision-making|the use of algorithms to make or support important decisions|ra quyết định bằng thuật toán|Algorithmic decision-making should be transparent when it affects employment or credit.|automated decision-making
+autonomous system|a system able to operate with limited direct human control|hệ thống tự chủ|Autonomous systems may improve efficiency in transport and manufacturing.|self-operating system
+labour displacement|the loss or movement of jobs because technology replaces certain tasks|dịch chuyển lao động|Automation may cause labour displacement in routine occupations.|job displacement
+human oversight|human monitoring and control of automated systems|sự giám sát của con người|High-risk AI applications should remain under meaningful human oversight.|human supervision
+productivity gains|increases in output achieved with the same or fewer resources|mức tăng năng suất|AI may generate productivity gains by automating repetitive work.|efficiency gains
+technological unemployment|job loss caused by technological change|thất nghiệp do công nghệ|Technological unemployment may require stronger retraining policies.|automation-related job loss
+reskilling|training workers to perform a different type of job|đào tạo lại kỹ năng|Governments may need to support reskilling for workers affected by automation.|retraining
+upskilling|improving existing skills so workers can perform more advanced tasks|nâng cao kỹ năng|Continuous upskilling can help employees adapt to new technologies.|skill upgrading
+human-machine collaboration|work in which people and intelligent systems complement each other|hợp tác người-máy|Human-machine collaboration can combine human judgement with computational speed.|human-AI teamwork
+algorithmic bias|systematic unfairness produced by an algorithm|thiên lệch thuật toán|Poor training data can lead to algorithmic bias in hiring systems.|automated bias
+automation anxiety|fear or concern about technology replacing human work|lo âu về tự động hóa|Automation anxiety is common when employees lack information about future roles.|technology-related job fear
+@topic|Climate Policy & Biodiversity|main
+climate mitigation|action taken to reduce the causes of climate change|giảm nhẹ biến đổi khí hậu|Climate mitigation requires lower emissions across transport, energy and industry.|emissions reduction
+climate adaptation|adjustments that reduce harm from present or future climate effects|thích ứng với biến đổi khí hậu|Coastal cities need climate adaptation measures to manage rising sea levels.|adaptation measures
+net-zero target|a goal of balancing greenhouse-gas emissions with equivalent removals|mục tiêu phát thải ròng bằng 0|A credible net-zero target should include clear intermediate milestones.|carbon-neutral target
+carbon footprint|the total greenhouse-gas emissions associated with a person, product or activity|dấu chân carbon|Consumers can reduce their carbon footprint by using less energy and flying less.|emissions footprint
+carbon pricing|a policy that assigns a financial cost to carbon emissions|định giá carbon|Carbon pricing can encourage businesses to adopt cleaner technology.|emissions pricing
+ecosystem|a community of living organisms interacting with their physical environment|hệ sinh thái|Wetland ecosystems provide flood protection and wildlife habitats.|ecological system
+habitat destruction|the damage or removal of natural places where species live|phá hủy môi trường sống|Agricultural expansion can accelerate habitat destruction.|habitat loss
+species extinction|the permanent disappearance of a species|sự tuyệt chủng của loài|Habitat loss and climate change increase the risk of species extinction.|extinction
+biodiversity loss|a decline in the variety of living species and ecosystems|suy giảm đa dạng sinh học|Biodiversity loss can weaken ecosystem resilience.|ecological decline
+climate resilience|the ability to prepare for and recover from climate-related shocks|khả năng chống chịu khí hậu|Climate resilience should be built into infrastructure planning.|resilience to climate impacts
+environmental degradation|the deterioration of the natural environment|suy thoái môi trường|Poor land management can cause long-term environmental degradation.|ecological damage
+protected area|land or water legally managed for conservation|khu bảo tồn|Protected areas can preserve habitats when enforcement is effective.|conservation zone
+ecological balance|a relatively stable relationship among organisms and their environment|cân bằng sinh thái|Removing one species can disturb ecological balance.|ecosystem balance
+conservation policy|an official strategy for protecting species, habitats and natural resources|chính sách bảo tồn|Conservation policy should combine habitat protection with local livelihoods.|environmental protection policy
+@topic|Energy Transition|main
+energy transition|the shift from high-carbon energy systems toward cleaner sources|chuyển dịch năng lượng|The energy transition requires investment, regulation and new infrastructure.|clean-energy transition
+decarbonisation|the process of reducing carbon emissions from an economy or activity|khử carbon|Industrial decarbonisation is difficult in sectors such as steel and cement.|carbon reduction
+solar power|electricity or heat produced from sunlight|năng lượng mặt trời|Solar power has become cheaper in many markets.|solar energy
+wind power|energy produced by wind turbines|năng lượng gió|Offshore wind power can provide large amounts of low-carbon electricity.|wind energy
+energy storage|technology used to store energy for later use|lưu trữ năng lượng|Energy storage helps balance variable renewable generation.|power storage
+electricity grid|the network that carries electricity from producers to users|lưới điện|A modern electricity grid must handle more distributed renewable power.|power grid
+clean-energy investment|money invested in low-carbon and renewable energy systems|đầu tư năng lượng sạch|Clean-energy investment can create jobs while reducing emissions.|green-energy investment
+energy security|reliable access to sufficient and affordable energy|an ninh năng lượng|Countries diversify energy sources to strengthen energy security.|secure energy supply
+nuclear power|energy produced through controlled nuclear reactions|năng lượng hạt nhân|Nuclear power provides low-carbon electricity but raises cost and waste concerns.|nuclear energy
+renewable capacity|the maximum amount of renewable power a system can produce|công suất năng lượng tái tạo|Many countries are rapidly expanding renewable capacity.|renewable generation capacity
+energy mix|the combination of energy sources used by a country or system|cơ cấu năng lượng|A diversified energy mix can reduce dependence on imported fuel.|energy portfolio
+fossil-fuel subsidy|government financial support that lowers the cost of fossil fuels|trợ cấp nhiên liệu hóa thạch|Removing fossil-fuel subsidies can be politically difficult.|fuel subsidy
+electrification|the replacement of fossil-fuel technologies with electricity-based alternatives|điện khí hóa|Transport electrification can cut urban air pollution.|switch to electricity
+low-carbon technology|technology designed to produce relatively low greenhouse-gas emissions|công nghệ carbon thấp|Low-carbon technology is central to long-term climate targets.|clean technology
+@topic|Governance & Civic Responsibility|main
+governance|the systems and processes used to direct a country or organisation|quản trị|Good governance depends on effective institutions and public trust.|administration
+accountability|the duty to explain decisions and accept responsibility for them|trách nhiệm giải trình|Independent oversight can strengthen government accountability.|answerability
+transparency|openness about decisions, information and processes|minh bạch|Budget transparency makes it easier for citizens to evaluate public spending.|openness
+civic engagement|participation in activities intended to improve public or community life|tham gia công dân|Civic engagement can increase trust between residents and local authorities.|citizen participation
+public consultation|a process in which authorities seek citizens' views before making decisions|tham vấn công chúng|Public consultation can reveal problems that planners may overlook.|community consultation
+democratic participation|involvement in elections, debate and other democratic processes|tham gia dân chủ|Education may encourage greater democratic participation.|political participation
+institutional trust|confidence that public institutions will act competently and fairly|niềm tin vào thể chế|Corruption can seriously weaken institutional trust.|trust in institutions
+policy implementation|the process of putting an official policy into practice|thực thi chính sách|Strong policy implementation is as important as good policy design.|policy execution
+regulatory framework|the overall system of rules governing an activity|khung pháp lý|A clear regulatory framework can encourage responsible innovation.|regulatory system
+stakeholder|a person or group affected by or interested in a decision|bên liên quan|Major infrastructure projects should involve local stakeholders.|interested party
+civic duty|a responsibility associated with being a member of society|nghĩa vụ công dân|Voting is often described as a civic duty.|citizen responsibility
+rule of law|the principle that everyone, including government, is subject to law|pháp quyền|The rule of law is essential for stable institutions.|legal equality
+decentralisation|the transfer of power from central government to lower levels|phân quyền|Decentralisation can make some services more responsive to local needs.|devolution
+evidence-based policy|policy designed using reliable research and data|chính sách dựa trên bằng chứng|Evidence-based policy can reduce the influence of short-term political pressure.|research-informed policy
+@topic|Inequality & Economic Policy|main
+wealth inequality|unequal ownership of money, property and other assets|bất bình đẳng tài sản|Extreme wealth inequality can reduce social mobility.|asset inequality
+social mobility|the ability of people to move between social or economic levels|dịch chuyển xã hội|Affordable education can improve social mobility.|economic mobility
+progressive taxation|a tax system in which higher earners pay a larger share of income|thuế lũy tiến|Progressive taxation can help fund public services and redistribution.|graduated taxation
+minimum wage|the lowest legal amount employers may pay workers|mức lương tối thiểu|A higher minimum wage can raise incomes but may increase labour costs.|wage floor
+poverty line|an income threshold used to identify people living in poverty|ngưỡng nghèo|Families below the poverty line may qualify for additional support.|poverty threshold
+wealth distribution|the way assets and wealth are shared across a population|phân bổ tài sản|Tax and housing policy can influence wealth distribution.|distribution of assets
+social safety net|programmes that protect people from severe financial hardship|mạng lưới an sinh xã hội|A strong social safety net can reduce the effects of unemployment.|welfare safety net
+fiscal policy|government decisions about taxation and public spending|chính sách tài khóa|Fiscal policy can stimulate demand during an economic downturn.|budgetary policy
+monetary policy|central-bank actions affecting interest rates and money supply|chính sách tiền tệ|Monetary policy is often used to control inflation.|central-bank policy
+economic mobility|the ability to improve one's economic position over time|dịch chuyển kinh tế|Education and housing costs influence economic mobility.|income mobility
+disposable income|money left after taxes for spending or saving|thu nhập khả dụng|Rising energy bills reduce household disposable income.|after-tax income
+purchasing power|the amount of goods and services money can buy|sức mua|Inflation lowers the purchasing power of fixed incomes.|buying power
+labour income|money earned from employment rather than investments|thu nhập từ lao động|Labour income has not risen equally across all sectors.|earned income
+wealth gap|the difference in wealth between richer and poorer groups|khoảng cách giàu nghèo|High property prices can widen the wealth gap between generations.|asset gap
+@topic|Labour Market & Future of Work|main
+labour market|the system in which workers and employers exchange labour for pay|thị trường lao động|Technological change is reshaping the labour market.|job market
+gig economy|a labour market based on short-term tasks and independent work|nền kinh tế việc làm ngắn hạn|The gig economy offers flexibility but often provides limited security.|platform work
+job displacement|the loss of jobs because of economic or technological change|mất việc do thay đổi cơ cấu|Automation may cause job displacement in routine occupations.|employment displacement
+skills mismatch|a gap between workers' skills and those required by employers|lệch pha kỹ năng|Rapid technological change can create a serious skills mismatch.|skill gap
+labour shortage|a situation in which employers cannot find enough suitable workers|thiếu lao động|Ageing populations are contributing to labour shortages in some sectors.|worker shortage
+workforce participation|the share or involvement of people taking part in paid work|tỷ lệ tham gia lực lượng lao động|Affordable childcare can increase workforce participation.|labour-force participation
+precarious employment|work that is insecure, unstable or poorly protected|việc làm bấp bênh|Precarious employment can make long-term financial planning difficult.|insecure work
+transferable skills|abilities useful across different jobs and industries|kỹ năng chuyển đổi|Communication and problem-solving are valuable transferable skills.|portable skills
+lifelong employability|the capacity to remain capable of finding work throughout one's career|khả năng duy trì việc làm lâu dài|Continuous learning supports lifelong employability.|career adaptability
+occupational mobility|the ability to move between jobs or professions|dịch chuyển nghề nghiệp|Retraining can improve occupational mobility after industry decline.|career mobility
+hybrid work|work that combines remote and workplace-based days|làm việc kết hợp|Hybrid work can reduce commuting while maintaining face-to-face contact.|mixed-location work
+employee retention|an organisation's ability to keep workers from leaving|khả năng giữ chân nhân viên|Career development can improve employee retention.|staff retention
+collective bargaining|negotiation between workers' representatives and employers|thương lượng tập thể|Collective bargaining can influence pay and working conditions.|union negotiation
+workplace autonomy|the degree of control employees have over how they do their work|quyền tự chủ nơi làm việc|Greater workplace autonomy may improve motivation and job satisfaction.|job control
+@topic|Healthcare Systems & Bioethics|main
+universal healthcare|a system intended to provide healthcare to all residents|y tế toàn dân|Universal healthcare aims to reduce financial barriers to treatment.|universal health coverage
+preventive medicine|medical practice focused on stopping disease before it develops|y học dự phòng|Preventive medicine can reduce long-term treatment costs.|preventive care
+health inequality|unfair differences in health outcomes between social groups|bất bình đẳng sức khỏe|Income and housing conditions contribute to health inequality.|health disparity
+healthcare capacity|the amount of care a health system can provide|năng lực hệ thống y tế|Hospital expansion may be needed when healthcare capacity is insufficient.|medical capacity
+medical ethics|principles used to judge what is right in healthcare|đạo đức y khoa|Medical ethics requires respect for patients' rights and welfare.|healthcare ethics
+informed consent|agreement given after receiving and understanding relevant information|đồng thuận có hiểu biết|Patients should give informed consent before major procedures.|informed agreement
+genetic screening|testing used to identify inherited health risks|sàng lọc di truyền|Genetic screening can help prevention but raises privacy concerns.|genetic testing
+organ donation|the giving of an organ for transplantation|hiến tạng|Public campaigns may increase organ donation rates.|organ giving
+public-health intervention|an organised action intended to improve population health|can thiệp y tế công cộng|Vaccination is a common public-health intervention.|population-health measure
+patient autonomy|a patient's right to make informed decisions about treatment|quyền tự quyết của bệnh nhân|Patient autonomy can conflict with professional medical advice.|patient choice
+healthcare rationing|the allocation of limited medical resources among competing needs|phân bổ hạn chế nguồn lực y tế|Healthcare rationing becomes difficult when expensive treatments offer small benefits.|medical resource allocation
+medical innovation|the development of new treatments, tools or healthcare methods|đổi mới y học|Medical innovation can improve outcomes but may increase costs.|health innovation
+disease burden|the overall impact of disease on a population|gánh nặng bệnh tật|Preventive policies can reduce the national disease burden.|health burden
+mental-health provision|the services and resources available for mental healthcare|cung ứng dịch vụ sức khỏe tinh thần|Mental-health provision remains inadequate in many regions.|mental-health services
+@topic|Criminal Justice & Rehabilitation|main
+recidivism|the tendency of convicted offenders to commit crimes again|tái phạm|Education and employment programmes may reduce recidivism.|repeat offending
+restorative justice|an approach that focuses on repairing harm between offenders, victims and communities|tư pháp phục hồi|Restorative justice can be useful for some non-violent offences.|repair-based justice
+custodial sentence|a punishment requiring an offender to stay in prison|án giam giữ|Courts reserve long custodial sentences for serious crimes.|prison term
+non-custodial sentence|a punishment that does not require imprisonment|hình phạt không giam giữ|A non-custodial sentence may include supervision or unpaid work.|community-based sentence
+reintegration|the process of helping someone return successfully to society|tái hòa nhập|Stable housing and work support prisoner reintegration.|social reintegration
+correctional system|the institutions responsible for prisons, supervision and offender reform|hệ thống cải huấn|The correctional system should balance security with rehabilitation.|penal system
+proportional punishment|a penalty matched to the seriousness of an offence|hình phạt tương xứng|Proportional punishment is a basic principle of fair justice.|proportionate penalty
+crime prevention|action designed to stop crime before it occurs|phòng ngừa tội phạm|Youth services can contribute to long-term crime prevention.|preventive policing
+sentencing policy|official principles used when deciding criminal penalties|chính sách tuyên án|Sentencing policy should be consistent while allowing judicial judgement.|penalty policy
+prison overcrowding|a condition in which prisons hold more people than they were designed for|quá tải nhà tù|Prison overcrowding can worsen safety and rehabilitation outcomes.|overcrowded prisons
+rehabilitation programme|an organised scheme intended to help offenders change behaviour|chương trình cải tạo|A rehabilitation programme may include counselling and job training.|offender-reform programme
+juvenile offender|a young person who commits an offence|người phạm tội vị thành niên|Juvenile offenders often require education-focused interventions.|young offender
+legal aid|professional legal help provided free or at low cost|trợ giúp pháp lý|Legal aid helps low-income defendants access representation.|subsidised legal support
+wrongful conviction|a court decision that incorrectly finds an innocent person guilty|kết án oan|Reliable evidence procedures reduce the risk of wrongful conviction.|miscarriage of justice
+@topic|Urban Planning & Sustainable Cities|main
+urban planning|the process of designing and managing the development of towns and cities|quy hoạch đô thị|Urban planning should coordinate housing, transport and green space.|city planning
+mixed-use development|an area combining homes, shops, offices and other functions|phát triển đa chức năng|Mixed-use development can reduce the need for long car journeys.|multi-purpose development
+walkability|the extent to which an area is safe and convenient for walking|khả năng đi bộ thuận tiện|Improving walkability can support public health and local business.|pedestrian friendliness
+transit-oriented development|urban development concentrated around high-quality public transport|phát triển định hướng giao thông công cộng|Transit-oriented development can reduce car dependence.|public-transport-led development
+urban density|the number of people or buildings within a given urban area|mật độ đô thị|Higher urban density can make public transport more efficient.|city density
+zoning|rules controlling how land in different areas may be used|phân vùng sử dụng đất|Flexible zoning can allow more housing near employment centres.|land-use regulation
+pedestrianisation|the process of restricting vehicles so an area is mainly for people on foot|phố đi bộ hóa|Pedestrianisation can improve air quality in historic centres.|car-free conversion
+urban regeneration|the renewal and improvement of declining urban areas|tái thiết đô thị|Urban regeneration should avoid forcing long-term residents out.|city renewal
+social housing|homes provided or supported for people who cannot afford market prices|nhà ở xã hội|Social housing can reduce severe housing insecurity.|public housing
+compact city|an urban model that concentrates development to limit sprawl|thành phố nén|A compact city can shorten travel distances and protect surrounding land.|dense-city model
+sustainable mobility|ways of travelling that reduce environmental and social costs|di chuyển bền vững|Cycling and public transit are central to sustainable mobility.|green transport
+heat island effect|higher temperatures in cities caused by buildings, roads and limited vegetation|hiệu ứng đảo nhiệt đô thị|More trees can reduce the urban heat island effect.|urban heat effect
+resilient infrastructure|infrastructure designed to withstand and recover from shocks|hạ tầng có khả năng chống chịu|Flood-prone cities need resilient infrastructure.|robust infrastructure
+urban liveability|the overall quality and comfort of life in a city|khả năng đáng sống của đô thị|Affordable housing and green space improve urban liveability.|city quality of life
+@topic|Globalisation & International Relations|main
+economic interdependence|a situation in which economies rely on one another|sự phụ thuộc kinh tế lẫn nhau|Trade has increased economic interdependence among countries.|mutual economic dependence
+cross-border trade|trade that takes place between different countries|thương mại xuyên biên giới|Digital platforms have made cross-border trade easier for small firms.|international commerce
+geopolitical tension|conflict or strained relations between countries over power and interests|căng thẳng địa chính trị|Geopolitical tension can disrupt energy and food markets.|international tension
+trade protectionism|policies that restrict imports to protect domestic producers|chủ nghĩa bảo hộ thương mại|Trade protectionism may protect jobs temporarily but raise consumer prices.|protectionist policy
+global supply chain|an international network involved in producing and delivering goods|chuỗi cung ứng toàn cầu|Pandemics and conflict can expose weaknesses in global supply chains.|international supply network
+international cooperation|countries working together to solve shared problems|hợp tác quốc tế|Climate change requires sustained international cooperation.|global collaboration
+multilateralism|cooperation among several countries through shared rules or institutions|chủ nghĩa đa phương|Multilateralism can help manage problems that cross national borders.|multi-country cooperation
+cultural homogenisation|the process by which cultures become increasingly similar|đồng nhất hóa văn hóa|Global media may contribute to cultural homogenisation.|cultural standardisation
+transnational corporation|a company operating in multiple countries|tập đoàn xuyên quốc gia|Transnational corporations can influence labour and environmental standards.|multinational corporation
+foreign direct investment|investment made by a company or individual into business operations in another country|đầu tư trực tiếp nước ngoài|Foreign direct investment can transfer capital and expertise.|FDI
+diplomatic relations|official political relations between countries|quan hệ ngoại giao|Stable diplomatic relations support trade and cooperation.|international diplomacy
+global governance|institutions and rules used to manage international issues|quản trị toàn cầu|Global governance is challenging because states have different interests.|international governance
+economic sanctions|official restrictions intended to pressure another country economically|trừng phạt kinh tế|Economic sanctions can affect ordinary consumers as well as governments.|trade restrictions
+soft power|the ability to influence others through culture, values and attraction rather than force|quyền lực mềm|Universities, media and culture can contribute to a country's soft power.|cultural influence
+@topic|Education Policy & Lifelong Learning|main
+educational equity|fair access to high-quality education regardless of background|công bằng giáo dục|Educational equity requires extra support for disadvantaged learners.|fairness in education
+learning outcomes|the knowledge and abilities students gain from education|kết quả học tập|Policy should focus on learning outcomes rather than enrolment alone.|educational results
+standardised testing|testing administered and scored in the same way for all students|kiểm tra chuẩn hóa|Standardised testing can provide comparable data but may narrow teaching.|uniform testing
+academic integrity|honest and responsible behaviour in study and research|liêm chính học thuật|Generative AI has created new challenges for academic integrity.|academic honesty
+inclusive education|education designed to include learners with different needs and backgrounds|giáo dục hòa nhập|Inclusive education requires accessible materials and trained teachers.|inclusive schooling
+early childhood education|formal or organised learning for young children before primary school|giáo dục mầm non|High-quality early childhood education can improve later outcomes.|preschool education
+teacher retention|the ability of a school system to keep qualified teachers|khả năng giữ chân giáo viên|Workload and pay strongly influence teacher retention.|staff retention in schools
+education reform|major changes intended to improve an education system|cải cách giáo dục|Education reform should be evaluated over several years.|school reform
+lifelong learning|continuous learning throughout adulthood and working life|học tập suốt đời|Lifelong learning is increasingly important in a changing labour market.|continuous education
+digital pedagogy|teaching methods that use digital technologies effectively|phương pháp sư phạm số|Digital pedagogy involves more than simply moving lectures online.|technology-supported teaching
+competency-based learning|education organised around demonstrated skills and abilities|học theo năng lực|Competency-based learning can allow students to progress at different speeds.|skills-based learning
+educational attainment|the highest level of education a person has completed|trình độ học vấn|Educational attainment is associated with employment and health outcomes.|education level
+curriculum reform|changes to what and how schools teach|cải cách chương trình học|Curriculum reform may add digital skills and climate education.|course reform
+skills-based education|education focused strongly on practical and transferable abilities|giáo dục định hướng kỹ năng|Skills-based education can improve the transition from school to work.|competency-focused education
+@topic|Media Literacy & Misinformation|main
+media literacy|the ability to analyse, evaluate and create media messages critically|năng lực truyền thông|Media literacy helps people identify unreliable online claims.|media competence
+disinformation|false information deliberately created or shared to mislead|thông tin sai lệch có chủ ý|Disinformation can undermine trust in elections and public health.|deliberate falsehood
+misinformation|false or inaccurate information shared regardless of intent|thông tin sai lệch|Misinformation spreads quickly during fast-moving events.|false information
+echo chamber|an environment where people mainly encounter views similar to their own|buồng vang thông tin|Social networks can create echo chambers around political issues.|closed information environment
+filter bubble|a personalised information environment that limits exposure to different views|bong bóng lọc|Recommendation systems may place users inside a filter bubble.|personalised information bubble
+fact-checking|the process of verifying whether claims are accurate|kiểm chứng thông tin|Independent fact-checking can reduce the reach of false claims.|verification
+source credibility|the degree to which an information source is trustworthy|độ tin cậy của nguồn|Students should evaluate source credibility before citing online material.|source reliability
+editorial independence|freedom of editors and journalists from improper outside influence|độc lập biên tập|Editorial independence is important for trustworthy journalism.|journalistic independence
+information overload|difficulty caused by receiving more information than can be processed effectively|quá tải thông tin|Information overload can make it harder to identify important facts.|excess information
+viral content|online material that spreads extremely quickly between users|nội dung lan truyền|Viral content is not necessarily accurate or valuable.|widely shared content
+clickbait|online headlines or content designed mainly to attract clicks|tiêu đề câu nhấp|Clickbait may increase traffic while reducing trust in a news source.|attention-grabbing headline
+media bias|systematic favouring of particular viewpoints in media coverage|thiên lệch truyền thông|Media bias can influence how audiences interpret political events.|reporting bias
+digital citizenship|responsible and informed participation in digital environments|công dân số|Schools increasingly teach digital citizenship alongside technical skills.|responsible online participation
+platform moderation|the process of enforcing rules about content on online platforms|kiểm duyệt nền tảng|Platform moderation must balance safety, transparency and freedom of expression.|content moderation
+@topic|Identity & Cultural Change|main
+cultural assimilation|the process of adopting the dominant culture and losing some original differences|đồng hóa văn hóa|Strong pressure for cultural assimilation may weaken minority languages.|assimilation
+cultural preservation|efforts to maintain traditions, languages and heritage|bảo tồn văn hóa|Cultural preservation can coexist with economic modernisation.|heritage preservation
+cultural appropriation|the adoption of cultural elements in ways viewed as disrespectful or exploitative|chiếm dụng văn hóa|Debates about cultural appropriation often involve power and historical context.|cultural misuse
+collective identity|a shared sense of belonging to a social group|bản sắc tập thể|National events can strengthen collective identity.|group identity
+social cohesion|the strength of relationships, trust and solidarity within a society|gắn kết xã hội|Severe inequality can weaken social cohesion.|social unity
+cultural norms|shared expectations about acceptable behaviour within a culture|chuẩn mực văn hóa|Cultural norms change across generations and social groups.|social conventions
+intergenerational conflict|disagreement or tension between age groups|xung đột thế hệ|Rapid technological change can intensify intergenerational conflict.|generation conflict
+cultural hybridity|the blending of elements from different cultures|lai ghép văn hóa|Migration and global media contribute to cultural hybridity.|cultural blending
+minority community|a social group smaller in number or power than the dominant population|cộng đồng thiểu số|Minority communities may need support to maintain language and traditions.|minority group
+social integration|the process of enabling people from different backgrounds to participate together in society|hội nhập xã hội|Employment and language skills can support social integration.|social inclusion
+value system|a set of principles used to judge what is important or right|hệ giá trị|A society's value system may evolve as economic conditions change.|set of values
+secularisation|the process by which religion becomes less influential in public and social life|thế tục hóa|Secularisation has changed some public institutions and family traditions.|declining religious influence
+cultural continuity|the preservation and transmission of culture across time|tính liên tục văn hóa|Language education can support cultural continuity.|cultural transmission
+social identity|the part of a person's identity derived from membership in social groups|bản sắc xã hội|Social identity can influence attitudes and behaviour.|group-based identity
+@topic|Demography & Migration Policy|main
+demographic transition|the long-term shift from high birth and death rates to lower rates|chuyển đổi nhân khẩu học|Demographic transition changes labour markets and pension needs.|population transition
+fertility decline|a sustained decrease in the number of children born|suy giảm mức sinh|Fertility decline can accelerate population ageing.|falling birth rate
+population ageing|an increase in the proportion of older people in a population|già hóa dân số|Population ageing places pressure on healthcare and pensions.|demographic ageing
+dependency ratio|the number of dependants relative to the working-age population|tỷ lệ phụ thuộc|A rising dependency ratio can increase pressure on public finances.|dependent-to-worker ratio
+skilled migration|movement of workers with specialised education or expertise|di cư lao động có kỹ năng|Skilled migration can help address shortages in healthcare and engineering.|high-skill migration
+refugee|a person forced to leave a country because of war, persecution or danger|người tị nạn|Refugees often need housing, language support and access to work.|displaced person
+asylum seeker|a person asking another country for legal protection as a refugee|người xin tị nạn|Asylum seekers may wait months for their claims to be assessed.|protection applicant
+migration policy|government rules governing immigration, emigration and settlement|chính sách di cư|Migration policy must balance economic needs with social capacity.|immigration policy
+labour migration|movement of people primarily for employment|di cư lao động|Labour migration can benefit both sending and receiving economies.|work migration
+remittance|money sent by migrants to people in their home country|kiều hối|Remittances support many households in lower-income countries.|money transfer home
+population density|the number of people living within a given area|mật độ dân số|High population density can support efficient transit but increase housing pressure.|people per area
+demographic pressure|social or economic strain created by population change|áp lực nhân khẩu học|Rapid ageing creates demographic pressure on pension systems.|population pressure
+migration flow|the movement of people between regions or countries over time|dòng di cư|Economic crises can alter migration flows quickly.|movement of migrants
+integration policy|government measures intended to support migrants' participation in society|chính sách hội nhập|Effective integration policy often includes language and employment support.|inclusion policy
+@topic|Science Ethics & Research|main
+research ethics|principles governing responsible and humane research|đạo đức nghiên cứu|Research ethics are essential when studies involve human participants.|ethical research principles
+peer review|evaluation of research by other experts in the same field|phản biện đồng cấp|Peer review can identify weaknesses before research is published.|expert review
+scientific consensus|broad agreement among relevant scientific experts|đồng thuận khoa học|Policy makers should understand the strength of scientific consensus.|expert agreement
+data integrity|the accuracy, consistency and reliability of data|tính toàn vẹn dữ liệu|Poor data integrity can invalidate research findings.|reliable data
+research misconduct|serious unethical behaviour in research, such as fabrication or plagiarism|sai phạm nghiên cứu|Universities need clear procedures for investigating research misconduct.|scientific misconduct
+clinical trial|a controlled study testing a medical treatment on human participants|thử nghiệm lâm sàng|Clinical trials must balance potential benefits with participant safety.|medical trial
+gene editing|technology used to make targeted changes to genetic material|chỉnh sửa gen|Gene editing may treat inherited disease but raises ethical questions.|genetic modification
+biotechnology|the use of biological systems to develop products and technologies|công nghệ sinh học|Biotechnology has applications in medicine, agriculture and industry.|biotech
+scientific uncertainty|limits in current scientific knowledge or confidence|bất định khoa học|Scientific uncertainty should be communicated honestly rather than ignored.|uncertainty in evidence
+risk assessment|a systematic process for identifying and evaluating possible harm|đánh giá rủi ro|New technologies should undergo careful risk assessment.|risk evaluation
+ethical dilemma|a situation involving a difficult choice between competing moral principles|tình huống tiến thoái lưỡng nan về đạo đức|Medical professionals often face ethical dilemmas involving patient choice and public safety.|moral dilemma
+evidence base|the body of reliable research supporting a decision or practice|cơ sở bằng chứng|Public-health recommendations should rest on a strong evidence base.|research foundation
+research transparency|openness about research methods, data and limitations|minh bạch nghiên cứu|Research transparency makes scientific claims easier to evaluate.|open research
+@topic|Cybersecurity & Data Privacy|supp
+cybersecurity|the protection of computer systems and networks from digital attacks|an ninh mạng|Cybersecurity is essential for banks, hospitals and public services.|digital security
+data breach|an incident in which protected information is accessed or exposed without permission|rò rỉ dữ liệu|A major data breach can damage public trust in a company.|information leak
+personal data protection|rules and practices used to safeguard information about individuals|bảo vệ dữ liệu cá nhân|Personal data protection should apply to both businesses and governments.|privacy protection
+surveillance|systematic monitoring of people's activities or communications|giám sát|Digital surveillance can improve security but threaten privacy.|monitoring
+encryption|the process of converting information into a protected coded form|mã hóa|Strong encryption helps prevent unauthorised access to private messages.|data encoding
+digital footprint|the record of information created by a person's online activity|dấu vết số|Young people should understand that their digital footprint can persist for years.|online trace
+cybercrime|crime carried out using computers or networks|tội phạm mạng|Cybercrime creates financial and security risks for individuals and organisations.|online crime
+identity theft|the crime of using another person's personal information without permission|đánh cắp danh tính|Data leaks can increase the risk of identity theft.|identity fraud
+biometric data|personal information based on physical or behavioural characteristics|dữ liệu sinh trắc học|Biometric data requires strong protection because it cannot easily be changed.|biometric information
+consent management|systems for recording and respecting users' choices about data use|quản lý sự đồng thuận|Clear consent management can give users more control over personal information.|permission management
+data governance|rules and responsibilities for collecting, storing and using data|quản trị dữ liệu|Effective data governance improves privacy, quality and accountability.|information governance
+online anonymity|the ability to use the internet without revealing one's real identity|ẩn danh trực tuyến|Online anonymity can protect vulnerable users but also enable abuse.|digital anonymity
+information security|the protection of information from unauthorised access, loss or damage|bảo mật thông tin|Organisations need staff training as well as technology for information security.|data security
+@topic|Food Security & Sustainable Agriculture|supp
+food security|reliable access to sufficient, safe and nutritious food|an ninh lương thực|Climate shocks can threaten food security in vulnerable regions.|secure food access
+sustainable agriculture|farming that protects resources while maintaining long-term production|nông nghiệp bền vững|Sustainable agriculture aims to protect soil, water and farm incomes.|sustainable farming
+crop resilience|the ability of crops to withstand drought, heat or disease|khả năng chống chịu của cây trồng|Crop resilience is increasingly important under climate change.|resilient crops
+soil degradation|the decline in soil quality and productive capacity|suy thoái đất|Overuse of chemicals can contribute to soil degradation.|soil decline
+water-efficient farming|agricultural methods that use water carefully and productively|canh tác tiết kiệm nước|Water-efficient farming is vital in drought-prone areas.|water-saving agriculture
+agricultural productivity|the amount of farm output produced from given inputs|năng suất nông nghiệp|Improved seeds can raise agricultural productivity when used responsibly.|farm productivity
+supply-chain resilience|the ability of supply networks to continue operating during disruption|khả năng chống chịu chuỗi cung ứng|Local storage can improve food supply-chain resilience.|robust supply chains
+food sovereignty|the principle that communities should have greater control over their food systems|chủ quyền lương thực|Supporters of food sovereignty favour stronger local production.|local control of food systems
+intensive farming|farming designed to produce high output from limited land|thâm canh|Intensive farming can increase yields but create environmental pressures.|high-input farming
+regenerative agriculture|farming practices intended to restore soil and ecosystem health|nông nghiệp tái sinh|Regenerative agriculture focuses on soil quality and biodiversity.|restorative farming
+livestock emissions|greenhouse gases produced by farm animals and related activities|khí thải chăn nuôi|Diet changes and farm technology may reduce livestock emissions.|animal-farming emissions
+food affordability|the extent to which people can reasonably pay for adequate food|khả năng chi trả thực phẩm|Inflation can sharply reduce food affordability for poor households.|affordable food access
+crop diversity|the variety of crops grown within a farming system|đa dạng cây trồng|Crop diversity can reduce vulnerability to pests and climate shocks.|agricultural diversity
+@topic|Water Security|supp
+water scarcity|a shortage of sufficient usable water|khan hiếm nước|Population growth and drought can intensify water scarcity.|water shortage
+water management|planning and control of water resources and services|quản lý tài nguyên nước|Effective water management must consider homes, farms and ecosystems.|water governance
+groundwater|water stored naturally below the Earth's surface|nước ngầm|Excessive groundwater extraction can lower water tables.|underground water
+freshwater supply|the available amount of non-salty water for human and ecological needs|nguồn cung nước ngọt|Climate change may make freshwater supplies less predictable.|fresh water availability
+water conservation|efforts to reduce unnecessary water use|bảo tồn và tiết kiệm nước|Water conservation can delay the need for expensive new infrastructure.|water saving
+desalination|the process of removing salt from seawater|khử mặn|Desalination can increase water supply but requires substantial energy.|seawater treatment
+contaminated water|water containing harmful substances or organisms|nước bị ô nhiễm|Contaminated water can cause severe public-health problems.|polluted water
+water treatment|processes used to make water safe or suitable for use|xử lý nước|Modern water treatment protects communities from disease.|water purification
+drought resilience|the ability to withstand and recover from long dry periods|khả năng chống chịu hạn hán|Drought resilience requires efficient irrigation and diversified water sources.|resilience to drought
+river basin|the land area drained by a river and its tributaries|lưu vực sông|Water policy should often be coordinated across an entire river basin.|watershed
+water infrastructure|systems for storing, treating and delivering water|hạ tầng nước|Ageing water infrastructure can lead to leaks and service failures.|water systems
+water allocation|the process of deciding how available water is shared among users|phân bổ nước|Water allocation becomes contentious during severe droughts.|distribution of water
+sanitation|systems and practices for safely managing human waste and hygiene|vệ sinh môi trường|Improved sanitation has major benefits for health and development.|public hygiene
+@topic|International Development|supp
+sustainable development|development that meets current needs without undermining future generations|phát triển bền vững|Sustainable development integrates economic, social and environmental goals.|long-term development
+development aid|money or resources provided to support development in poorer regions|viện trợ phát triển|Development aid is most effective when aligned with local priorities.|foreign aid
+humanitarian assistance|emergency help provided during conflict, disaster or severe crisis|hỗ trợ nhân đạo|Humanitarian assistance can provide food, shelter and medical care.|emergency aid
+poverty reduction|policies and actions aimed at decreasing poverty|giảm nghèo|Education and employment are central to long-term poverty reduction.|anti-poverty action
+infrastructure investment|spending on systems such as roads, energy, water and communications|đầu tư cơ sở hạ tầng|Infrastructure investment can improve productivity and regional access.|capital investment
+capacity building|efforts to strengthen the skills and institutions needed to solve problems|xây dựng năng lực|Capacity building can make development programmes more sustainable.|institutional strengthening
+developing economy|an economy with lower average income and ongoing structural development|nền kinh tế đang phát triển|Developing economies may face different infrastructure and employment challenges.|emerging economy
+aid dependency|a situation in which a country or organisation relies heavily on external aid|phụ thuộc viện trợ|Poorly designed assistance can create long-term aid dependency.|reliance on aid
+development programme|an organised set of projects intended to improve economic or social conditions|chương trình phát triển|A development programme should include clear measures of success.|development initiative
+global poverty|severe economic deprivation affecting people across the world|nghèo đói toàn cầu|Economic shocks can slow progress against global poverty.|world poverty
+human development|improvement in people's health, education, capabilities and living conditions|phát triển con người|Income growth alone does not guarantee human development.|people-centred development
+public-private partnership|cooperation between government and private companies to deliver projects or services|hợp tác công tư|A public-private partnership can mobilise investment for infrastructure.|PPP
+economic inclusion|the ability of people to participate in and benefit from economic activity|hòa nhập kinh tế|Financial access and skills training can support economic inclusion.|inclusive participation
+@topic|Animal Ethics|supp
+animal welfare|the physical and psychological well-being of animals|phúc lợi động vật|Animal welfare standards should apply to farms, laboratories and zoos.|well-being of animals
+animal testing|the use of animals in scientific or product experiments|thử nghiệm trên động vật|Animal testing remains controversial in medical research.|animal experimentation
+factory farming|large-scale intensive systems for raising animals for food|chăn nuôi công nghiệp|Factory farming raises concerns about welfare and environmental impact.|industrial livestock farming
+animal rights|the view that animals deserve moral and legal protection|quyền động vật|Supporters of animal rights oppose many forms of animal exploitation.|rights of animals
+wildlife trafficking|the illegal trade in wild animals or animal products|buôn bán động vật hoang dã|Wildlife trafficking threatens endangered species.|illegal wildlife trade
+captivity|the condition of being kept confined rather than free|tình trạng nuôi nhốt|Large animals may suffer when kept in unsuitable captivity.|confinement
+humane treatment|care that avoids unnecessary pain or cruelty|đối xử nhân đạo|Consumers increasingly demand humane treatment of farm animals.|compassionate treatment
+ethical consumption|buying choices influenced by moral, social or environmental concerns|tiêu dùng có đạo đức|Ethical consumption can pressure companies to improve supply chains.|responsible consumption
+cruelty|behaviour that causes unnecessary suffering|sự tàn nhẫn|Laws should prevent cruelty to animals.|inhumane treatment
+endangered-species protection|measures designed to prevent threatened species from disappearing|bảo vệ loài nguy cấp|Endangered-species protection requires habitat conservation and law enforcement.|species protection
+laboratory animal|an animal used in scientific research|động vật thí nghiệm|Researchers must minimise suffering when using laboratory animals.|research animal
+veganism|a lifestyle that avoids animal products, especially in food|chủ nghĩa thuần chay|Some people adopt veganism for ethical or environmental reasons.|plant-based lifestyle
+animal exploitation|the use of animals primarily for human benefit in ways considered unfair or harmful|khai thác động vật|Critics argue that certain entertainment practices involve animal exploitation.|harmful use of animals
+@topic|Space Exploration|supp
+space exploration|the investigation of space using humans, robots or scientific instruments|khám phá vũ trụ|Space exploration can expand scientific knowledge and drive innovation.|space investigation
+space programme|a national or organisational effort involving space missions and research|chương trình không gian|A national space programme requires substantial long-term funding.|space initiative
+satellite technology|technology involving artificial objects placed in orbit|công nghệ vệ tinh|Satellite technology supports navigation, weather forecasting and communication.|satellite systems
+space mission|an organised journey or operation carried out in space|sứ mệnh không gian|A space mission may take years of planning and testing.|space expedition
+astronomy|the scientific study of stars, planets and the universe|thiên văn học|Astronomy helps scientists understand the origins of the universe.|space science
+scientific discovery|a new finding that increases scientific knowledge|khám phá khoa học|Space telescopes have enabled major scientific discoveries.|research discovery
+space tourism|commercial travel into space for private passengers|du lịch vũ trụ|Space tourism raises concerns about cost, safety and emissions.|commercial space travel
+orbital debris|human-made objects and fragments left in Earth orbit|rác vũ trụ|Orbital debris can damage satellites and spacecraft.|space debris
+planetary research|scientific investigation of planets and related bodies|nghiên cứu hành tinh|Planetary research may reveal whether other worlds once supported life.|planetary science
+space agency|a public organisation responsible for space research and missions|cơ quan vũ trụ|National space agencies often cooperate on major missions.|space authority
+public investment in space|government spending on space science and technology|đầu tư công vào vũ trụ|Public investment in space is often debated when social needs are urgent.|government space spending
+technological spin-off|a useful technology developed from research for another purpose|công nghệ phái sinh|Space research has produced technological spin-offs used in everyday life.|research spin-off
+extraterrestrial life|life that may exist beyond Earth|sự sống ngoài Trái Đất|The search for extraterrestrial life remains a major scientific question.|alien life
+@topic|Corporate Responsibility & ESG|supp
+corporate social responsibility|a company's responsibility for its social and environmental effects|trách nhiệm xã hội doanh nghiệp|Corporate social responsibility can improve trust when backed by real action.|CSR
+corporate governance|the system by which companies are directed and controlled|quản trị doanh nghiệp|Strong corporate governance can reduce conflicts of interest.|company governance
+environmental social governance|a framework for evaluating environmental, social and governance performance|môi trường xã hội và quản trị|Investors increasingly examine environmental, social and governance risks.|ESG
+ethical business|business activity guided by fair and responsible principles|kinh doanh có đạo đức|Ethical business practices can strengthen long-term customer trust.|responsible business
+greenwashing|misleading claims that make a product or company appear more environmentally responsible|tẩy xanh|Greenwashing can make it difficult for consumers to identify genuinely sustainable products.|false green claims
+corporate accountability|the obligation of companies to explain and take responsibility for their impacts|trách nhiệm giải trình doanh nghiệp|Corporate accountability should extend across global supply chains.|business accountability
+stakeholder capitalism|a model in which companies consider employees, communities and other stakeholders as well as shareholders|chủ nghĩa tư bản vì các bên liên quan|Stakeholder capitalism argues that firms have duties beyond profit.|stakeholder model
+sustainable finance|financial activity that considers long-term environmental and social outcomes|tài chính bền vững|Sustainable finance can direct capital toward low-carbon projects.|green finance
+responsible investment|investment decisions that consider ethical, social or environmental factors|đầu tư có trách nhiệm|Responsible investment has grown among large pension funds.|ethical investment
+supply-chain ethics|ethical standards applied to suppliers, sourcing and production networks|đạo đức chuỗi cung ứng|Supply-chain ethics includes labour rights and environmental standards.|ethical sourcing
+business ethics|moral principles governing commercial decisions and behaviour|đạo đức kinh doanh|Business ethics should guide advertising, employment and data practices.|corporate ethics
+corporate transparency|openness by companies about decisions, performance and impacts|minh bạch doanh nghiệp|Corporate transparency helps investors and consumers evaluate claims.|business openness
+social impact|the effect of an organisation or activity on people and communities|tác động xã hội|Companies increasingly measure social impact alongside financial performance.|societal effect

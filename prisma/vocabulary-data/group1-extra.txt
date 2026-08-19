@@ -1,0 +1,423 @@
+@group|g1|Nhóm 1 - Nền tảng Band 3.5-5.0
+@topic|Education|main
+primary school|a school for young children before secondary education|trường tiểu học|Primary school gives children basic literacy and numeracy skills.|elementary school
+secondary school|a school for teenagers after primary education|trường trung học|Students usually study a wider range of subjects at secondary school.|high school
+school uniform|clothes that students are required to wear at school|đồng phục học sinh|A school uniform can reduce visible differences between students.|uniform
+school library|a library provided for students and teachers at a school|thư viện trường học|The school library gives learners a quiet place to read.|library
+textbook|a book used for studying a particular subject|sách giáo khoa|Each student received a new science textbook.|course book
+notebook|a book of blank or lined pages used for writing notes|vở ghi chép|I keep new vocabulary in a small notebook.|exercise book
+classmate|a person who studies in the same class|bạn cùng lớp|Students often learn by discussing ideas with classmates.|fellow student
+school day|the period of time spent at school on a normal day|ngày học|A long school day can leave younger children tired.|school hours
+break time|a short period of rest between lessons or work|giờ giải lao|Students usually talk with friends during break time.|recess
+school subject|an area of knowledge taught at school|môn học|English is a compulsory school subject in many countries.|academic subject
+pass an exam|to achieve a successful result in a test|thi đỗ|Regular revision can help students pass an exam.|succeed in a test
+fail an exam|to receive an unsuccessful result in a test|thi trượt|Some learners lose confidence after they fail an exam.|not pass a test
+take notes|to write down important information while listening or reading|ghi chép|Good students take notes during lectures.|write notes
+revise for an exam|to study material again before a test|ôn thi|Many teenagers revise for an exam several weeks in advance.|review for a test
+pay attention|to listen to or watch something carefully|chú ý|Students learn more when they pay attention in class.|concentrate
+ask a question|to request information or an explanation|đặt câu hỏi|Learners should ask a question when an instruction is unclear.|seek clarification
+answer a question|to respond to something that has been asked|trả lời câu hỏi|The student answered the question clearly.|respond
+school rules|instructions that control behaviour in a school|nội quy trường học|Clear school rules can create a safer learning environment.|school regulations
+learning environment|the physical and social conditions in which learning happens|môi trường học tập|A supportive learning environment can improve motivation.|study environment
+@topic|Family & Children|main
+mother|a female parent|mẹ|Many children talk to their mother about personal problems.|mum
+father|a male parent|cha, bố|His father encouraged him to continue his education.|dad
+brother|a male sibling|anh hoặc em trai|My brother and I share some household duties.|male sibling
+sister|a female sibling|chị hoặc em gái|Her sister is studying at university.|female sibling
+grandparent|the parent of a person's mother or father|ông hoặc bà|Grandparents can pass family stories to younger generations.|grandmother or grandfather
+grandchild|the child of a person's son or daughter|cháu|Many older people enjoy spending time with their grandchildren.|grandson or granddaughter
+only child|a child with no brothers or sisters|con một|An only child may spend more time with adults at home.|single child
+family member|a person who belongs to a family|thành viên gia đình|Every family member can help with housework.|relative
+family time|time spent together with relatives at home or outside|thời gian gia đình|Shared meals are an easy way to create family time.|time together
+get along with|to have a friendly relationship with someone|hòa hợp với|Teenagers do not always get along with their parents.|have a good relationship
+look after|to take care of a person or thing|chăm sóc|Older siblings sometimes look after younger children.|take care of
+grow up|to develop from a child into an adult|lớn lên|Children who grow up in cities may have less contact with nature.|become an adult
+bring up a child|to care for and educate a child while they grow|nuôi dạy trẻ|Parents have different ideas about how to bring up a child.|raise a child
+family meal|a meal eaten together by members of a family|bữa cơm gia đình|A regular family meal gives people time to talk.|shared meal
+stay at home|to remain in one's home instead of going out|ở nhà|Some parents choose to stay at home while their children are very young.|remain at home
+spend time together|to share time doing activities with other people|dành thời gian bên nhau|Families can become closer when they spend time together.|share time
+family problem|a difficulty affecting relationships within a family|vấn đề gia đình|Financial stress can create a family problem.|domestic difficulty
+strict parents|parents who enforce many rules and limits|cha mẹ nghiêm khắc|Strict parents may expect children to follow fixed routines.|firm parents
+family support|practical or emotional help provided by relatives|sự hỗ trợ của gia đình|Family support can help young people handle stress.|support from relatives
+@topic|Health & Lifestyle|main
+healthy food|food that supports good physical health|thực phẩm lành mạnh|Schools can encourage children to choose healthy food.|nutritious food
+junk food|food with little nutritional value and often much fat or sugar|đồ ăn không lành mạnh|Eating too much junk food can lead to weight gain.|unhealthy food
+regular exercise|physical activity done frequently|tập thể dục thường xuyên|Regular exercise can improve both mood and fitness.|frequent exercise
+physical health|the condition of the body and its ability to function well|sức khỏe thể chất|Enough sleep is important for physical health.|bodily health
+feel tired|to have little energy and need rest|cảm thấy mệt|People often feel tired after working long hours.|be exhausted
+get sick|to become ill|bị ốm|Children may get sick more often during cold weather.|become ill
+recover|to become healthy again after illness or injury|hồi phục|Most patients recover more quickly with enough rest.|get better
+headache|pain in the head|đau đầu|Too much screen time can sometimes cause a headache.|head pain
+fever|a high body temperature caused by illness|sốt|A high fever may require medical attention.|high temperature
+pain|an unpleasant physical feeling caused by injury or illness|cơn đau|Back pain is common among people who sit all day.|ache
+check-up|a medical examination to check general health|khám sức khỏe|Adults should consider having a regular health check-up.|medical examination
+healthy lifestyle|a way of living that supports good health|lối sống lành mạnh|A healthy lifestyle includes exercise, sleep and balanced meals.|healthy way of life
+bad habit|a repeated behaviour that can cause problems|thói quen xấu|Smoking is a bad habit that damages health.|harmful habit
+good habit|a useful behaviour repeated regularly|thói quen tốt|Drinking enough water is a simple good habit.|healthy habit
+take medicine|to use a drug to treat or prevent illness|uống thuốc|Patients should take medicine according to medical advice.|use medication
+see a doctor|to visit a medical professional for advice or treatment|đi khám bác sĩ|People should see a doctor if serious symptoms continue.|visit a doctor
+stay fit|to remain physically healthy and strong|giữ dáng, giữ sức khỏe|Walking every day can help older people stay fit.|keep fit
+lose weight|to reduce body weight|giảm cân|Some people try to lose weight by exercising more.|reduce weight
+gain weight|to become heavier|tăng cân|Office workers may gain weight if they are inactive.|put on weight
+@topic|Work & Jobs|main
+manager|a person responsible for controlling a team or organisation|quản lý|A good manager gives staff clear instructions.|supervisor
+colleague|a person who works with you|đồng nghiệp|Employees often ask a colleague for help with difficult tasks.|co-worker
+workplace|the place where people do their jobs|nơi làm việc|A safe workplace is important for every employee.|place of work
+working hours|the hours during which a person normally works|giờ làm việc|Long working hours can affect family life.|work hours
+job interview|a meeting in which an employer asks a candidate questions|phỏng vấn xin việc|Preparation can make a job interview less stressful.|interview
+apply for a job|to formally ask to be considered for employment|nộp đơn xin việc|Graduates often apply for a job online.|seek employment
+find a job|to obtain paid employment|tìm được việc|Young people may move to large cities to find a job.|get work
+lose a job|to stop having employment, often unexpectedly|mất việc|Workers can lose a job when a company closes.|become unemployed
+earn money|to receive money for work|kiếm tiền|Many students take part-time work to earn money.|make money
+work from home|to do a job from one's home instead of an office|làm việc tại nhà|Some employees prefer to work from home several days a week.|work remotely
+work experience|knowledge and skills gained through doing jobs|kinh nghiệm làm việc|Work experience can help graduates enter the labour market.|job experience
+teamwork|the activity of working effectively with other people|làm việc nhóm|Many employers value teamwork and communication.|cooperation
+work hard|to put a lot of effort into a job or task|làm việc chăm chỉ|People often need to work hard to develop a new career.|make a strong effort
+busy schedule|a timetable containing many tasks or activities|lịch trình bận rộn|A busy schedule can make it difficult to exercise.|full timetable
+day off|a day when a person does not have to work|ngày nghỉ|Employees need an occasional day off to rest.|free day
+paid holiday|time away from work for which an employee still receives salary|nghỉ phép có lương|Paid holidays can improve job satisfaction.|paid leave
+job opportunity|a chance to obtain employment or develop a career|cơ hội việc làm|Large cities usually offer more job opportunities.|employment opportunity
+work environment|the physical and social conditions of a workplace|môi trường làm việc|A positive work environment can reduce stress.|workplace conditions
+career choice|a decision about the type of work a person wants to do|lựa chọn nghề nghiệp|Salary is not the only factor in a career choice.|job choice
+@topic|Technology Basics|main
+laptop|a portable computer|máy tính xách tay|Many students use a laptop for online classes.|notebook computer
+tablet|a small portable computer with a touch screen|máy tính bảng|A tablet can be useful for reading digital books.|tablet computer
+keyboard|the set of keys used to type on a computer|bàn phím|Learning to type quickly on a keyboard saves time.|computer keyboard
+mouse|a small device used to control a pointer on a computer|chuột máy tính|A wireless mouse makes a desk less crowded.|computer mouse
+password|a secret word or set of characters used to access an account|mật khẩu|People should use a strong password for important accounts.|passcode
+email|a system for sending electronic messages|thư điện tử|Email remains common in schools and workplaces.|electronic mail
+video call|a conversation using live video over the internet|cuộc gọi video|Families living abroad often keep in touch by video call.|online call
+search engine|an online service used to find information on the internet|công cụ tìm kiếm|Students use a search engine to locate academic information.|web search service
+download|to copy data from the internet to a device|tải xuống|Users can download the document for offline reading.|save from the internet
+upload|to send data from a device to an online service|tải lên|Applicants must upload their documents before the deadline.|send online
+log in|to enter a computer system or website using an account|đăng nhập|Users need a password to log in securely.|sign in
+log out|to leave an online account or computer system|đăng xuất|Remember to log out on a shared computer.|sign out
+click|to press a mouse button or tap an online control|nhấp chuột|Click the link to open the application form.|select
+battery|a device that stores power for electronic equipment|pin|A weak battery can interrupt an online lesson.|power cell
+charger|a device used to put electrical power into a battery|bộ sạc|I always carry a phone charger when travelling.|charging device
+Wi-Fi|a wireless system that connects devices to the internet|mạng Wi-Fi|Free Wi-Fi is available in many public libraries.|wireless internet
+mobile phone|a portable telephone that can connect to wireless networks|điện thoại di động|A mobile phone is useful during emergencies.|cell phone
+useful app|a mobile or computer program that helps with a task|ứng dụng hữu ích|A useful app can help learners review vocabulary.|helpful application
+internet connection|a link that allows a device to access the internet|kết nối internet|A stable internet connection is necessary for video lessons.|online connection
+@topic|Environment Basics|main
+pollute|to make air, water or land dirty or harmful|gây ô nhiễm|Factories can pollute nearby rivers if waste is not treated.|contaminate
+polluted air|air containing harmful substances|không khí ô nhiễm|Polluted air can cause breathing problems.|dirty air
+rubbish|unwanted material that people throw away|rác|Public bins can reduce rubbish on the streets.|trash
+garbage bin|a container used for household or public waste|thùng rác|People should put litter in a garbage bin.|waste bin
+recycling bin|a container for materials that can be recycled|thùng tái chế|The office provides a recycling bin for paper and plastic.|recycle bin
+save energy|to use less energy|tiết kiệm năng lượng|Turning off unused lights can save energy.|reduce energy use
+save water|to reduce unnecessary use of water|tiết kiệm nước|Shorter showers can help households save water.|conserve water
+clean air|air that is free from harmful pollution|không khí sạch|More trees can help cities maintain cleaner air.|unpolluted air
+green area|land covered with grass, trees or plants|khu vực xanh|Every neighbourhood should have a green area for residents.|green space
+plant a tree|to put a young tree into the ground so it can grow|trồng cây|Schools can encourage children to plant a tree.|grow a tree
+cut down trees|to remove trees by cutting them|chặt cây|Companies should avoid cutting down trees unnecessarily.|fell trees
+protect wildlife|to keep wild animals and plants safe|bảo vệ động vật hoang dã|National parks help protect wildlife.|conserve wildlife
+use less plastic|to reduce the amount of plastic consumed|giảm sử dụng nhựa|Shoppers can use less plastic by carrying reusable bags.|reduce plastic use
+reusable bag|a bag designed to be used many times|túi tái sử dụng|A reusable bag creates less waste than a single-use bag.|shopping bag for repeated use
+public park|a green place open to everyone for recreation|công viên công cộng|A public park can improve life in a crowded city.|city park
+clean up|to remove rubbish or dirt from a place|dọn dẹp|Volunteers meet monthly to clean up the beach.|tidy
+protect the planet|to act in ways that reduce environmental harm|bảo vệ hành tinh|Small daily choices can help protect the planet.|protect the environment
+environmental problem|a problem that harms nature or human surroundings|vấn đề môi trường|Air pollution is a serious environmental problem in many cities.|ecological problem
+@topic|Transport|main
+motorbike|a two-wheeled motor vehicle|xe máy|Motorbikes are a common form of transport in many Asian cities.|motorcycle
+taxi|a car with a driver that passengers pay to use|taxi|Taking a taxi can be convenient late at night.|cab
+subway|an underground urban railway|tàu điện ngầm|The subway can carry large numbers of commuters.|metro
+station|a place where trains or buses regularly stop|nhà ga, trạm|The train station is close to the city centre.|terminal
+bus stop|a place where buses stop to pick up passengers|trạm xe buýt|The nearest bus stop is five minutes from my house.|bus station point
+ticket|a document or electronic record allowing travel|vé|Passengers can buy a ticket using a mobile app.|travel pass
+fare|the money paid for a journey on public transport|giá vé|Lower bus fares may encourage people to use public transport.|travel charge
+seat belt|a safety belt used in a vehicle|dây an toàn|Drivers and passengers should always wear a seat belt.|safety belt
+traffic light|a coloured light system controlling road traffic|đèn giao thông|Drivers must stop when the traffic light is red.|road signal
+cross the road|to move from one side of a road to the other|qua đường|Children should learn how to cross the road safely.|cross a street
+walking|travelling on foot|đi bộ|Walking short distances can reduce traffic and improve health.|going on foot
+cycle to work|to travel to a job by bicycle|đạp xe đi làm|Some people cycle to work to save money and stay fit.|bike to work
+get on a bus|to enter a bus|lên xe buýt|Passengers should wait until others leave before they get on a bus.|board a bus
+get off a bus|to leave a bus|xuống xe buýt|I usually get off the bus near the university.|leave a bus
+miss a train|to arrive too late to travel on a planned train|lỡ tàu|Commuters may miss a train when roads are congested.|fail to catch a train
+catch a bus|to reach a bus in time and travel on it|bắt xe buýt|I leave home early so I can catch a bus to work.|take a bus
+traffic jam|a line of vehicles moving very slowly or not at all|kẹt xe|A traffic jam can double the time needed for a journey.|road congestion
+road user|a person who uses a road as a driver, cyclist or pedestrian|người tham gia giao thông|Every road user should follow safety rules.|person using the road
+@topic|Food & Diet|main
+breakfast|the first meal of the day|bữa sáng|A healthy breakfast can provide energy for study.|morning meal
+lunch|a meal eaten around the middle of the day|bữa trưa|Many office workers buy lunch near their workplace.|midday meal
+dinner|the main evening meal|bữa tối|Families often talk together during dinner.|evening meal
+snack|a small amount of food eaten between meals|đồ ăn nhẹ|Fruit is a healthier snack than sweets.|light food
+bread|food made from flour and baked in an oven|bánh mì|Whole-grain bread can provide fibre.|loaf
+rice|a common grain eaten as a main food in many countries|gạo, cơm|Rice is a basic part of many Asian meals.|grain
+fish|an animal that lives in water and is commonly eaten as food|cá|Eating fish can be part of a balanced diet.|seafood
+milk|a white liquid food produced by mammals and commonly consumed|sữa|Some children drink milk at breakfast.|dairy drink
+water|a clear liquid essential for life|nước|People should drink enough water during hot weather.|drinking water
+soft drink|a sweet non-alcoholic fizzy or still drink|nước ngọt|Frequent consumption of soft drinks can increase sugar intake.|soda
+homemade food|food prepared at home rather than bought ready-made|đồ ăn nhà làm|Homemade food is often cheaper than restaurant meals.|home-cooked food
+eat out|to have a meal in a restaurant or cafe|ăn ngoài|Young adults often eat out at weekends.|dine out
+order food|to ask a restaurant or delivery service to prepare food|gọi món|Customers can order food through a mobile application.|place a food order
+food choice|a decision about what to eat|lựa chọn thực phẩm|Price strongly influences food choices for many families.|dietary choice
+healthy meal|a meal containing nutritious foods in suitable amounts|bữa ăn lành mạnh|A healthy meal should include vegetables and protein.|nutritious meal
+fried food|food cooked in hot oil|đồ chiên|Too much fried food may increase health risks.|deep-fried food
+sweet food|food containing a lot of sugar|đồ ngọt|Children often prefer sweet food to vegetables.|sugary food
+eating habit|a regular pattern of food choice and consumption|thói quen ăn uống|Eating habits often develop during childhood.|dietary habit
+@topic|Housing & Cities|main
+room|a separate part of a building enclosed by walls|phòng|The apartment has two bedrooms and a small living room.|space
+bedroom|a room used mainly for sleeping|phòng ngủ|Each child has a small bedroom.|sleeping room
+kitchen|a room where food is prepared|nhà bếp|Many families spend time together in the kitchen.|cooking area
+living room|a room used for relaxing and receiving visitors|phòng khách|The living room is the largest room in the house.|lounge
+balcony|a raised outdoor platform attached to a building|ban công|The apartment has a balcony overlooking the park.|terrace
+downtown district|the central commercial and activity area of a city|khu trung tâm thành phố|Housing in a downtown district is often more expensive than in outer areas.|central district
+suburb|a residential area outside the central part of a city|vùng ngoại ô|Many families move to a suburb for more space.|residential outskirts
+countryside|land outside cities and towns, often used for farming|nông thôn|The countryside is usually quieter than a large city.|rural area
+quiet area|a place with little noise or activity|khu vực yên tĩnh|Older residents may prefer to live in a quiet area.|peaceful neighbourhood
+busy street|a road with heavy traffic or many people|đường phố đông đúc|Living beside a busy street can be noisy.|crowded road
+move house|to change from one home to another|chuyển nhà|Families may move house when they need more space.|relocate home
+live alone|to have a home without other people living there|sống một mình|More young professionals are choosing to live alone.|live independently
+share a flat|to live in an apartment with another person|ở chung căn hộ|Students often share a flat to reduce costs.|share accommodation
+housing cost|the money required for rent, mortgage and home expenses|chi phí nhà ở|Housing costs take a large part of many household budgets.|cost of housing
+safe neighbourhood|an area where residents face little crime or danger|khu dân cư an toàn|Parents often look for a safe neighbourhood near good schools.|secure area
+city life|the experience of living in an urban area|cuộc sống thành thị|City life offers convenience but can also be stressful.|urban life
+country life|the experience of living in a rural area|cuộc sống nông thôn|Country life may provide more contact with nature.|rural life
+place to live|a home or area where someone lives|nơi để sống|Affordability influences people's choice of a place to live.|home
+@topic|Media & Communication|main
+text message|a short written message sent by phone|tin nhắn văn bản|A text message is useful for quick communication.|SMS
+email message|a written electronic message sent over the internet|thư điện tử|Formal information is often sent in an email message.|electronic message
+chat online|to communicate informally through the internet|trò chuyện trực tuyến|Friends who live far apart can chat online.|message online
+share a photo|to send or publish a photograph for other people to see|chia sẻ ảnh|Many users share a photo from their holidays on social media.|post a picture
+watch the news|to view television or online reports about current events|xem tin tức|Some people watch the news every evening.|follow the news
+read an article|to read a piece of writing in a newspaper, magazine or website|đọc bài viết|Students may read an article before a class discussion.|read a report
+TV channel|a television service that broadcasts programmes|kênh truyền hình|The TV channel shows documentaries every weekend.|television station
+news website|a website that publishes information about current events|trang web tin tức|Young adults often use a news website instead of a newspaper.|online news site
+online video|a video watched through the internet|video trực tuyến|Short online videos are popular with teenagers.|web video
+video platform|a website or app for watching and sharing videos|nền tảng video|A video platform can be used for both entertainment and learning.|video service
+follow an account|to subscribe to updates from a social media user|theo dõi tài khoản|People often follow an account that shares useful information.|subscribe to an account
+post online|to publish text, pictures or video on the internet|đăng trực tuyến|Users should think carefully before they post online.|publish online
+send a message|to communicate information to another person|gửi tin nhắn|It is easy to send a message from a smartphone.|message someone
+face-to-face conversation|communication between people who are physically together|cuộc trò chuyện trực tiếp|A face-to-face conversation can feel more personal than texting.|in-person conversation
+communication tool|a method or device used to exchange information|công cụ giao tiếp|Video calls are an important communication tool for remote teams.|means of communication
+public information|information provided for the general population|thông tin công cộng|Clear public information is essential during emergencies.|information for the public
+news story|a report about a recent event|bản tin|The news story focused on rising housing costs.|news report
+media content|information or entertainment produced for media platforms|nội dung truyền thông|Children are exposed to many kinds of media content.|digital content
+@topic|Crime & Safety|main
+break the law|to do something illegal|vi phạm pháp luật|People who break the law may face a fine or other punishment.|act illegally
+obey the law|to follow legal rules|tuân thủ pháp luật|Citizens are expected to obey the law.|follow the law
+fine|money that must be paid as punishment for an offence|tiền phạt|Drivers may receive a fine for speeding.|financial penalty
+court|a place where legal cases are decided|tòa án|Serious criminal cases are heard in court.|law court
+judge|a person who decides legal cases in court|thẩm phán|A judge must consider the evidence carefully.|legal decision-maker
+lawyer|a professional who gives legal advice and represents people|luật sư|The suspect asked to speak to a lawyer.|legal adviser
+safe place|a location where people are protected from danger|nơi an toàn|Public transport should be a safe place for all passengers.|secure place
+unsafe area|a location where there is a significant risk of crime or harm|khu vực không an toàn|Poor lighting can make a street feel like an unsafe area.|dangerous area
+security camera|a camera used to monitor an area for safety or crime prevention|camera an ninh|A security camera may discourage theft.|surveillance camera
+lock a door|to secure a door so it cannot be opened freely|khóa cửa|Residents should lock the door when leaving home.|secure a door
+call the police|to contact police for help|gọi cảnh sát|Witnesses should call the police after a serious accident.|contact law enforcement
+report a crime|to tell the police or another authority about an offence|báo cáo tội phạm|Victims sometimes hesitate to report a crime.|inform police
+road crime|an illegal act involving vehicles or roads|tội phạm giao thông|Dangerous driving is a common type of road crime.|traffic offence
+steal a car|to take a vehicle illegally|ăn cắp xe|Modern security systems can make it harder to steal a car.|take a car illegally
+personal safety|protection of an individual from injury or crime|an toàn cá nhân|Good street lighting can improve personal safety.|individual security
+emergency number|a telephone number used to request urgent public help|số điện thoại khẩn cấp|Children should know the local emergency number.|emergency hotline
+warning sign|a sign that tells people about possible danger|biển cảnh báo|A warning sign should be placed near a dangerous road.|safety sign
+crime rate|the amount of crime in a particular area or period|tỷ lệ tội phạm|Residents are concerned about the local crime rate.|level of crime
+@topic|Government & Public Services|main
+public hospital|a hospital mainly funded and managed by government|bệnh viện công|A public hospital should provide affordable care.|state hospital
+public school|a school funded by government|trường công|Many children attend a public school near their home.|state school
+post office|a public place where letters and parcels are handled|bưu điện|The post office also offers basic financial services.|postal service office
+fire service|the public organisation that responds to fires and rescues|dịch vụ cứu hỏa|The fire service arrived within a few minutes.|fire brigade
+ambulance service|a service that transports sick or injured people for urgent care|dịch vụ xe cứu thương|A reliable ambulance service can save lives.|emergency medical transport
+police station|a local office used by the police|đồn cảnh sát|The witness went to the police station to make a report.|police office
+public money|money collected and spent by government|tiền công|Public money should be used carefully.|government funds
+local service|a service provided for residents of a particular area|dịch vụ địa phương|Libraries are an important local service.|community service
+public transport service|transport provided for general public use|dịch vụ giao thông công cộng|A frequent public transport service reduces car use.|transit service
+community centre|a public building used for local activities and services|trung tâm cộng đồng|The community centre offers free classes for older residents.|civic centre
+public library|a library open to everyone in a community|thư viện công cộng|A public library gives people free access to books.|community library
+public park service|the management and maintenance of parks for residents|dịch vụ quản lý công viên|A good public park service keeps green areas clean and safe.|parks service
+pay tax|to give required money to government|nộp thuế|Most workers must pay tax on their income.|pay taxes
+vote|to choose a person or option in an election|bỏ phiếu|Citizens can vote for local representatives.|cast a vote
+public decision|a choice made by government or local authorities|quyết định công|Major public decisions should consider community needs.|government decision
+community project|an organised activity intended to improve a local area|dự án cộng đồng|The council funded a community project for young people.|local project
+public problem|an issue affecting many people in society|vấn đề công cộng|Traffic congestion is a public problem in large cities.|social problem
+basic service|an essential service such as water, health or education|dịch vụ cơ bản|Every community needs access to basic services.|essential service
+@topic|Travel & Tourism|main
+passport|an official document used for international travel|hộ chiếu|Travellers should check that their passport is valid.|travel document
+visa|official permission to enter or stay in another country|thị thực|Some visitors need a visa before travelling abroad.|entry permit
+luggage|bags and cases taken on a journey|hành lý|Airlines may charge extra for heavy luggage.|baggage
+suitcase|a case used for carrying clothes while travelling|va li|She packed a small suitcase for the weekend trip.|travel case
+booking|an arrangement made in advance for travel or accommodation|đặt chỗ|Online booking makes it easy to compare hotel prices.|reservation
+book a hotel|to reserve accommodation in advance|đặt khách sạn|Travellers can book a hotel several months before a holiday.|reserve a hotel
+book a flight|to reserve a place on an aircraft|đặt vé máy bay|Prices are often lower when people book a flight early.|reserve a flight
+travel abroad|to visit or stay in another country|đi nước ngoài|Many students hope to travel abroad after graduation.|go overseas
+travel alone|to make a journey without companions|đi du lịch một mình|Some young adults enjoy the freedom of travelling alone.|travel independently
+travel with friends|to take a trip together with friends|du lịch cùng bạn bè|Students often travel with friends during holidays.|take a trip with friends
+local food|food associated with a particular place or culture|đồ ăn địa phương|Trying local food is part of the travel experience.|regional cuisine
+local people|people who live in the place being discussed|người dân địa phương|Tourists should respect local people and customs.|residents
+souvenir|an object bought or kept as a reminder of a place or event|quà lưu niệm|Visitors often buy a souvenir for family members.|keepsake
+tourist site|a place that attracts visitors|địa điểm du lịch|The historic temple is a popular tourist site.|visitor attraction
+guided tour|a visit to a place led by a person who explains it|chuyến tham quan có hướng dẫn|A guided tour can help visitors understand local history.|organised tour
+travel plan|an arrangement of places, times and activities for a journey|kế hoạch du lịch|A flexible travel plan can reduce stress.|trip plan
+travel cost|the money needed for transport, food and accommodation during a trip|chi phí du lịch|Travel costs are higher during peak holiday periods.|trip expense
+return ticket|a ticket covering a journey to a place and back|vé khứ hồi|A return ticket is sometimes cheaper than two single tickets.|round-trip ticket
+@topic|Sport & Leisure|main
+swimming|the activity of moving through water for sport or recreation|bơi lội|Swimming is a low-impact form of exercise.|water sport
+running|the activity of moving quickly on foot for exercise or sport|chạy bộ|Running regularly can improve heart health.|jogging
+football|a team sport played with a ball and goals|bóng đá|Football is popular with both players and spectators.|soccer
+badminton|a sport in which players hit a shuttlecock over a net|cầu lông|Badminton can be played indoors with little equipment.|racquet sport
+basketball|a team sport in which players throw a ball through a raised hoop|bóng rổ|Basketball requires speed and teamwork.|team sport
+play sport|to take part in physical games or athletic activities|chơi thể thao|Children should have opportunities to play sport after school.|do sport
+do exercise|to perform physical activity for health or fitness|tập thể dục|Many office workers do exercise before or after work.|exercise regularly
+go for a walk|to walk for pleasure or exercise|đi dạo|Families often go for a walk in the evening.|take a walk
+watch a match|to view a sports competition|xem trận đấu|Fans gathered to watch the match together.|view a game
+sports club|an organisation where people take part in sporting activities|câu lạc bộ thể thao|Joining a sports club can help people make friends.|athletic club
+indoor activity|an activity done inside a building|hoạt động trong nhà|Reading is a common indoor activity on rainy days.|indoor pastime
+outdoor activity|an activity done outside|hoạt động ngoài trời|Hiking is a healthy outdoor activity.|outdoor pastime
+spare time|time when a person is free from work or duties|thời gian rảnh|People choose different hobbies in their spare time.|free time
+weekend activity|something people do for leisure at weekends|hoạt động cuối tuần|Cycling is a popular weekend activity.|weekend pastime
+have fun|to enjoy an activity or situation|vui chơi|Sport can help children exercise and have fun.|enjoy oneself
+join a team|to become a member of a sports or working group|tham gia đội|Young players learn cooperation when they join a team.|become a team member
+healthy activity|an activity that supports physical or mental well-being|hoạt động lành mạnh|Walking in a park is a simple healthy activity.|beneficial activity
+@topic|Money & Consumer Life|main
+cash|money in the form of coins and notes|tiền mặt|Some small shops still prefer cash payments.|physical money
+bank account|an arrangement with a bank for keeping and managing money|tài khoản ngân hàng|Workers usually receive their salary in a bank account.|account
+credit card|a card that allows a person to borrow money for purchases|thẻ tín dụng|Credit cards make online shopping convenient.|payment card
+debit card|a card that pays directly from money in a bank account|thẻ ghi nợ|Many customers use a debit card for daily purchases.|bank card
+bill|a written or electronic request for payment|hóa đơn|Households must plan for electricity and water bills.|invoice
+receipt|a document showing that payment has been made|biên lai|Customers should keep a receipt in case they return an item.|proof of purchase
+pocket money|small amounts of money given regularly to a child|tiền tiêu vặt|Pocket money can teach children basic budgeting.|allowance
+save up|to gradually collect money for a future purpose|tiết kiệm dần|Students may save up for a new laptop.|put money aside
+waste money|to spend money on things that are unnecessary or poor value|lãng phí tiền|Advertising can encourage people to waste money.|spend carelessly
+special offer|a temporary lower price or extra benefit for customers|ưu đãi đặc biệt|A special offer may attract new shoppers.|promotion
+sale price|a reduced price during a sale|giá khuyến mãi|Customers often wait for a sale price before buying clothes.|discounted price
+compare prices|to examine different prices before deciding what to buy|so sánh giá|Online shoppers can compare prices quickly.|check prices
+shopping centre|a large building or area containing many shops|trung tâm mua sắm|The shopping centre is busiest at weekends.|mall
+local shop|a small store serving people in a nearby area|cửa hàng địa phương|Buying from a local shop can support the community.|neighbourhood store
+buy online|to purchase goods through the internet|mua trực tuyến|People increasingly buy online because it is convenient.|shop online
+return an item|to take a product back to a seller for refund or exchange|trả lại hàng|Customers may return an item if it is damaged.|take a product back
+cheap product|a product that costs relatively little money|sản phẩm giá rẻ|A cheap product is not always good value.|low-cost item
+shopping habit|a regular pattern in the way a person buys things|thói quen mua sắm|Online advertising can influence shopping habits.|buying habit
+@topic|Animals & Wildlife|supp
+wild animal|an animal living naturally rather than being kept by people|động vật hoang dã|People should not feed wild animals in national parks.|animal in nature
+farm|an area of land used for growing crops or keeping animals|nông trại|Children can learn where food comes from by visiting a farm.|agricultural land
+farm worker|a person employed to carry out practical work on a farm|lao động nông trại|Farm workers may have long days during harvest season.|agricultural worker
+cow|a large farm animal kept for milk or meat|bò|Cows need enough water and grazing land.|cattle
+sheep|a farm animal kept for wool and meat|cừu|Sheep are common in some rural areas.|farm animal
+horse|a large animal often used for riding or farm work|ngựa|Some tourists enjoy riding a horse in the countryside.|riding animal
+dog|a common domestic animal often kept as a pet|chó|A dog needs regular exercise and care.|pet dog
+cat|a small domestic animal often kept as a pet|mèo|Many people keep a cat because it can live comfortably indoors.|pet cat
+fish species|a particular type of fish|loài cá|Pollution can reduce the number of fish species in a river.|type of fish
+sea animal|an animal that lives in the ocean|động vật biển|Plastic waste can harm sea animals.|marine animal
+wild bird|a bird living naturally outside human care|chim hoang dã|Wetlands provide food and shelter for many wild birds.|bird in nature
+animal food|food given to domestic or captive animals|thức ăn động vật|Pet owners should choose suitable animal food.|pet food
+feed an animal|to give food to an animal|cho động vật ăn|Visitors are asked not to feed animals in the zoo.|give food to an animal
+protect animals|to prevent animals from being harmed|bảo vệ động vật|National laws can help protect animals from illegal hunting.|keep animals safe
+animal population|the number of animals of a species in an area|quần thể động vật|The animal population increased after hunting was restricted.|number of animals
+natural habitat|the place where an animal or plant normally lives|môi trường sống tự nhiên|Road building can destroy a natural habitat.|native habitat
+wildlife park|a protected or managed area where wild animals can live|công viên động vật hoang dã|The wildlife park attracts visitors and supports conservation.|nature park
+animal care|the work of keeping animals healthy and safe|chăm sóc động vật|Good animal care requires clean water and suitable food.|care for animals
+@topic|Weather & Climate|supp
+sunny|having bright sunlight and little cloud|có nắng|Sunny weather encourages people to spend time outdoors.|bright
+cloudy|covered with clouds|nhiều mây|The day was cloudy but dry.|overcast
+windy|having a lot of wind|nhiều gió|It is often windy near the coast.|breezy
+snow|soft frozen water that falls from the sky|tuyết|Heavy snow can close roads and airports.|snowfall
+snowy|having or covered with snow|có tuyết|Snowy conditions make mountain roads dangerous.|covered in snow
+strong wind|wind moving with a lot of force|gió mạnh|Strong winds can damage trees and buildings.|high wind
+heavy rain|rain falling in large amounts|mưa lớn|Heavy rain may cause local flooding.|downpour
+light rain|rain falling in small amounts|mưa nhẹ|Light rain continued throughout the morning.|drizzle
+weather report|information about expected weather conditions|bản tin thời tiết|People check the weather report before outdoor events.|forecast report
+weather condition|a particular state of the weather|điều kiện thời tiết|Poor weather conditions can delay flights.|weather state
+warm weather|weather with a comfortably high temperature|thời tiết ấm áp|Warm weather attracts visitors to coastal areas.|mild weather
+cool weather|weather that is slightly cold|thời tiết mát mẻ|Cool weather is often comfortable for walking.|mildly cold weather
+change in temperature|a rise or fall in how hot or cold something is|thay đổi nhiệt độ|A sudden change in temperature can affect health.|temperature shift
+rainy season|the part of the year when most rain falls|mùa mưa|Roads may flood during the rainy season.|wet season
+dry season|the part of the year with little rainfall|mùa khô|Farmers may face water shortages in the dry season.|rain-free season
+weather event|a particular occurrence such as a storm or heatwave|hiện tượng thời tiết|Extreme weather events can damage infrastructure.|weather occurrence
+very hot day|a day with unusually high temperatures|ngày rất nóng|Older people need extra care on a very hot day.|hot day
+weather change|a difference in weather from one time to another|thay đổi thời tiết|Rapid weather changes can make travel planning difficult.|change in conditions
+@topic|Daily Routines|supp
+get dressed|to put on clothes|mặc quần áo|Most people get dressed soon after waking up.|put on clothes
+have breakfast|to eat the first meal of the day|ăn sáng|Students who have breakfast may concentrate better in class.|eat breakfast
+go to work|to travel to one's workplace|đi làm|Many commuters go to work before 8 a.m.|travel to work
+go to school|to travel to or attend school|đi học|Children often go to school by bus.|attend school
+come home|to return to one's home|về nhà|Office workers may come home late during busy periods.|return home
+do homework|to complete school work outside class|làm bài tập về nhà|Children usually do homework after dinner.|complete homework
+do the washing|to clean clothes, usually in a washing machine|giặt quần áo|Some families do the washing at weekends.|wash clothes
+clean the house|to remove dirt and organise rooms at home|dọn nhà|People often clean the house before visitors arrive.|do housework
+go shopping|to visit shops to buy goods|đi mua sắm|Families often go shopping for food once a week.|shop
+make dinner|to prepare the evening meal|nấu bữa tối|Parents may make dinner together after work.|cook dinner
+go to bed|to get into bed to sleep|đi ngủ|Children should go to bed at a regular time.|sleep
+set an alarm|to programme a clock or phone to make a sound at a chosen time|đặt báo thức|I set an alarm so I do not oversleep.|set a wake-up alert
+leave home|to go out from one's house|rời khỏi nhà|Commuters leave home earlier when traffic is heavy.|go out
+arrive on time|to reach a place at the planned time|đến đúng giờ|Employees are expected to arrive on time.|be punctual
+take a break|to stop work or study for a short rest|nghỉ giải lao|People should take a break after long periods at a screen.|have a rest
+plan the day|to decide in advance how to use time during a day|lên kế hoạch trong ngày|Planning the day can reduce stress.|organise the day
+finish work|to complete one's working day|tan làm|Many people exercise after they finish work.|end work
+morning routine|the regular activities a person does after waking|thói quen buổi sáng|A simple morning routine can help people start the day calmly.|daily morning habits
+@topic|Community & Neighbours|supp
+neighbourhood shop|a small business serving people in a local area|cửa hàng khu phố|A neighbourhood shop can be convenient for older residents.|local store
+community event|an organised activity for people living in the same area|sự kiện cộng đồng|The community event brought neighbours together.|local event
+local festival|a celebration organised in a particular area|lễ hội địa phương|A local festival can attract visitors and support small businesses.|community festival
+local school|a school serving children from a nearby area|trường địa phương|The local school shares its sports field with residents.|neighbourhood school
+sports centre|a building with facilities for exercise and sport|trung tâm thể thao|The sports centre offers low-cost swimming lessons.|leisure centre
+playground|an outdoor area where children can play|sân chơi|Families want a safe playground near their homes.|children's play area
+bus service|a system of buses operating on routes for passengers|dịch vụ xe buýt|A reliable bus service helps residents without cars.|public bus service
+local business|a company or shop operating in a local area|doanh nghiệp địa phương|Residents can support a local business by shopping nearby.|neighbourhood business
+community group|an organisation formed by local people for a shared purpose|nhóm cộng đồng|The community group organises weekly activities for seniors.|local organisation
+meet neighbours|to spend time talking or socialising with people living nearby|gặp gỡ hàng xóm|Public spaces give residents chances to meet neighbours.|socialise locally
+help a neighbour|to give practical or emotional support to someone living nearby|giúp hàng xóm|People may help a neighbour who is elderly or unwell.|support a neighbour
+friendly area|a place where residents are welcoming and sociable|khu vực thân thiện|Families enjoy living in a friendly area.|welcoming neighbourhood
+safe community|a local area with low danger and strong social support|cộng đồng an toàn|Good lighting and active residents can create a safe community.|secure community
+local problem|a difficulty affecting a particular neighbourhood|vấn đề địa phương|Residents met the council to discuss a local problem.|community issue
+local solution|an action designed to solve a problem in a nearby area|giải pháp địa phương|A local solution may be more practical than a national programme.|community solution
+community support|help provided by people or organisations in a local area|hỗ trợ cộng đồng|Community support is important for isolated residents.|local assistance
+shared space|an area used by many people for different activities|không gian chung|A shared space should be clean and accessible.|communal area
+local improvement|a change that makes a neighbourhood better|cải thiện địa phương|New street lights were a useful local improvement.|community improvement
+@topic|Culture & Festivals|supp
+national holiday|an official holiday celebrated across a country|ngày lễ quốc gia|Many families travel during a national holiday.|public holiday
+traditional dress|clothing connected with a culture or tradition|trang phục truyền thống|People may wear traditional dress during festivals.|traditional clothing
+traditional music|music passed through generations within a culture|âm nhạc truyền thống|Traditional music is performed at local celebrations.|folk music style
+traditional dance|a form of dance associated with a culture or community|điệu múa truyền thống|Visitors watched a traditional dance at the festival.|folk dance
+family tradition|a custom regularly followed within a family|truyền thống gia đình|Cooking together is an important family tradition for some households.|family custom
+local tradition|a custom practised in a particular area|truyền thống địa phương|The local tradition has continued for several generations.|regional custom
+special occasion|an important event or celebration|dịp đặc biệt|People often prepare special food for a special occasion.|important event
+celebrate a birthday|to mark the anniversary of a person's birth|mừng sinh nhật|Families celebrate a birthday in different ways.|mark a birthday
+give a gift|to present something to another person without payment|tặng quà|People often give a gift during important celebrations.|present a gift
+wear traditional clothes|to dress in clothing associated with a culture|mặc trang phục truyền thống|Some students wear traditional clothes on cultural days.|dress traditionally
+visit a temple|to go to a religious or cultural place of worship|đi thăm đền chùa|Tourists should behave respectfully when they visit a temple.|visit a place of worship
+cultural event|an activity that presents or celebrates arts and traditions|sự kiện văn hóa|The city organises a cultural event every spring.|culture event
+cultural difference|a difference in customs, beliefs or behaviour between groups|khác biệt văn hóa|Travel can help people understand cultural differences.|difference in culture
+respect a tradition|to value and follow an established cultural practice|tôn trọng truyền thống|Young people can modernise while still respecting traditions.|honour a custom
+local culture|the customs, arts and way of life of a particular area|văn hóa địa phương|Tourism can introduce visitors to local culture.|regional culture
+cultural activity|an activity connected with art, customs or heritage|hoạt động văn hóa|Museums often organise cultural activities for children.|culture-related activity
+festival food|food traditionally eaten during a celebration|món ăn lễ hội|Festival food often reflects local history.|celebration food
+traditional game|a game passed down through generations|trò chơi truyền thống|Traditional games are often played during community festivals.|folk game
+@topic|Reading & Hobbies|supp
+novel|a long fictional book|tiểu thuyết|Reading a novel can help learners meet vocabulary in context.|fiction book
+comic|a publication containing stories told through pictures and text|truyện tranh|Comics can encourage reluctant readers to read more.|comic book
+poem|a piece of writing arranged to express ideas or feelings creatively|bài thơ|Students sometimes memorise a poem for class.|verse
+library book|a book borrowed from a library|sách thư viện|Readers should return a library book on time.|borrowed book
+read online|to read digital text on a website or device|đọc trực tuyến|Many students read online instead of buying printed material.|read digitally
+listen to music|to spend time hearing songs or other musical works|nghe nhạc|People often listen to music while travelling.|hear music
+watch a film|to view a movie for entertainment or study|xem phim|Families may watch a film together at weekends.|see a movie
+play music|to perform music on an instrument or device|chơi nhạc|Learning to play music can require regular practice.|perform music
+draw|to make a picture using lines with a pen or pencil|vẽ|Children often draw to express ideas visually.|sketch
+take photos|to use a camera or phone to create photographs|chụp ảnh|Travellers often take photos of landscapes.|photograph
+play an instrument|to make music using a musical instrument|chơi nhạc cụ|Learning to play an instrument can improve concentration.|perform on an instrument
+free-time activity|something done for enjoyment when not working or studying|hoạt động lúc rảnh|Reading is an inexpensive free-time activity.|leisure activity
+favourite hobby|the activity a person most enjoys in their spare time|sở thích yêu thích|Her favourite hobby is landscape photography.|preferred pastime
+creative hobby|a leisure activity involving imagination or making things|sở thích sáng tạo|Painting is a creative hobby that can reduce stress.|creative pastime
+join a club|to become a member of an organised social or activity group|tham gia câu lạc bộ|Students can join a club to meet people with similar interests.|become a club member
+borrow a book|to take a book temporarily and return it later|mượn sách|People can borrow a book for free from a public library.|take a book on loan
+recommend a book|to suggest that someone should read a particular book|giới thiệu sách|Teachers often recommend a book related to a class topic.|suggest a book
+spend free time|to use time when not working or studying|dành thời gian rảnh|Young people spend free time in many different ways.|use leisure time
+@topic|Shopping & Services|supp
+clothes shop|a store that sells clothing|cửa hàng quần áo|The clothes shop offers student discounts.|fashion store
+bookshop|a store that sells books|hiệu sách|Independent bookshops can support local cultural life.|bookstore
+pharmacy|a shop where medicines and health products are sold|nhà thuốc|People can buy basic medicine at a pharmacy.|drugstore
+bakery|a shop that makes or sells bread and cakes|tiệm bánh|The bakery employs several local workers.|bread shop
+barber|a person or shop that cuts hair, especially men's hair|thợ cắt tóc, tiệm cắt tóc|The local barber has served the neighbourhood for years.|hairdresser
+hair salon|a business where people have their hair cut or styled|tiệm làm tóc|A hair salon usually requires an appointment at busy times.|hairdresser's
+customer service|help and advice provided by a business to its customers|dịch vụ khách hàng|Good customer service can build loyalty.|client support
+shop assistant|a person who helps customers in a store|nhân viên bán hàng|The shop assistant helped me find the correct size.|sales assistant
+opening hours|the times during which a business is open|giờ mở cửa|Customers can check opening hours online.|business hours
+close early|to stop business earlier than usual|đóng cửa sớm|Some local shops close early on Sundays.|shut early
+home delivery|a service that brings purchased goods to a person's home|giao hàng tận nhà|Home delivery is useful for elderly customers.|delivery service
+pay by card|to make a payment using a bank or credit card|thanh toán bằng thẻ|Most supermarkets allow customers to pay by card.|use a card
+pay in cash|to make a payment using notes or coins|thanh toán tiền mặt|Some markets still require customers to pay in cash.|use cash
+out of stock|not currently available for sale|hết hàng|Popular products may be out of stock during a sale.|unavailable
+in stock|currently available to buy|còn hàng|The website shows whether an item is in stock.|available
+exchange an item|to return a product and receive another one instead|đổi hàng|Customers can exchange an item if they have the receipt.|swap a product
+refund|money returned to a customer after a purchase is cancelled or returned|hoàn tiền|The company offered a full refund for the faulty product.|money back
+service quality|the standard of help or work provided by a business|chất lượng dịch vụ|Service quality strongly affects customer satisfaction.|quality of service

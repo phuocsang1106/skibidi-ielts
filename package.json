@@ -12,7 +12,9 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy",
     "prisma:seed": "tsx prisma/seed.ts",
-    "check": "npm run typecheck && npm run test"
+    "check": "npm run typecheck && npm run test",
+    "vocab:validate": "node scripts/build-vocabulary-library.mjs",
+    "vocab:audit": "node scripts/audit-vocabulary-library.mjs"
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",

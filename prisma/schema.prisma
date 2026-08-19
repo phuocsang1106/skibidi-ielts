@@ -63,10 +63,11 @@ model VocabularyGroup {
 }
 
 model VocabularyTopic {
-  id        String            @id @default(cuid())
-  groupId   String
-  name      String
-  sortOrder Int               @default(0)
+  id              String            @id @default(cuid())
+  groupId         String
+  name            String
+  sortOrder       Int               @default(0)
+  isSupplementary Boolean           @default(false)
   createdAt DateTime          @default(now())
   updatedAt DateTime          @updatedAt
   group     VocabularyGroup   @relation(fields: [groupId], references: [id], onDelete: Cascade)

@@ -98,7 +98,7 @@ function buildPrompt(input: GradeInput) {
     : "The IELTS task/question is supplied in the attached image or PDF. Treat the attachment as the QUESTION/CHART only, not as the candidate response.";
   const officialRubric = getIeltsBandDescriptorPrompt(input.taskType);
 
-  return `You are a strict, evidence-based IELTS Writing examiner. Grade the candidate response for ${input.taskType === "TASK_1" ? "IELTS Writing Task 1" : "IELTS Writing Task 2"} using the official IELTS Writing Band Descriptors (Updated May 2023) supplied below.
+  return `You are a fair, accurate IELTS Writing examiner. Grade the candidate response for ${input.taskType === "TASK_1" ? "IELTS Writing Task 1" : "IELTS Writing Task 2"} using the official IELTS Writing Band Descriptors (Updated May 2023) supplied below. Use a best-fit examiner approach: judge the performance as a whole within each criterion, without deliberately marking harshly or generously.
 
 ${taskSource}
 
@@ -108,8 +108,11 @@ OFFICIAL IELTS WRITING BAND DESCRIPTORS - SCORING REFERENCE:\n${officialRubric}
 
 SCORING METHOD:
 - Compare the response against the descriptor evidence criterion by criterion.
-- Do not choose a band first and justify it afterward. Identify evidence, find the highest descriptor fully supported, then assign the score.
-- If a limiting feature from a lower band is clearly present, do not award a higher band that conflicts with it.
+- Use a best-fit approach: choose the band (or half band) that most accurately represents the candidate's overall performance in that criterion.
+- Do not require every sentence or every feature to perfectly match a descriptor before awarding that level.
+- Do not lower or cap a criterion because of one isolated weakness, one awkward sentence, or one minor error. A weakness should materially affect the band only when it is frequent, systematic, significant, or clearly characteristic of the response.
+- When the response demonstrates substantial features of the higher adjacent band but is not consistently strong enough for the full band, use the appropriate half band rather than automatically dropping to the lower whole band.
+- Do not inflate scores merely because the language sounds sophisticated; equally, do not under-score a response that clearly demonstrates the descriptor overall.
 - Use the task/question itself when scoring ${firstCriterion}; do not score this criterion from language quality alone.
 - The final overall band for this single task will be recalculated by the server as the mean of the four criterion bands, rounded to the nearest 0.5.
 
@@ -121,12 +124,12 @@ Return exactly four criteria in this exact order and keep the criterion names in
 
 LANGUAGE RULES - MANDATORY:
 - ALL examiner commentary must be written in natural Vietnamese, even though the essay and rubric are English: summary, criterion explanation, mistakes, criterion correction/guidance, errorCorrection.explanation, and nextBandGuidance.
-- When pointing out a mistake, quote the relevant English phrase/sentence from the essay, then explain the issue in Vietnamese.
+- When pointing out a mistake, quote only an exact English phrase/sentence that actually appears in the candidate response, then explain the issue in Vietnamese. Never fabricate or paraphrase a quote and present it as the candidate's wording.
 - errorCorrection.original and errorCorrection.corrected must stay in English.
 - band7Sample and improvedEssay are IELTS sample/rewritten essays, so they must stay in English.
 - Do not translate the candidate's essay into Vietnamese.
 
-Use half-band increments only when the evidence genuinely lies between adjacent descriptor levels. Base every score on evidence from the submitted task and essay. Do not reward ideas or language that are not present. For Task 1, check whether the response actually covers the visual/task information visible in the attachment or prompt.
+Use half-band increments whenever the performance genuinely sits between adjacent descriptor levels. In borderline cases, choose the score that best represents the candidate's performance as a whole rather than defaulting downward. Base every score on evidence from the submitted task and essay. Do not reward ideas or language that are not present. For Task 1, check whether the response actually covers the visual/task information visible in the attachment or prompt.
 
 Enabled feature flags: ${enabled}. The premium fields are errorCorrection, band7Sample, improvedEssay, nextBandGuidance. Return each premium field only when its corresponding feature is enabled; when the schema requires every key, return null for disabled premium fields.
 
@@ -171,7 +174,7 @@ export async function gradeWriting(input: GradeInput): Promise<WritingFeedback> 
   const baseBody = {
     model: input.model,
     messages: [
-      { role: "system", content: "Apply the supplied IELTS Writing Band Descriptors strictly. Return JSON only. All examiner commentary must be Vietnamese; English corrections and sample essays remain English. Never invent content that is not visible in the supplied task or essay." },
+      { role: "system", content: "Apply the supplied IELTS Writing Band Descriptors fairly and accurately using a best-fit examiner approach. Do not deliberately mark harshly or generously, and do not over-penalize isolated weaknesses. Use half bands naturally when performance lies between adjacent levels. Return JSON only. All examiner commentary must be Vietnamese; English corrections and sample essays remain English. Never invent content or quotations that are not visible in the supplied task or essay." },
       { role: "user", content }
     ],
     temperature: 0.15

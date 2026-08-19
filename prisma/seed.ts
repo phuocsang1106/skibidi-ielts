@@ -39,15 +39,15 @@ async function main() {
   }
 
   const group = await prisma.vocabularyGroup.upsert({
-    where: { name: "Academic Vocabulary" },
+    where: { name: process.env.VOCAB_DEFAULT_GROUP ?? "Nhóm 2 - Phát triển Band 5.0-6.5" },
     update: {},
-    create: { name: "Academic Vocabulary" }
+    create: { name: process.env.VOCAB_DEFAULT_GROUP ?? "Nhóm 2 - Phát triển Band 5.0-6.5", sortOrder: 20 }
   });
 
   const topic = await prisma.vocabularyTopic.upsert({
-    where: { groupId_name: { groupId: group.id, name: "Environment" } },
+    where: { groupId_name: { groupId: group.id, name: "Environment & Energy" } },
     update: {},
-    create: { groupId: group.id, name: "Environment" }
+    create: { groupId: group.id, name: "Environment & Energy", sortOrder: 5 }
   });
 
   const words = [

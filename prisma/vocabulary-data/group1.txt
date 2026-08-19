@@ -1,0 +1,323 @@
+@group|g1|Nhóm 1 - Nền tảng Band 3.5-5.0
+@topic|Education|main
+school|a place where children are educated|trường học|Most children spend many years at school.|educational institution
+student|a person who is studying|học sinh, sinh viên|Every student needs time to review lessons.|learner
+teacher|a person who helps others learn|giáo viên|A good teacher can make difficult ideas easier.|educator
+subject|an area of knowledge studied at school|môn học|Science is a popular subject among many students.|course
+lesson|a period of teaching or learning|bài học|The lesson focused on basic environmental problems.|class
+homework|school work done outside class|bài tập về nhà|Too much homework can reduce children's free time.|assignment
+exam|a formal test of knowledge or skill|kỳ thi|Many students feel nervous before an important exam.|test
+grade|a mark showing the quality of school work|điểm số|Her grade improved after several weeks of practice.|mark
+skill|an ability learned through practice|kỹ năng|Communication is an important skill for future jobs.|ability
+learn|to gain knowledge or a new ability|học|Children can learn useful habits from their parents.|study
+study|to spend time learning about a subject|học tập|Many young people study English for work or travel.|learn
+classroom|a room where a class is taught|phòng học|Technology is now common in the modern classroom.|classroom setting
+knowledge|information and understanding gained through learning|kiến thức|Reading can increase a person's general knowledge.|understanding
+university|an institution for higher education|trường đại học|Some students move to another city for university.|college
+@topic|Family & Children|main
+parent|a mother or father|cha mẹ|Parents often influence their children's habits.|mother or father
+child|a young person|trẻ em|Every child needs a safe place to grow up.|young person
+family|a group of related people|gia đình|Families can provide emotional and practical help.|household members
+relative|a person connected by family|họ hàng|Many people visit relatives during important holidays.|family member
+generation|people born around the same period|thế hệ|Different generations may have different attitudes to technology.|age group
+childhood|the period when someone is a child|thời thơ ấu|Positive childhood experiences can shape adult behaviour.|early years
+raise|to care for a child until adulthood|nuôi dưỡng|Parents need time and money to raise children.|bring up
+support|to give help or encouragement|hỗ trợ|Family members often support one another during difficult times.|help
+care|attention given to keep someone safe and well|sự chăm sóc|Young children need regular care from adults.|attention
+relationship|the connection between two or more people|mối quan hệ|Trust is important in a healthy family relationship.|connection
+marriage|the legal or social union of two people|hôn nhân|Marriage patterns have changed in many countries.|married life
+household|people living together in one home|hộ gia đình|Many households now have two working adults.|home
+responsibility|a duty that a person is expected to handle|trách nhiệm|Looking after children is a major responsibility.|duty
+teenager|a person aged from thirteen to nineteen|thanh thiếu niên|Teenagers often want more independence from their parents.|adolescent
+@topic|Health & Lifestyle|main
+health|the condition of a person's body and mind|sức khỏe|Regular exercise can improve both physical and mental health.|well-being
+healthy|in good physical or mental condition|khỏe mạnh|A healthy lifestyle includes enough sleep and exercise.|fit
+illness|a condition that makes a person unwell|bệnh tật|Some illnesses can be prevented through vaccination.|sickness
+disease|a medical condition affecting the body or mind|bệnh|Air pollution can increase the risk of some diseases.|medical condition
+doctor|a person trained to treat illness|bác sĩ|People should see a doctor when symptoms become serious.|physician
+hospital|a place where sick or injured people receive treatment|bệnh viện|The new hospital serves several nearby towns.|medical centre
+exercise|physical activity done to stay fit|tập thể dục|Daily exercise can reduce stress and improve sleep.|physical activity
+diet|the food a person regularly eats|chế độ ăn|A balanced diet should include fruit and vegetables.|eating pattern
+sleep|the natural state of rest at night|giấc ngủ|Teenagers often need more sleep than adults.|rest
+stress|mental pressure or worry|căng thẳng|Long working hours can cause serious stress.|pressure
+habit|something a person does regularly|thói quen|Walking after dinner can become a healthy habit.|routine
+overweight|heavier than is considered healthy|thừa cân|Being overweight may increase health risks.|excess weight
+treatment|medical care given for an illness|điều trị|Early treatment can prevent a condition from becoming worse.|therapy
+medicine|a substance used to treat or prevent illness|thuốc|People should use medicine according to medical advice.|medication
+@topic|Work & Jobs|main
+job|regular paid work|công việc|Finding a stable job can be difficult for young adults.|occupation
+work|activity done as part of a job|công việc, lao động|Many people want a better balance between work and family life.|employment
+worker|a person who does a job|người lao động|Workers need safe conditions in the workplace.|employee
+salary|money paid regularly for doing a job|lương|A higher salary can attract skilled employees.|pay
+company|a business organisation|công ty|The company provides training for new staff.|business
+office|a place where administrative work is done|văn phòng|Some employees now work from home instead of an office.|workplace
+career|the jobs a person has during working life|sự nghiệp|University choices can affect a person's future career.|profession
+employer|a person or organisation that gives people jobs|nhà tuyển dụng|Employers often look for communication and teamwork skills.|company owner
+employee|a person paid to work for someone else|nhân viên|Each employee receives annual safety training.|staff member
+experience|knowledge gained from doing something|kinh nghiệm|Work experience can help graduates find better jobs.|practice
+training|learning skills needed for a job|đào tạo|Professional training can improve staff performance.|instruction
+part-time|working fewer hours than a full-time job|bán thời gian|Many university students have part-time jobs.|reduced-hours
+full-time|working the normal number of hours each week|toàn thời gian|She found full-time work after graduation.|regular-hours
+unemployed|without a paid job|thất nghiệp|Unemployed workers may need financial support while job hunting.|jobless
+@topic|Technology Basics|main
+technology|tools and systems created using scientific knowledge|công nghệ|Technology has changed the way people study and work.|modern tools
+computer|an electronic machine used to process information|máy tính|Students often use a computer to complete assignments.|PC
+internet|the global network connecting computers|internet|The internet gives users quick access to information.|web
+smartphone|a mobile phone with internet and apps|điện thoại thông minh|Many teenagers use a smartphone every day.|mobile phone
+device|a piece of equipment made for a particular purpose|thiết bị|Digital devices can support online learning.|gadget
+website|a set of pages available on the internet|trang web|The government website provides public information.|web page
+online|connected to or available through the internet|trực tuyến|Many people now shop and study online.|on the internet
+digital|using electronic technology or computer systems|kỹ thuật số|Digital payments are becoming more common.|electronic
+information|facts or details about something|thông tin|People should check information before sharing it online.|data
+screen|the flat surface that displays images on a device|màn hình|Too much screen time may affect children's sleep.|display
+software|programs used by a computer|phần mềm|Schools may need new software for online classes.|programs
+machine|equipment that uses power to do work|máy móc|Modern machines can complete repetitive tasks quickly.|equipment
+connect|to join or communicate through a network|kết nối|The app allows users to connect with friends abroad.|link
+convenient|easy and useful for a person's needs|tiện lợi|Online banking is convenient for many customers.|handy
+@topic|Environment Basics|main
+environment|the natural world around people, animals and plants|môi trường|Everyone can take simple steps to protect the environment.|natural world
+litter|waste left in public places instead of being disposed of properly|rác xả bừa bãi|More public bins can reduce litter in parks and streets.|rubbish
+waste|unwanted material that is thrown away|rác thải|Households can reduce waste by reusing products.|rubbish
+recycle|to process used materials so they can be used again|tái chế|Many cities encourage residents to recycle paper and glass.|reuse
+plastic|a common man-made material used for many products|nhựa|Single-use plastic creates serious environmental problems.|synthetic material
+energy|power used for heat, light or machines|năng lượng|Homes can save energy by using efficient appliances.|power
+nature|the physical world not created by humans|thiên nhiên|Children benefit from spending time in nature.|natural world
+forest|a large area covered with trees|rừng|Forests provide habitats for many animals.|woodland
+river|a natural stream of water|sông|Factories should not release waste into a river.|waterway
+air|the mixture of gases that people and animals breathe|không khí|Clean air is important for public health.|atmosphere
+protect|to keep someone or something safe from harm|bảo vệ|Laws can help protect endangered animals.|defend
+damage|harm that makes something worse or less useful|thiệt hại|Heavy tourism can damage fragile natural areas.|harm
+climate|the usual weather conditions of a place|khí hậu|The local climate affects farming and water use.|weather pattern
+resource|a useful supply of something|tài nguyên|Water is an essential natural resource.|supply
+@topic|Transport|main
+transport|systems used to move people or goods|giao thông vận tải|Good transport links can improve access to jobs.|transportation
+traffic|vehicles moving on roads|giao thông|Heavy traffic causes delays during rush hour.|road traffic
+car|a road vehicle for a small number of people|ô tô|Many families depend on a car for daily travel.|automobile
+bus|a large road vehicle carrying many passengers|xe buýt|Taking the bus can reduce the number of cars on the road.|public bus
+train|a railway vehicle that carries people or goods|tàu hỏa|High-speed trains can connect major cities.|rail service
+bicycle|a two-wheeled vehicle powered by a rider|xe đạp|More bicycle lanes can encourage active travel.|bike
+road|a route for vehicles to travel on|đường bộ|Poor road conditions can increase accident risks.|street
+journey|the act of travelling from one place to another|hành trình|The daily journey to work can be tiring.|trip
+passenger|a person travelling in a vehicle but not driving|hành khách|Passengers expect public transport to be safe and reliable.|traveller
+public transport|buses, trains and similar services for everyone|phương tiện công cộng|Affordable public transport can reduce traffic congestion.|mass transit
+drive|to control a car or other road vehicle|lái xe|People should not drive when they are extremely tired.|operate a vehicle
+accident|an unexpected event that causes injury or damage|tai nạn|Speeding increases the chance of a road accident.|crash
+congestion|a situation in which roads are too full of traffic|tắc nghẽn giao thông|Better bus services may help reduce congestion.|traffic jam
+vehicle|a machine used to transport people or goods|phương tiện|Electric vehicles are becoming more common in cities.|means of transport
+@topic|Food & Diet|main
+food|things that people eat|thức ăn|Healthy food should be affordable for all families.|nutrition
+meal|food eaten at a particular time|bữa ăn|Eating regular meals can support a balanced lifestyle.|dish
+fruit|the sweet part of a plant that people eat|trái cây|Fresh fruit is a good source of vitamins.|produce
+vegetable|an edible plant or part of a plant|rau củ|Children should be encouraged to eat more vegetables.|greens
+meat|animal flesh eaten as food|thịt|Some people are choosing to eat less meat.|animal protein
+sugar|a sweet substance added to food and drinks|đường|Too much sugar can contribute to health problems.|sweetener
+fast food|quickly prepared food that is often high in fat or salt|đồ ăn nhanh|Fast food is popular because it is cheap and convenient.|takeaway food
+cook|to prepare food using heat|nấu ăn|Learning to cook can help young adults eat better.|prepare food
+fresh|recently produced and not preserved for long|tươi|Local markets often sell fresh vegetables.|recently produced
+unhealthy|likely to harm health|không lành mạnh|An unhealthy diet can lead to long-term illness.|bad for health
+nutrition|the process of getting food needed for health|dinh dưỡng|Schools can teach children basic nutrition.|nourishment
+restaurant|a place where meals are prepared and sold|nhà hàng|Restaurants should clearly show food prices.|eatery
+consume|to eat, drink or use something|tiêu thụ|People who consume too much salt may face health risks.|use
+portion|an amount of food served to one person|khẩu phần|Smaller portions may help people control calorie intake.|serving
+@topic|Housing & Cities|main
+house|a building where people live|ngôi nhà|Buying a house is expensive in many large cities.|home
+home|the place where someone lives|nhà, nơi ở|A safe home is important for family well-being.|residence
+apartment|a set of rooms for living in within a larger building|căn hộ|Apartments can provide housing in crowded cities.|flat
+city|a large and important town|thành phố|Many young adults move to a city for work.|urban area
+village|a small settlement in the countryside|làng|Some villages have limited access to public services.|rural settlement
+neighbourhood|an area of a town or city where people live|khu dân cư|A quiet neighbourhood can be attractive to families.|local area
+rent|money paid regularly to use a home owned by someone else|tiền thuê|High rent can make city life difficult for low-income workers.|rental payment
+population|the number of people living in a place|dân số|The city's population has grown quickly.|residents
+building|a structure with walls and a roof|tòa nhà|Old buildings may need repairs to remain safe.|structure
+crowded|full of too many people or things|đông đúc|Public spaces can become crowded during festivals.|packed
+local|connected with a particular nearby area|địa phương|Local authorities should maintain parks and roads.|nearby
+move|to change the place where one lives|chuyển nhà|Families may move to find cheaper housing.|relocate
+area|a particular part of a place|khu vực|The area needs more schools and health services.|district
+facility|a building or service provided for a particular purpose|cơ sở vật chất|Sports facilities can improve community life.|amenity
+@topic|Media & Communication|main
+media|television, newspapers, internet and other communication channels|truyền thông|The media can influence public opinion.|mass media
+news|new information about recent events|tin tức|Many people now read news on their phones.|current affairs
+newspaper|a printed publication containing news and articles|báo|Some readers still prefer a printed newspaper.|daily paper
+television|a system for receiving moving images and sound|truyền hình|Television remains a major source of entertainment.|TV
+radio|a system for broadcasting sound programmes|đài phát thanh|Radio is useful for local news and traffic updates.|broadcast radio
+message|information sent from one person to another|tin nhắn, thông điệp|A clear message is easier for an audience to understand.|communication
+advertisement|a notice designed to promote a product or service|quảng cáo|An advertisement can influence what consumers buy.|ad
+social media|websites and apps used to share content and communicate|mạng xã hội|Social media allows news to spread very quickly.|social networks
+phone call|a conversation using a telephone|cuộc gọi điện thoại|A phone call can be more personal than a text message.|call
+contact|to communicate with someone|liên hệ|Customers can contact the company by email.|get in touch
+report|a spoken or written account of an event or situation|báo cáo, bản tin|The report described changes in local transport.|account
+audience|the people who watch, read or listen to something|khán giả|Advertisers try to understand their target audience.|viewers
+programme|a television or radio show|chương trình|Educational programmes can support children's learning.|show
+headline|the title of a news story|tiêu đề tin tức|Online headlines are often designed to attract attention.|news title
+@topic|Crime & Safety|main
+crime|an illegal act|tội phạm|High unemployment may be linked to some types of crime.|offence
+criminal|a person who has committed a crime|tội phạm, người phạm tội|Some criminals need rehabilitation as well as punishment.|offender
+police|the public service responsible for preventing crime|cảnh sát|The police work to keep communities safe.|law enforcement
+law|a rule made by a government|luật|New laws can reduce dangerous driving.|legal rule
+safety|the condition of being protected from danger|an toàn|Road safety should be taught in schools.|security
+dangerous|likely to cause harm|nguy hiểm|Using a phone while driving is dangerous.|unsafe
+steal|to take something that belongs to another person|ăn cắp|People may steal when they face serious financial problems.|take illegally
+theft|the crime of stealing|trộm cắp|Security cameras may help reduce theft.|stealing
+prison|a place where criminals are kept as punishment|nhà tù|Prison sentences are used for serious offences.|jail
+punish|to make someone suffer a penalty for wrongdoing|trừng phạt|Society must decide how to punish serious offenders.|penalise
+victim|a person harmed by a crime or accident|nạn nhân|Victims of violence may need long-term support.|person harmed
+violence|behaviour intended to hurt people|bạo lực|Communities need effective ways to prevent violence.|aggression
+rule|an instruction about what is allowed|quy tắc|Clear rules can improve safety in public places.|regulation
+security|protection against danger or crime|an ninh|Airport security has become stricter in many countries.|protection
+@topic|Government & Public Services|main
+government|the group of people who control a country|chính phủ|The government can invest in schools and hospitals.|state
+public service|a service provided for the public, often by government|dịch vụ công|Reliable public services improve quality of life.|government service
+tax|money paid to government to fund services|thuế|Taxes can be used to improve public transport.|levy
+citizen|a legal member of a country|công dân|Citizens should understand their rights and duties.|member of society
+policy|an official plan or set of ideas|chính sách|A clear policy can guide long-term development.|strategy
+authority|an organisation with official power|cơ quan có thẩm quyền|Local authorities manage many community services.|official body
+budget|a plan for spending and receiving money|ngân sách|The education budget may need to increase.|spending plan
+council|a local group elected to make decisions|hội đồng|The council approved a new public park.|local government
+election|a process of choosing leaders by voting|bầu cử|Young people should learn how elections work.|vote
+leader|a person who guides a group or country|lãnh đạo|Effective leaders listen to different opinions.|head
+fund|to provide money for a project or service|tài trợ|Governments may fund free school meals.|finance
+manage|to control or organise something|quản lý|Cities must manage rapid population growth carefully.|administer
+benefit|an advantage or helpful result|lợi ích|Public libraries provide benefits to many residents.|advantage
+society|people living together in an organised community|xã hội|Education plays an important role in society.|community
+@topic|Travel & Tourism|main
+travel|to go from one place to another|du lịch, đi lại|Cheaper flights have made international travel more common.|journey
+tourist|a person visiting a place for pleasure|khách du lịch|Tourists can support local businesses.|visitor
+tourism|the business and activity of travelling for pleasure|du lịch|Tourism creates jobs in many coastal areas.|travel industry
+holiday|a period when people stop work or study for rest|kỳ nghỉ|Many families travel abroad during a long holiday.|vacation
+trip|a journey to another place and back|chuyến đi|School trips can make learning more interesting.|journey
+hotel|a place that provides rooms for travellers|khách sạn|The hotel employs many local workers.|accommodation
+airport|a place where aircraft arrive and leave|sân bay|Large airports can create noise for nearby residents.|air terminal
+flight|a journey by aircraft|chuyến bay|Long flights can be tiring for passengers.|air journey
+destination|the place someone is travelling to|điểm đến|Cities compete to become popular tourist destinations.|place to visit
+visit|to go to a place for a short time|tham quan, thăm|Many travellers visit museums to learn about local history.|go to
+sightseeing|visiting interesting places as a tourist|tham quan|Sightseeing is a major activity in historic cities.|touring
+guide|a person who shows visitors around a place|hướng dẫn viên|A local guide can explain important cultural sites.|tour guide
+foreign|from or connected with another country|nước ngoài|Foreign visitors may need information in several languages.|international
+accommodation|a place to stay while travelling|chỗ ở|Affordable accommodation can attract young travellers.|lodging
+@topic|Sport & Leisure|main
+sport|physical activity played for exercise or competition|thể thao|Sport can improve fitness and teamwork.|physical activity
+game|an activity with rules played for fun or competition|trò chơi|Team games can teach children to cooperate.|match
+team|a group of people playing or working together|đội|A successful team needs good communication.|group
+player|a person who takes part in a sport or game|người chơi|Professional players train for many hours each week.|athlete
+fitness|the condition of being physically strong and healthy|thể lực|Regular swimming can improve fitness.|physical condition
+hobby|an activity done for pleasure in free time|sở thích|Reading is a low-cost hobby for many people.|pastime
+leisure|time when a person is not working or studying|thời gian nhàn rỗi|People need enough leisure to rest and socialise.|free time
+competition|an event in which people try to win|cuộc thi, sự cạnh tranh|Sports competitions can bring communities together.|contest
+win|to be the most successful in a competition|chiến thắng|Athletes train hard because they want to win.|succeed
+lose|to fail to win a game or competition|thua|Young players should learn how to lose calmly.|be defeated
+stadium|a large place where sports events are held|sân vận động|The new stadium can hold thousands of spectators.|arena
+coach|a person who trains a sports team or player|huấn luyện viên|A good coach motivates players to improve.|trainer
+active|doing physical activity regularly|năng động|Children should be active every day.|energetic
+relax|to rest and become less worried|thư giãn|Many people listen to music to relax after work.|unwind
+@topic|Money & Consumer Life|main
+money|what people use to buy goods and services|tiền|Saving money can help families handle emergencies.|cash
+price|the amount of money needed to buy something|giá|The price of housing has increased in many cities.|cost
+cost|the amount that must be paid for something|chi phí|Transport costs affect household budgets.|expense
+buy|to get something by paying money|mua|Consumers increasingly buy products online.|purchase
+sell|to give something to a buyer for money|bán|Small businesses can sell goods through social media.|trade
+shop|to visit stores or websites to buy things|mua sắm|Many people shop online because it saves time.|purchase goods
+customer|a person who buys goods or services|khách hàng|Customers often compare prices before buying.|buyer
+product|something made or sold to customers|sản phẩm|Companies advertise new products to increase sales.|item
+expensive|costing a lot of money|đắt|Private education can be too expensive for some families.|costly
+cheap|costing little money|rẻ|Cheap goods are not always good quality.|inexpensive
+save|to keep money for future use|tiết kiệm|Young adults should learn to save part of their income.|put aside
+spend|to use money to pay for things|chi tiêu|Households spend a large share of income on housing.|pay out
+afford|to have enough money to pay for something|có khả năng chi trả|Low-income families may not afford private healthcare.|be able to pay
+@topic|Animals & Wildlife|supp
+animal|a living creature that is not a plant|động vật|Animals need suitable places to live and find food.|creature
+wildlife|animals and plants living naturally in an area|động vật hoang dã|Tourism should not disturb local wildlife.|wild animals
+species|a group of similar living organisms|loài|Some species are threatened by habitat loss.|type of organism
+zoo|a place where wild animals are kept for people to see|vườn thú|Modern zoos often support education and research.|animal park
+pet|an animal kept at home for company|thú cưng|Keeping a pet can teach children responsibility.|companion animal
+wild|living in nature rather than with people|hoang dã|Wild animals should not be treated like pets.|untamed
+endangered|at serious risk of disappearing forever|có nguy cơ tuyệt chủng|Endangered animals need stronger protection.|at risk
+habitat|the natural home of an animal or plant|môi trường sống|Road building can destroy natural habitats.|natural home
+hunt|to chase and kill wild animals|săn bắt|Some countries have strict laws against hunting rare animals.|chase
+farm animal|an animal kept for food or farm work|vật nuôi trang trại|Farm animals should be kept in humane conditions.|livestock
+insect|a small animal with six legs|côn trùng|Many insects are important for pollinating crops.|bug
+bird|an animal with feathers and wings|chim|Wetlands provide food and shelter for many birds.|avian
+marine life|plants and animals that live in the sea|sinh vật biển|Plastic waste can seriously harm marine life.|sea life
+@topic|Weather & Climate|supp
+weather|the condition of the air at a particular time|thời tiết|Bad weather can cause travel delays.|atmospheric conditions
+rain|water that falls from clouds|mưa|Heavy rain can lead to flooding.|rainfall
+storm|very bad weather with strong wind or rain|bão|The storm damaged homes near the coast.|severe weather
+flood|a large amount of water covering normally dry land|lũ lụt|Floods can destroy roads and farmland.|inundation
+drought|a long period with little or no rain|hạn hán|Drought can reduce food production.|dry period
+temperature|a measure of how hot or cold something is|nhiệt độ|Average temperatures are rising in many regions.|heat level
+hot|having a high temperature|nóng|Very hot weather can be dangerous for older people.|warm
+cold|having a low temperature|lạnh|Cold winters increase household energy use.|chilly
+season|one of the main periods of the year|mùa|Tourist numbers often change by season.|time of year
+forecast|a statement about expected future weather|dự báo|People check the weather forecast before travelling.|prediction
+dry|having little or no water or rain|khô|Dry conditions can increase the risk of forest fires.|arid
+wet|covered with water or receiving much rain|ẩm ướt|Wet weather can affect outdoor events.|rainy
+natural disaster|a destructive event caused by natural forces|thiên tai|Governments need plans for responding to natural disasters.|natural hazard
+@topic|Daily Routines|supp
+routine|a regular way of doing things|thói quen hằng ngày|A simple morning routine can save time.|regular pattern
+daily|happening every day|hằng ngày|Daily exercise is easier when it becomes a habit.|everyday
+wake up|to stop sleeping|thức dậy|Many commuters wake up early to avoid traffic.|get up
+commute|to travel regularly between home and work or study|đi lại hằng ngày|Some workers commute for more than an hour.|travel to work
+schedule|a plan showing times for activities|lịch trình|A clear schedule helps students manage their study time.|timetable
+busy|having many things to do|bận rộn|Busy parents may have little time for leisure.|occupied
+free time|time available for personal activities|thời gian rảnh|Young people often use free time for online entertainment.|leisure time
+rest|to stop activity in order to recover|nghỉ ngơi|Workers need enough time to rest after long shifts.|relaxation
+task|a piece of work that needs to be done|nhiệm vụ|Breaking a large task into smaller steps can reduce stress.|job
+housework|work done to keep a home clean and organised|việc nhà|Sharing housework can reduce pressure on working parents.|domestic work
+prepare|to make something ready|chuẩn bị|Students should prepare carefully before an exam.|get ready
+balance|a fair or healthy amount of different activities|sự cân bằng|People need a balance between work and personal life.|equilibrium
+time management|the skill of using time effectively|quản lý thời gian|Good time management can improve study performance.|planning time
+@topic|Community & Neighbours|supp
+neighbour|a person who lives near another person|hàng xóm|Good neighbours can make an area feel safer.|nearby resident
+resident|a person who lives in a particular place|cư dân|Residents asked for better street lighting.|inhabitant
+local area|the neighbourhood or region close to someone|khu vực địa phương|The local area needs more green spaces.|nearby district
+public space|an area open for everyone to use|không gian công cộng|Clean public spaces improve city life.|shared area
+volunteer|a person who works without being paid|tình nguyện viên|Volunteers can support elderly people in the community.|unpaid helper
+help|to make something easier for another person|giúp đỡ|Community centres help people meet and learn new skills.|assist
+event|an organised occasion or activity|sự kiện|A local event can bring neighbours together.|occasion
+park|a public green area for recreation|công viên|Families use the park for exercise and relaxation.|green space
+library|a place where people can borrow books and use information|thư viện|Public libraries provide quiet study spaces.|public library
+market|a place where people buy and sell goods|chợ|Local markets can support small producers.|marketplace
+friendship|a relationship between friends|tình bạn|Community activities can create new friendships.|companionship
+social activity|an activity done with other people|hoạt động xã hội|Social activities can reduce loneliness among older adults.|group activity
+belong|to feel accepted as part of a group|thuộc về|People are happier when they feel they belong to a community.|fit in
+@topic|Culture & Festivals|supp
+culture|the ideas, customs and way of life of a group|văn hóa|Travel can help people learn about another culture.|way of life
+tradition|a custom or belief passed from older generations|truyền thống|Some traditions continue for hundreds of years.|custom
+festival|a special public celebration|lễ hội|The festival attracts visitors from many regions.|celebration
+custom|a traditional way of behaving or doing something|phong tục|Local customs may be unfamiliar to foreign tourists.|tradition
+traditional|following old customs or methods|truyền thống|Traditional crafts can create income for rural families.|conventional
+celebrate|to do something special for an important event|ăn mừng|Families celebrate national holidays in different ways.|observe
+ceremony|a formal event for a special occasion|nghi lễ|The ceremony included music and traditional clothing.|formal event
+religion|belief in and worship of a god or gods|tôn giáo|Religion can influence customs and social values.|faith
+language|a system people use to communicate|ngôn ngữ|Learning another language can improve cultural understanding.|tongue
+national|connected with a whole country|quốc gia|National museums help preserve important objects.|countrywide
+folk music|traditional music of a community or region|nhạc dân gian|Folk music can preserve stories from the past.|traditional music
+belief|an idea that a person accepts as true|niềm tin|Cultural beliefs can affect everyday behaviour.|view
+traditional food|food strongly connected with a local culture|món ăn truyền thống|Traditional food is an important part of many festivals.|local cuisine
+@topic|Reading & Hobbies|supp
+read|to understand written words|đọc|Children who read regularly may develop stronger language skills.|study text
+book|a written work made of pages or digital content|sách|A good book can introduce readers to new ideas.|publication
+magazine|a publication with articles and pictures|tạp chí|Some magazines focus on science, travel or fashion.|periodical
+story|a description of real or imagined events|câu chuyện|Stories can help children understand different experiences.|tale
+music|organised sound used for art or entertainment|âm nhạc|Listening to music is a common way to reduce stress.|songs
+film|a story shown as moving pictures|phim|Films can influence how audiences see social issues.|movie
+art|creative work such as painting, music or sculpture|nghệ thuật|Art can make public spaces more attractive.|creative work
+painting|a picture made with paint|tranh vẽ|Painting is a relaxing hobby for some people.|artwork
+photography|the activity of taking photographs|nhiếp ảnh|Photography allows travellers to record experiences.|taking photos
+collect|to gather and keep items as a hobby|sưu tầm|Some people collect stamps or old coins.|gather
+creative|using imagination to produce new ideas|sáng tạo|Creative activities can improve children's confidence.|imaginative
+entertainment|activities that provide enjoyment|giải trí|Online entertainment takes up much of some teenagers' free time.|amusement
+craft|an activity involving skill in making things by hand|thủ công|Traditional crafts can be both hobbies and sources of income.|handicraft
+@topic|Shopping & Services|supp
+shopping|the activity of buying things|mua sắm|Online shopping has changed consumer habits.|buying goods
+service|work done for a customer rather than a physical product|dịch vụ|Good customer service can build trust in a company.|assistance
+supermarket|a large shop selling food and household goods|siêu thị|Supermarkets offer a wide range of products in one place.|grocery store
+store|a place where goods are sold|cửa hàng|The store offers discounts to regular customers.|shop
+online shopping|buying goods through the internet|mua sắm trực tuyến|Online shopping is convenient but can encourage unnecessary spending.|internet shopping
+delivery|the act of taking goods to a person or place|giao hàng|Fast delivery is important for many online customers.|shipment
+cashier|a worker who receives payments in a shop|thu ngân|Automated systems are replacing some cashier jobs.|checkout worker
+discount|a reduction in the normal price|giảm giá|Large discounts can encourage people to buy more.|price reduction
+brand|a name used to identify a company's products|thương hiệu|Some consumers pay more for a well-known brand.|trade name
+quality|how good or bad something is|chất lượng|Customers usually expect higher quality when prices are high.|standard
+return|to take a product back to a shop|trả lại hàng|Customers should be able to return faulty goods.|give back
+repair|to fix something that is broken|sửa chữa|Repairing electronics can reduce waste.|fix
+payment|money given in exchange for goods or services|thanh toán|Digital payment methods are common in modern shops.|transaction
