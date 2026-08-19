@@ -4,7 +4,7 @@ services:
     runtime: node
     plan: free
     region: singapore
-    buildCommand: npm install --no-audit --no-fund && npx prisma migrate deploy && npm run prisma:seed && npm run build
+    buildCommand: npm install --no-audit --no-fund && npx prisma migrate deploy && npm run build
     initialDeployHook: npm run prisma:seed
     startCommand: npm run start
     healthCheckPath: /api/health
