@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { callOpenRouterJson, dataUrl, type OpenRouterMessage } from "./openrouter-client";
+import { normalizeQuestionFile } from "./openrouter-file-normalizer";
 import { IELTS_WRITING_RUBRIC_2023 } from "./ielts-rubric-2023";
 
 const halfBand = z.number().min(0).max(9).refine((v: number) => Number.isInteger(v * 2));
@@ -158,7 +159,7 @@ export type ThreeStageInput = {
   questionText?: string;
   essayText: string;
   plan: "FREE" | "PRO";
-  questionFile?: { buffer: Buffer; mimeType: string; filename?: string };
+  questionFile?: unknown;
 };
 
 function overallBand(values: number[]) {
@@ -169,9 +170,17 @@ async function task1Extract(input: ThreeStageInput) {
   if (!input.questionFile) {
     return { readable: true, questionText: input.questionText || "", structuredQuestionData: null, unreadableReason: null };
   }
-  const { buffer, mimeType, filename = "task1-question" } = input.questionFile;
+
+  const normalizedFile = await normalizeQuestionFile(input.questionFile);
+  if (!normalizedFile) {
+    const error = new Error("Unsupported or empty Task 1 question file payload.");
+    (error as Error & { code?: string }).code = "QUESTION_FILE_INVALID";
+    throw error;
+  }
+
+  const { buffer, mimeType, filename } = normalizedFile;
   const content: Extract<OpenRouterMessage["content"], unknown[]> = [
-    { type: "text", text: "Read this IELTS Academic Writing Task 1 prompt. Extract only information you can confidently read. Never invent numbers. If critical information is blurry/cropped/missing, set readable=false." },
+    { type: "text", text: "Read this IELTS Academic Writing Task 1 prompt and its visual carefully. Extract only information you can confidently read. Never invent numbers. Set readable=true when the task instruction and the main visual information needed to assess the essay are legible, even if a non-essential tiny label is imperfect. Set readable=false only when missing, cropped, blurred or illegible information would make reliable Task Achievement grading unsafe." },
   ];
   if (mimeType === "application/pdf") content.push({ type: "file", file: { filename, file_data: dataUrl(buffer, mimeType) } });
   else content.push({ type: "image_url", image_url: { url: dataUrl(buffer, mimeType) } });

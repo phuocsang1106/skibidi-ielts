@@ -15,13 +15,20 @@ export { gradeWritingThreeStage } from "./openrouter-three-stage";
 export type { ThreeStageInput } from "./openrouter-three-stage";
 
 function pickQuestionFile(first: any) {
-  return (
+  const direct =
     first?.questionFile ??
     first?.questionUpload ??
     first?.questionImage ??
     first?.visualFile ??
-    undefined
-  );
+    first?.questionAttachment ??
+    first?.promptFile ??
+    first?.taskFile ??
+    first?.questionFileData ??
+    undefined;
+
+  if (direct) return direct;
+  if (first?.question && typeof first.question === "object") return first.question;
+  return undefined;
 }
 
 function normalizeArgs(args: any[]): ThreeStageInput {
@@ -38,8 +45,20 @@ function normalizeArgs(args: any[]): ThreeStageInput {
   ) {
     return {
       taskType: first.taskType === "TASK_1" ? "TASK_1" : "TASK_2",
-      questionText: first.questionText ?? first.question ?? "",
-      essayText: first.essayText ?? first.essay ?? first.responseText ?? "",
+      questionText:
+        typeof first.questionText === "string"
+          ? first.questionText
+          : typeof first.question === "string"
+            ? first.question
+            : "",
+      essayText:
+        typeof first.essayText === "string"
+          ? first.essayText
+          : typeof first.essay === "string"
+            ? first.essay
+            : typeof first.responseText === "string"
+              ? first.responseText
+              : "",
       plan:
         first.plan === "PRO" ||
         first.entitlementPlan === "PRO" ||
