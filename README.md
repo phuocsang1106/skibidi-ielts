@@ -257,10 +257,10 @@ Database integration tests, if added to a deployment pipeline, should use **only
 
 ## Render deployment
 
-`render.yaml` uses:
+`render.yaml` calls the checked-in `scripts/render-build.sh` script. The build path is:
 
 ```text
-npm install
+npm install --include=dev --no-audit --no-fund
 prisma generate
 prisma migrate deploy
 next build

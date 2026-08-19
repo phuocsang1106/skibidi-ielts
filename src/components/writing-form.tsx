@@ -12,7 +12,7 @@ export function WritingForm({ remaining }: { remaining: number }) {
   const [essay, setEssay] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [key, setKey] = useState(() => crypto.randomUUID());
+  const [key] = useState(() => crypto.randomUUID());
   const words = useMemo(() => countWords(essay), [essay]);
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {

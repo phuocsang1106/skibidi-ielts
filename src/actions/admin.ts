@@ -5,11 +5,12 @@ import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth";
 import { prisma } from "@/lib/db";
 import { AppError } from "@/lib/errors";
-import { PLAN_FEATURES, isKnownFeature } from "@/lib/features";
+import { isKnownFeature } from "@/lib/features";
 import { approvePayment, rejectPayment } from "@/lib/services/payments";
 import { createPlan, deleteOrArchivePlan, grantManualSubmissions, updatePlan, type PlanUpsertInput } from "@/lib/services/admin";
 import { auditJson, writeAudit } from "@/lib/services/audit";
 import { withSerializableRetry } from "@/lib/transactions";
+import type { PromoRewardType } from "@/generated/prisma/client";
 
 function str(fd: FormData, key: string) { return String(fd.get(key) || "").trim(); }
 function optional(fd: FormData, key: string) { const v=str(fd,key); return v || null; }
@@ -35,7 +36,7 @@ function promoInput(fd: FormData) {
   if (rewardType === "ADD_SUBMISSIONS" && !addSubmissions) throw new AppError("AMOUNT_REQUIRED", "Submission amount is required.");
   return {
     code,
-    rewardType,
+    rewardType: rewardType as PromoRewardType,
     grantPlanId: rewardType === "GRANT_PLAN" ? grantPlanId : null,
     grantDurationDays: rewardType === "GRANT_PLAN" ? optionalInt(fd, "grantDurationDays", 1, 3650) : null,
     addSubmissions: rewardType === "ADD_SUBMISSIONS" ? addSubmissions : null,
@@ -122,7 +123,6 @@ export async function createVocabularyWordAction(fd:FormData){await requireAdmin
 
 export async function updatePaymentSettingsAction(fd:FormData){const admin=await requireAdmin();const value={configured:fd.get("configured")==="on",bankName:str(fd,"bankName"),bankCode:optional(fd,"bankCode")||"",accountNumber:str(fd,"accountNumber"),accountName:str(fd,"accountName"),qrUrlTemplate:optional(fd,"qrUrlTemplate")||""};await withSerializableRetry(async tx=>{const before=await tx.appSetting.findUnique({where:{key:"PAYMENT_BANK"}});await tx.appSetting.upsert({where:{key:"PAYMENT_BANK"},update:{value},create:{key:"PAYMENT_BANK",value}});await writeAudit(tx,{adminId:admin.id,action:"PAYMENT_SETTINGS_UPDATED",entityType:"AppSetting",entityId:"PAYMENT_BANK",beforeJson:auditJson(before?.value||{}),afterJson:auditJson(value)});});revalidatePath("/admin/settings");revalidatePath("/app/pricing");}
 
-export const adminFeatureRegistry=PLAN_FEATURES;
 
 export async function updateVocabularyLevelAction(id:string,fd:FormData){const admin=await requireAdmin();await withSerializableRetry(async tx=>{const before=await tx.vocabularyLevel.findUnique({where:{id}});if(!before)throw new AppError("LEVEL_NOT_FOUND","Vocabulary level not found.",404);const after=await tx.vocabularyLevel.update({where:{id},data:{slug:str(fd,"slug"),name:str(fd,"name"),bandRange:str(fd,"bandRange"),requiredFeature:optional(fd,"requiredFeature"),description:optional(fd,"description"),sortOrder:int(fd,"sortOrder",-10000,10000),isActive:fd.get("isActive")==="on"}});await writeAudit(tx,{adminId:admin.id,action:"VOCAB_LEVEL_UPDATED",entityType:"VocabularyLevel",entityId:id,beforeJson:auditJson(before),afterJson:auditJson(after)});});revalidatePath("/admin/vocabulary");revalidatePath("/app/vocabulary");}
 export async function updateVocabularyTopicAction(id:string,fd:FormData){const admin=await requireAdmin();await withSerializableRetry(async tx=>{const before=await tx.vocabularyTopic.findUnique({where:{id}});if(!before)throw new AppError("TOPIC_NOT_FOUND","Vocabulary topic not found.",404);const after=await tx.vocabularyTopic.update({where:{id},data:{levelId:str(fd,"levelId"),slug:str(fd,"slug"),name:str(fd,"name"),requiredFeature:optional(fd,"requiredFeature"),description:optional(fd,"description"),sortOrder:int(fd,"sortOrder",-10000,10000),isActive:fd.get("isActive")==="on"}});await writeAudit(tx,{adminId:admin.id,action:"VOCAB_TOPIC_UPDATED",entityType:"VocabularyTopic",entityId:id,beforeJson:auditJson(before),afterJson:auditJson(after)});});revalidatePath("/admin/vocabulary");revalidatePath("/app/vocabulary");}

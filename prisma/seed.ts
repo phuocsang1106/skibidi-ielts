@@ -154,7 +154,7 @@ async function seedPlans() {
     await prisma.plan.upsert({
       where: { slug: plan.slug },
       update: {},
-      create: { ...plan, defaultModel: process.env.OPENROUTER_MODEL || null }
+      create: { ...plan, features: [...plan.features], defaultModel: process.env.OPENROUTER_MODEL || null }
     });
   }
 }

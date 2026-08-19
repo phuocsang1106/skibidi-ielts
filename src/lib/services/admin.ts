@@ -1,4 +1,3 @@
-import { prisma } from "@/lib/db";
 import { AppError } from "@/lib/errors";
 import { addBonusSubmissions } from "@/lib/services/credits";
 import { auditJson, writeAudit } from "@/lib/services/audit";
