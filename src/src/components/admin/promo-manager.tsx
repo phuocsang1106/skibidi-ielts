@@ -1,0 +1,22 @@
+"use client";
+
+import { useState } from "react";
+import { Loader2, Plus, Save, Trash2 } from "lucide-react";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+
+type Plan = { id: string; name: string };
+type Promo = { id: string; code: string; planId: string; duration: number; isActive: boolean; maxUses: number | null; usedCount: number; expiresAt: string | null };
+
+function PromoEditor({ promo, plans }: { promo?: Promo; plans: Plan[] }) {
+  const [value, setValue] = useState({ code: promo?.code ?? "", planId: promo?.planId ?? plans[0]?.id ?? "", duration: promo?.duration ?? 30, isActive: promo?.isActive ?? true, maxUses: promo?.maxUses?.toString() ?? "", expiresAt: promo?.expiresAt ? promo.expiresAt.slice(0, 10) : "" });
+  const [loading, setLoading] = useState(false);
+  async function save() { setLoading(true); try { const response = await fetch(promo ? `/api/admin/promos/${promo.id}` : "/api/admin/promos", { method: promo ? "PATCH" : "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...value, code: value.code.toUpperCase(), maxUses: value.maxUses ? Number(value.maxUses) : null, expiresAt: value.expiresAt ? new Date(`${value.expiresAt}T23:59:59Z`).toISOString() : null }) }); const payload = (await response.json()) as { error?: string }; if (!response.ok) throw new Error(payload.error ?? "Could not save promo."); toast.success(promo ? "Promo updated." : "Promo created."); window.location.reload(); } catch (error) { toast.error(error instanceof Error ? error.message : "Could not save promo."); } finally { setLoading(false); } }
+  async function remove() { if (!promo || !window.confirm(`Delete promo ${promo.code}?`)) return; setLoading(true); try { const response = await fetch(`/api/admin/promos/${promo.id}`, { method: "DELETE" }); const payload = (await response.json()) as { error?: string }; if (!response.ok) throw new Error(payload.error ?? "Could not delete promo."); toast.success("Promo deleted."); window.location.reload(); } catch (error) { toast.error(error instanceof Error ? error.message : "Could not delete promo."); } finally { setLoading(false); } }
+  return <Card className="p-5"><div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6"><div className="space-y-2"><Label>Code</Label><Input value={value.code} onChange={(e) => setValue((v) => ({ ...v, code: e.target.value.toUpperCase() }))} className="font-mono uppercase" /></div><div className="space-y-2"><Label>Reward plan</Label><select value={value.planId} onChange={(e) => setValue((v) => ({ ...v, planId: e.target.value }))} className="h-11 w-full rounded-xl border bg-white px-3 text-sm">{plans.map((plan) => <option key={plan.id} value={plan.id}>{plan.name}</option>)}</select></div><div className="space-y-2"><Label>Duration days</Label><Input type="number" min="1" value={value.duration} onChange={(e) => setValue((v) => ({ ...v, duration: Number(e.target.value) }))} /></div><div className="space-y-2"><Label>Max uses</Label><Input type="number" min="1" value={value.maxUses} onChange={(e) => setValue((v) => ({ ...v, maxUses: e.target.value }))} placeholder="Unlimited" /></div><div className="space-y-2"><Label>Expires</Label><Input type="date" value={value.expiresAt} onChange={(e) => setValue((v) => ({ ...v, expiresAt: e.target.value }))} /></div><label className="flex items-end gap-2 pb-3 text-sm"><input type="checkbox" checked={value.isActive} onChange={(e) => setValue((v) => ({ ...v, isActive: e.target.checked }))} />Active</label></div>{promo && <p className="mt-4 text-xs text-slate-400">Used {promo.usedCount}{promo.maxUses ? ` / ${promo.maxUses}` : " times"}</p>}<div className="mt-5 flex gap-2"><Button onClick={save} disabled={loading}>{loading ? <Loader2 className="h-4 w-4 animate-spin" /> : promo ? <Save className="h-4 w-4" /> : <Plus className="h-4 w-4" />}{promo ? "Save promo" : "Create promo"}</Button>{promo && <Button onClick={remove} variant="danger" disabled={loading}><Trash2 className="h-4 w-4" />Delete</Button>}</div></Card>;
+}
+
+export function PromoManager({ promos, plans }: { promos: Promo[]; plans: Plan[] }) { return <div className="space-y-5"><PromoEditor plans={plans} />{promos.map((promo) => <PromoEditor key={promo.id} promo={promo} plans={plans} />)}</div>; }
