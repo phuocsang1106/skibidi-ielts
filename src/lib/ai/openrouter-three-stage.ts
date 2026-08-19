@@ -2,7 +2,7 @@ import { z } from "zod";
 import { callOpenRouterJson, dataUrl, type OpenRouterMessage } from "./openrouter-client";
 import { IELTS_WRITING_RUBRIC_2023 } from "./ielts-rubric-2023";
 
-const halfBand = z.number().min(0).max(9).refine((v) => Number.isInteger(v * 2));
+const halfBand = z.number().min(0).max(9).refine((v: number) => Number.isInteger(v * 2));
 const criterion = z.object({
   band: halfBand,
   summary: z.string(),
@@ -260,16 +260,29 @@ function assembleFinal(
   feedback: z.infer<typeof feedbackSchema>,
   finalBand: number,
 ) {
+  const taskCriterion = { ...grade.criteria.taskCriterion, band: verified.criteria.taskCriterion };
+  const coherenceCohesion = { ...grade.criteria.coherenceCohesion, band: verified.criteria.coherenceCohesion };
+  const lexicalResource = { ...grade.criteria.lexicalResource, band: verified.criteria.lexicalResource };
+  const grammaticalRangeAccuracy = { ...grade.criteria.grammaticalRangeAccuracy, band: verified.criteria.grammaticalRangeAccuracy };
+
   return {
     taskType: input.taskType,
     questionText: question,
     structuredQuestionData: extractedTask1?.structuredQuestionData ?? null,
     estimatedOverallBand: finalBand,
+
+    // Legacy service.ts reads these four fields directly.
+    taskCriterion,
+    coherenceCohesion,
+    lexicalResource,
+    grammaticalRangeAccuracy,
+
+    // Newer UI/service code can use the grouped representation.
     criteria: {
-      taskCriterion: { ...grade.criteria.taskCriterion, band: verified.criteria.taskCriterion },
-      coherenceCohesion: { ...grade.criteria.coherenceCohesion, band: verified.criteria.coherenceCohesion },
-      lexicalResource: { ...grade.criteria.lexicalResource, band: verified.criteria.lexicalResource },
-      grammaticalRangeAccuracy: { ...grade.criteria.grammaticalRangeAccuracy, band: verified.criteria.grammaticalRangeAccuracy },
+      taskCriterion,
+      coherenceCohesion,
+      lexicalResource,
+      grammaticalRangeAccuracy,
     },
     mainIssue: feedback.mainIssue,
     errors: feedback.errors,

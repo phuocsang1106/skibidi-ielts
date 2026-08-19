@@ -1,20 +1,20 @@
-1. Extract this ZIP.
-2. Open the folder skibidi-openrouter-3request.
-3. Upload these items to the ROOT of your GitHub repo:
-   - src/
-   - tests/
-   - scripts/
-   - OPENROUTER-3-REQUEST.md
-   - OPENROUTER.env.example
-4. Commit directly to main.
-5. In Render > Environment, add:
-   OPENROUTER_API_KEY = your OpenRouter key
-   OPENROUTER_MODEL = google/gemini-3.7-flash
-   OPENROUTER_BASE_URL = https://openrouter.ai/api/v1
-6. Keep APP_URL as your live Render URL.
-7. Deploy latest commit.
+SKIBIDI IELTS - OPENROUTER 3 REQUEST - COMPATIBILITY FIX V2
+
+Upload these files to the ROOT of the GitHub repository and allow overwrite:
+
+src/lib/ai/gemini.ts
+src/lib/ai/openrouter-three-stage.ts
+
+This V2 fixes the current Render TypeScript errors:
+- GeminiGradingProvider.extractInputs missing
+- GeminiGradingProvider.generateProEnhancements missing
+- result.taskCriterion missing
+- result.coherenceCohesion missing
+- result.lexicalResource missing
+- result.grammaticalRangeAccuracy missing
 
 IMPORTANT:
-- Never upload your real API key to GitHub.
-- If OpenRouter's model page shows a different API model ID for Gemini 3.7 Flash,
-  use that exact ID in OPENROUTER_MODEL.
+- Do NOT delete the other OpenRouter files uploaded from the previous patch.
+- This patch is compatibility-only; it does not add extra AI requests.
+- OPENROUTER_API_KEY stays in Render Environment, never GitHub.
+- OPENROUTER_MODEL can stay google/gemini-3.7-flash.
