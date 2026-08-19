@@ -1,27 +1,147 @@
 import Link from "next/link";
-import { ArrowRight, BookOpenText, PenLine, ShieldCheck, type LucideIcon } from "lucide-react";
-import { Brand } from "@/components/brand";
-import { listPublicPlans } from "@/lib/services/plans";
-import { formatVnd } from "@/lib/utils";
+import { ArrowRight, BrainCircuit, Check, ChevronRight, FileCheck2, Layers3, Sparkles } from "lucide-react";
+import { prisma } from "@/lib/prisma";
+import { formatPrice } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { Logo } from "@/components/landing/logo";
+import { Reveal } from "@/components/landing/reveal";
+import type { PlanFeatures } from "@/types/feedback";
 
 export const dynamic = "force-dynamic";
 
-const highlights: Array<{ icon: LucideIcon; title: string; description: string }> = [
-  { icon: BookOpenText, title: "Vocabulary", description: "Three learner levels with focused topics and flip-card practice." },
-  { icon: PenLine, title: "AI Writing evaluation", description: "Task 1 multimodal and Task 2 grading with criterion-level feedback." },
-  { icon: ShieldCheck, title: "Verified feedback", description: "Higher plans can use independent verifier stages before feedback is generated." }
+const faqs = [
+  ["Skibidi IELTS chấm Writing như thế nào?", "Bài viết được gửi tới model OpenRouter mà plan của bạn được phép dùng. Kết quả gồm band tổng, 4 tiêu chí IELTS và các phần nâng cao theo feature flags."],
+  ["Tôi có thể upload đề Task 1 dạng ảnh hoặc PDF không?", "Có. Hệ thống chấp nhận JPG, JPEG, PNG, WEBP và PDF tối đa 5MB, đồng thời hỗ trợ paste text trực tiếp."],
+  ["Vocabulary có dùng tốt trên điện thoại không?", "Có. Flashcard được thiết kế mobile-first, thao tác chạm để lật và chuyển card mượt mà."],
+  ["Plan kéo dài bao lâu?", "Các plan trả phí được cấu hình mặc định 30 ngày. Admin có thể thay đổi thời lượng, quota và tính năng trực tiếp trong panel."]
 ];
 
 export default async function LandingPage() {
-  const plans = await listPublicPlans();
-  return <div className="min-h-screen bg-[#fafaf8]">
-    <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-7"><Brand/><nav className="flex items-center gap-5 text-sm font-medium"><Link href="/pricing">Pricing</Link><Link href="/login">Log in</Link></nav></header>
-    <main>
-      <section className="mx-auto max-w-6xl px-5 pb-20 pt-24 sm:px-7 sm:pt-32">
-        <div className="max-w-3xl"><p className="mb-4 text-sm font-semibold text-blue-600">IELTS learning, built for focused practice</p><h1 className="text-4xl font-semibold tracking-[-0.04em] text-zinc-950 sm:text-6xl">Build the vocabulary. Submit the writing. Know what to fix next.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">Structured IELTS vocabulary for Band 3.5 to 6.5+, plus AI-assisted Writing Task 1 and Task 2 evaluation grounded in the official IELTS Writing descriptors.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/register" className="btn btn-primary">Start learning <ArrowRight size={16}/></Link><Link href="/pricing" className="btn btn-secondary">View pricing</Link></div></div>
-      </section>
-      <section className="border-y border-zinc-200 bg-white"><div className="mx-auto grid max-w-6xl gap-0 px-5 sm:px-7 md:grid-cols-3">{highlights.map(({ icon: Icon, title, description })=><div key={title} className="border-b border-zinc-200 py-8 md:border-b-0 md:border-r md:px-8 first:md:pl-0 last:md:border-r-0"><Icon size={20} className="mb-4 text-blue-600"/><h2 className="font-semibold">{title}</h2><p className="mt-2 text-sm leading-6 text-zinc-500">{description}</p></div>)}</div></section>
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-7"><div className="mb-8 flex items-end justify-between gap-4"><div><p className="text-sm font-semibold text-blue-600">Pricing</p><h2 className="mt-2 text-3xl font-semibold tracking-tight">Choose your Writing quota</h2></div><Link href="/pricing" className="text-sm font-semibold">All plans →</Link></div><div className="grid gap-4 md:grid-cols-3">{plans.slice(0,3).map((plan)=><article key={plan.id} className="surface p-6"><div className="flex items-start justify-between gap-3"><h3 className="text-lg font-semibold">{plan.displayName}</h3>{plan.badge&&<span className="rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-700">{plan.badge}</span>}</div><p className="mt-2 min-h-10 text-sm text-zinc-500">{plan.description}</p><div className="mt-6 text-2xl font-semibold">{formatVnd(plan.priceVnd)}</div><p className="mt-1 text-sm text-zinc-500">{plan.submissionLimit} Writing submissions</p></article>)}</div></section>
-    </main>
-  </div>;
+  const plans = await prisma.plan.findMany({ where: { isVisible: true }, orderBy: [{ price: "asc" }] });
+
+  return (
+    <div className="min-h-screen bg-white text-slate-950">
+      <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
+          <Logo />
+          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-600 md:flex" aria-label="Main navigation">
+            <Link href="#vocabulary" className="transition hover:text-slate-950">Vocabulary</Link>
+            <Link href="#writing" className="transition hover:text-slate-950">Writing AI</Link>
+            <Link href="#pricing" className="transition hover:text-slate-950">Pricing</Link>
+          </nav>
+          <div className="flex items-center gap-2">
+            <Button asChild variant="ghost" className="hidden sm:inline-flex"><Link href="/login">Login</Link></Button>
+            <Button asChild><Link href="/register">Get started <ArrowRight className="h-4 w-4" /></Link></Button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section className="relative overflow-hidden border-b bg-slate-50/70">
+          <div className="grid-fade absolute inset-0 opacity-80" />
+          <div className="relative mx-auto max-w-7xl px-5 py-24 text-center sm:py-32 lg:px-8 lg:py-36">
+            <Reveal>
+              <Badge className="border border-slate-200 bg-white px-3 py-1.5 shadow-sm"><Sparkles className="mr-1.5 h-3.5 w-3.5" /> Built for focused IELTS practice</Badge>
+              <h1 className="mx-auto mt-7 max-w-4xl text-balance text-4xl font-black tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+                Master IELTS Vocabulary & Writing with AI
+              </h1>
+              <p className="mx-auto mt-6 max-w-2xl text-balance text-base leading-7 text-slate-600 sm:text-lg">
+                Học từ vựng thông minh và cải thiện Writing với AI IELTS Examiner — một workspace gọn, nhanh và tập trung vào tiến bộ thực tế.
+              </p>
+              <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+                <Button asChild size="lg"><Link href="/register">Start Learning <ArrowRight className="h-4 w-4" /></Link></Button>
+                <Button asChild size="lg" variant="outline"><Link href="/register?next=/dashboard/writing">Try AI Writing Checker</Link></Button>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.12} className="mx-auto mt-16 max-w-5xl">
+              <div className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-soft">
+                <div className="rounded-[1.25rem] bg-slate-950 p-5 text-left sm:p-8">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-5">
+                    <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Writing result</p><p className="mt-1 font-semibold text-white">Task 2 · Technology & Education</p></div>
+                    <div className="rounded-2xl bg-red-500/15 px-5 py-3 text-center"><p className="text-xs text-red-300">Overall band</p><p className="text-3xl font-black text-red-400">7.5</p></div>
+                  </div>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    {["Task Response", "Coherence", "Lexical Resource", "Grammar"].map((item, index) => (
+                      <div key={item} className="rounded-xl bg-white/5 p-4"><p className="text-xs text-slate-400">{item}</p><p className="mt-2 text-xl font-bold text-white">{[7.5, 7, 8, 7.5][index]}</p></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section id="vocabulary" className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+          <Reveal className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <Badge>Vocabulary learning</Badge>
+              <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Flashcards that keep the signal, remove the noise.</h2>
+              <p className="mt-5 max-w-xl leading-7 text-slate-600">Học theo Group → Topic → Word. Mỗi card tập trung vào word, meaning, example, giải thích tiếng Việt và synonyms khi cần.</p>
+              <div className="mt-7 space-y-3 text-sm text-slate-700">
+                {["Smooth 3D flip animation", "Topic-based vocabulary structure", "Responsive touch-friendly cards"].map((text) => <p key={text} className="flex items-center gap-3"><span className="grid h-6 w-6 place-items-center rounded-full bg-emerald-50 text-emerald-700"><Check className="h-3.5 w-3.5" /></span>{text}</p>)}
+              </div>
+            </div>
+            <div className="relative mx-auto w-full max-w-xl">
+              <div className="absolute -left-5 -top-5 h-full w-full rounded-3xl bg-slate-100" />
+              <Card className="relative min-h-80 p-8 shadow-soft">
+                <div className="flex items-center justify-between"><Badge>Environment</Badge><Layers3 className="h-5 w-5 text-slate-400" /></div>
+                <p className="mt-16 text-center text-4xl font-black tracking-tight">sustainable</p>
+                <p className="mt-3 text-center text-sm text-slate-400">Tap to flip</p>
+                <div className="mt-16 flex justify-between text-xs font-medium text-slate-400"><span>12 / 36 words</span><span>Academic Vocabulary</span></div>
+              </Card>
+            </div>
+          </Reveal>
+        </section>
+
+        <section id="writing" className="border-y bg-slate-50">
+          <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+            <Reveal className="grid gap-5 lg:grid-cols-3">
+              <div className="lg:col-span-1"><Badge>AI Writing Correction</Badge><h2 className="mt-5 text-3xl font-bold tracking-tight">Feedback structured like an examiner report.</h2><p className="mt-4 leading-7 text-slate-600">Upload hoặc paste bài viết, chọn Task 1/2 và nhận feedback theo đúng 4 tiêu chí trọng tâm.</p></div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
+                {[
+                  [BrainCircuit, "Band + 4 criteria", "Band tổng màu đỏ nổi bật, kèm breakdown rõ ràng cho từng tiêu chí."],
+                  [FileCheck2, "Corrections & samples", "Feature flags quyết định plan nào có error correction, Band 7 sample, improved essay và next-band guidance."]
+                ].map(([Icon, title, description]) => {
+                  const I = Icon as typeof BrainCircuit;
+                  return <Card key={String(title)} className="p-7"><span className="grid h-11 w-11 place-items-center rounded-xl bg-slate-950 text-white"><I className="h-5 w-5" /></span><h3 className="mt-6 font-semibold">{String(title)}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{String(description)}</p></Card>;
+                })}
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section id="pricing" className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+          <Reveal>
+            <div className="mx-auto max-w-2xl text-center"><Badge>Simple pricing</Badge><h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Choose the level of AI feedback you need.</h2><p className="mt-4 text-slate-600">Admin có thể thay đổi giá, quota, model và feature flags mà không phải deploy lại code.</p></div>
+            <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {plans.map((plan) => {
+                const feature = plan.features as unknown as PlanFeatures;
+                return (
+                  <Card key={plan.id} className={`flex flex-col p-6 ${plan.name === "Pro" ? "border-slate-950 ring-1 ring-slate-950" : ""}`}>
+                    <div className="flex items-center justify-between"><h3 className="text-lg font-bold">{plan.name}</h3>{plan.name === "Pro" && <Badge className="bg-slate-950 text-white">Popular</Badge>}</div>
+                    <p className="mt-5 text-3xl font-black tracking-tight">{formatPrice(plan.price.toString())}</p>
+                    <p className="mt-1 text-xs text-slate-400">{plan.isFree ? "Starter access" : `/${plan.durationDays} days`}</p>
+                    <div className="my-6 h-px bg-slate-100" />
+                    <div className="space-y-3 text-sm text-slate-600"><p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />{plan.aiRequestLimit} AI request(s)</p>{feature.bandScore && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Overall band score</p>}{feature.criteria && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />4 IELTS criteria</p>}{feature.errorCorrection && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Error correction</p>}{feature.band7Sample && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Band 7 sample</p>}{feature.improvedEssay && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Improved essay</p>}{feature.nextBandGuidance && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Next-band guidance</p>}</div>
+                    <Button asChild className="mt-8 w-full" variant={plan.name === "Pro" ? "default" : "outline"}><Link href="/register">Get {plan.name}<ChevronRight className="h-4 w-4" /></Link></Button>
+                  </Card>
+                );
+              })}
+            </div>
+          </Reveal>
+        </section>
+
+        <section id="faq" className="border-t bg-slate-50">
+          <div className="mx-auto max-w-4xl px-5 py-24 lg:px-8">
+            <Reveal><Badge>FAQ</Badge><h2 className="mt-5 text-3xl font-bold tracking-tight">Frequently asked questions</h2><div className="mt-10 divide-y rounded-2xl border bg-white px-6">{faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="cursor-pointer list-none pr-6 font-semibold marker:hidden">{question}</summary><p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{answer}</p></details>)}</div></Reveal>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t bg-white"><div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-9 sm:flex-row sm:items-center sm:justify-between lg:px-8"><Logo /><p className="text-sm text-slate-400">© {new Date().getFullYear()} Skibidi IELTS. Learn deliberately.</p></div></footer>
+    </div>
+  );
 }

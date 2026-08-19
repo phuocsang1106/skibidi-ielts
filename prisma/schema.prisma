@@ -1,533 +1,161 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-}
-
-enum UserRole {
-  USER
-  ADMIN
-}
-
-enum PlanVisibility {
-  PUBLIC
-  HIDDEN
-  ARCHIVED
-}
-
-enum SubscriptionStatus {
-  ACTIVE
-  QUEUED
-  EXPIRED
-  CANCELLED
-}
-
-enum SubscriptionSource {
-  PURCHASE
-  PROMO
-  ADMIN
-  FREE
-}
-
-enum PromoRewardType {
-  GRANT_PLAN
-  ADD_SUBMISSIONS
-}
-
-enum PromoActivationBehavior {
-  ACTIVATE_NOW
-  QUEUE_AFTER_CURRENT
-}
-
-enum PaymentStatus {
-  PENDING
-  TRANSFER_REPORTED
-  APPROVED
-  REJECTED
-  EXPIRED
-}
-
-enum WritingTaskType {
-  TASK_1
-  TASK_2
-}
-
-enum WritingSubmissionStatus {
-  SUCCEEDED
-  FAILED
-}
-
-enum VocabularyProgressStatus {
-  NOT_STARTED
-  LEARNING
-  LEARNED
-}
-
-enum ProblemReportCategory {
-  SCORE_TOO_HIGH
-  SCORE_TOO_LOW
-  FEEDBACK_INCORRECT
-  QUESTION_MISUNDERSTOOD
-  TASK1_IMAGE_MISUNDERSTOOD
-  OTHER
-}
-
-enum ProblemReportStatus {
-  OPEN
-  REVIEWING
-  RESOLVED
-  DISMISSED
-}
-
-enum CreditBucket {
-  PLAN
-  BONUS
-}
-
-enum CreditLedgerKind {
-  GRANT
-  CONSUME
-  ADJUST
-}
-
-enum AiCallStatus {
-  SUCCESS
-  FAILURE
-}
-
-enum AiErrorCategory {
-  FILE_INVALID
-  UNSUPPORTED_FILE
-  PROVIDER_ERROR
-  MODEL_ERROR
-  STRUCTURED_OUTPUT_ERROR
-  QUESTION_ACTUALLY_UNREADABLE
-  TIMEOUT
-  VALIDATION_ERROR
-  UNKNOWN
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id                     String   @id @default(cuid())
-  username               String
-  normalizedUsername     String   @unique
-  passwordHash           String
-  role                   UserRole @default(USER)
-  bonusSubmissionBalance Int      @default(0)
-  createdAt              DateTime @default(now())
-  updatedAt              DateTime @updatedAt
+  id               String              @id @default(cuid())
+  username         String              @unique
+  passwordHash     String
+  planId           String
+  planStartedAt    DateTime            @default(now())
+  planExpireDate   DateTime?
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  plan             Plan                @relation(fields: [planId], references: [id])
+  submissions      WritingSubmission[]
+  aiUsage          AIUsage[]
+  promoRedemptions PromoRedemption[]
 
-  sessions          Session[]
-  subscriptions     Subscription[]
-  promoRedemptions  PromoRedemption[]
-  paymentOrders     PaymentOrder[]
-  writingSubmissions WritingSubmission[]
-  aiCallLogs         AiCallLog[]
-  vocabularyProgress UserVocabularyProgress[]
-  problemReports      ProblemReport[]
-  creditLedger        SubmissionCreditLedger[]
-
-  adminAuditLogs   AdminAuditLog[] @relation("AuditActor")
-  approvedPayments PaymentOrder[]  @relation("PaymentApprovedBy")
-  rejectedPayments PaymentOrder[]  @relation("PaymentRejectedBy")
-  loginRateLimits  LoginRateLimit[]
-
-  @@index([createdAt])
-}
-
-model Session {
-  id        String   @id @default(cuid())
-  tokenHash String   @unique
-  userId    String
-  expiresAt DateTime
-  createdAt DateTime @default(now())
-  lastSeenAt DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId])
-  @@index([expiresAt])
-}
-
-model LoginRateLimit {
-  id           String   @id @default(cuid())
-  userId       String?
-  key          String   @unique
-  attemptCount Int      @default(0)
-  windowStart  DateTime @default(now())
-  blockedUntil DateTime?
-  updatedAt    DateTime @updatedAt
-
-  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model Plan {
-  id                      String         @id @default(cuid())
-  slug                    String         @unique
-  displayName             String
-  description             String
-  priceVnd                Int
-  durationDays            Int?
-  submissionLimit         Int
-  features                String[]       @default([])
-  visibility              PlanVisibility @default(PUBLIC)
-  sortOrder               Int            @default(0)
-  badge                    String?
-  isActive                Boolean        @default(true)
-  aiRequestsPerSubmission Int            @default(1)
-  defaultModel            String?
-  createdAt               DateTime       @default(now())
-  updatedAt               DateTime       @updatedAt
-
-  aiConfig        PlanAIConfig?
-  subscriptions   Subscription[]
-  promoCodes      PromoCode[]
-  paymentOrders   PaymentOrder[]
-  writingSubmissions WritingSubmission[]
-  aiCallLogs      AiCallLog[]
-
-  @@index([visibility, isActive, sortOrder])
-}
-
-model PlanAIConfig {
-  id                 String  @id @default(cuid())
-  planId             String  @unique
-  task1VisionModel   String?
-  task1ExaminerModel String?
-  task1VerifierModel String?
-  task1FeedbackModel String?
-  task2ExaminerModel String?
-  task2VerifierModel String?
-  task2FeedbackModel String?
-  task2TeachingModel String?
-  updatedAt          DateTime @updatedAt
-
-  plan Plan @relation(fields: [planId], references: [id], onDelete: Cascade)
-}
-
-model Subscription {
-  id                      String             @id @default(cuid())
-  userId                  String
-  planId                  String
-  status                  SubscriptionStatus @default(ACTIVE)
-  source                  SubscriptionSource
-  sourceReferenceId       String?
-  planNameSnapshot        String
-  pricePaidVnd            Int
-  durationDaysSnapshot    Int?
-  submissionLimitSnapshot Int
-  featureSnapshot         String[]
-  remainingPlanSubmissions Int
-  startsAt                DateTime
-  expiresAt               DateTime?
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
-
-  user User @relation(fields: [userId], references: [id], onDelete: Restrict)
-  plan Plan @relation(fields: [planId], references: [id], onDelete: Restrict)
-  creditLedger SubmissionCreditLedger[]
-
-  @@index([userId, status, startsAt])
-  @@index([expiresAt])
   @@index([planId])
 }
 
-model PromoCode {
-  id                     String                  @id @default(cuid())
-  code                   String                  @unique
-  rewardType             PromoRewardType
-  grantPlanId            String?
-  grantDurationDays      Int?
-  addSubmissions         Int?
-  maxTotalRedemptions    Int?
-  redemptionLimitPerUser Int                     @default(1)
-  expiresAt              DateTime?
-  isActive               Boolean                 @default(true)
-  activationBehavior     PromoActivationBehavior @default(QUEUE_AFTER_CURRENT)
-  archivedAt             DateTime?
-  createdAt              DateTime                @default(now())
-  updatedAt              DateTime                @updatedAt
-
-  grantPlan   Plan?             @relation(fields: [grantPlanId], references: [id], onDelete: Restrict)
-  redemptions PromoRedemption[]
-
-  @@index([isActive, expiresAt])
+model Admin {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
-model PromoRedemption {
-  id          String   @id @default(cuid())
-  promoCodeId String
-  userId      String
-  ordinal     Int
-  rewardJson  Json
-  createdAt   DateTime @default(now())
+model Plan {
+  id               String            @id @default(cuid())
+  name             String            @unique
+  price            Decimal           @db.Decimal(10, 2)
+  durationDays     Int               @default(30)
+  aiRequestLimit   Int               @default(1)
+  aiModel          String
+  features         Json
+  isVisible        Boolean           @default(true)
+  isFree           Boolean           @default(false)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  users            User[]
+  promoCodes       PromoCode[]
 
-  promoCode PromoCode @relation(fields: [promoCodeId], references: [id], onDelete: Restrict)
-  user      User      @relation(fields: [userId], references: [id], onDelete: Restrict)
-
-  @@unique([promoCodeId, userId, ordinal])
-  @@index([promoCodeId, createdAt])
-  @@index([userId, createdAt])
+  @@index([isVisible])
 }
 
-model PaymentOrder {
-  id                      String        @id @default(cuid())
-  userId                  String
-  planId                  String
-  status                  PaymentStatus @default(PENDING)
-  amountVnd               Int
-  transferCode            String        @unique
-  planNameSnapshot        String
-  durationDaysSnapshot    Int?
-  submissionLimitSnapshot Int
-  featureSnapshot         String[]
-  createdAt               DateTime      @default(now())
-  expiresAt               DateTime
-  transferReportedAt      DateTime?
-  approvedAt              DateTime?
-  approvedByAdminId       String?
-  rejectedAt              DateTime?
-  rejectedByAdminId       String?
-  rejectionReason         String?
-
-  user             User  @relation(fields: [userId], references: [id], onDelete: Restrict)
-  plan             Plan  @relation(fields: [planId], references: [id], onDelete: Restrict)
-  approvedByAdmin  User? @relation("PaymentApprovedBy", fields: [approvedByAdminId], references: [id], onDelete: Restrict)
-  rejectedByAdmin  User? @relation("PaymentRejectedBy", fields: [rejectedByAdminId], references: [id], onDelete: Restrict)
-
-  @@index([status, createdAt])
-  @@index([userId, createdAt])
-}
-
-model WritingSubmission {
-  id                 String                  @id
-  idempotencyKey     String
-  userId             String
-  planId             String
-  planNameSnapshot   String
-  featureSnapshot    String[]
-  taskType           WritingTaskType
-  status             WritingSubmissionStatus @default(SUCCEEDED)
-  questionText       String?
-  questionTitle      String
-  normalizedQuestion Json?
-  essayText          String
-  wordCount          Int
-  pipelineSize       Int
-  rubricVersion      String
-  promptVersion      String
-  createdAt          DateTime @default(now())
-
-  user       User                  @relation(fields: [userId], references: [id], onDelete: Restrict)
-  plan       Plan                  @relation(fields: [planId], references: [id], onDelete: Restrict)
-  result     WritingResult?
-  reports    ProblemReport[]
-  creditLedger SubmissionCreditLedger?
-
-  @@unique([userId, idempotencyKey])
-  @@index([userId, createdAt])
-  @@index([planId, createdAt])
-  @@index([taskType, createdAt])
-}
-
-model WritingResult {
-  id                       String   @id @default(cuid())
-  submissionId             String   @unique
-  overallBand              Decimal  @db.Decimal(2, 1)
-  mainIssue                String
-  errors                   Json
-  sentenceImprovements     Json
-  priorityImprovements     Json
-  band7Sample              String
-  improvedEssay            String?
-  detailedCriterionAnalysis Json?
-  nextBandGuidance         Json?
-  verifierMetadata         Json?
-  createdAt                DateTime @default(now())
-
-  submission WritingSubmission        @relation(fields: [submissionId], references: [id], onDelete: Cascade)
-  criteria   WritingCriterionResult[]
-}
-
-model WritingCriterionResult {
-  id                 String  @id @default(cuid())
-  writingResultId    String
-  key                String
-  name               String
-  band               Decimal @db.Decimal(2, 1)
-  summary             String
-  evidence            Json
-  limitingWeaknesses  Json
-
-  writingResult WritingResult @relation(fields: [writingResultId], references: [id], onDelete: Cascade)
-
-  @@unique([writingResultId, key])
-}
-
-model AiCallLog {
-  id                  String          @id @default(cuid())
-  logicalSubmissionId String
-  userId              String
-  planId              String
-  stage               String
-  pipelineSize        Int
-  model               String
-  startedAt           DateTime
-  latencyMs           Int
-  providerStatus      Int?
-  status              AiCallStatus
-  inputTokens         Int?
-  outputTokens        Int?
-  totalTokens         Int?
-  costUsd             Decimal?        @db.Decimal(12, 6)
-  errorCategory       AiErrorCategory?
-  errorCode           String?
-  sanitizedError      String?
-  promptVersion       String
-  rubricVersion       String
-  createdAt           DateTime        @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Restrict)
-  plan Plan @relation(fields: [planId], references: [id], onDelete: Restrict)
-
-  @@index([logicalSubmissionId, startedAt])
-  @@index([status, createdAt])
-  @@index([model, createdAt])
-}
-
-model SubmissionCreditLedger {
-  id               String           @id @default(cuid())
-  userId           String
-  subscriptionId   String?
-  submissionId     String?          @unique
-  bucket           CreditBucket
-  kind             CreditLedgerKind
-  delta            Int
-  balanceAfter     Int
-  reason           String
-  sourceReferenceId String?
-  createdAt        DateTime         @default(now())
-
-  user         User               @relation(fields: [userId], references: [id], onDelete: Restrict)
-  subscription Subscription?      @relation(fields: [subscriptionId], references: [id], onDelete: Restrict)
-  submission   WritingSubmission? @relation(fields: [submissionId], references: [id], onDelete: Restrict)
-
-  @@index([userId, createdAt])
-  @@index([subscriptionId, createdAt])
-}
-
-model VocabularyLevel {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  name        String
-  bandRange   String
-  description String?
-  requiredFeature String?
-  sortOrder   Int      @default(0)
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  topics VocabularyTopic[]
-
-  @@index([isActive, sortOrder])
+model VocabularyGroup {
+  id        String            @id @default(cuid())
+  name      String            @unique
+  sortOrder Int               @default(0)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  topics    VocabularyTopic[]
 }
 
 model VocabularyTopic {
-  id          String   @id @default(cuid())
-  levelId     String
-  slug        String
-  name        String
-  description String?
-  requiredFeature String?
-  sortOrder   Int      @default(0)
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id        String            @id @default(cuid())
+  groupId   String
+  name      String
+  sortOrder Int               @default(0)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  group     VocabularyGroup   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  words     VocabularyWord[]
 
-  level VocabularyLevel @relation(fields: [levelId], references: [id], onDelete: Cascade)
-  words VocabularyWord[]
-
-  @@unique([levelId, slug])
-  @@index([levelId, isActive, sortOrder])
+  @@unique([groupId, name])
+  @@index([groupId])
 }
 
 model VocabularyWord {
-  id                String   @id @default(cuid())
-  topicId           String
-  word              String
-  ipa               String?
-  partOfSpeech      String
-  vietnameseMeaning String
-  collocations      String[] @default([])
-  synonyms          String[] @default([])
-  exampleSentence   String
-  usageNote         String?
-  sortOrder         Int      @default(0)
-  isActive          Boolean  @default(true)
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-
-  topic    VocabularyTopic          @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  progress UserVocabularyProgress[]
+  id          String          @id @default(cuid())
+  topicId     String
+  word        String
+  meaning     String?
+  example     String?
+  translation String?
+  synonyms    String[]        @default([])
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  topic       VocabularyTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
 
   @@unique([topicId, word])
-  @@index([topicId, isActive, sortOrder])
+  @@index([topicId])
 }
 
-model UserVocabularyProgress {
-  id        String                   @id @default(cuid())
+model WritingSubmission {
+  id             String   @id @default(cuid())
+  userId         String
+  taskType       String
+  input          String
+  imageUrl       String?
+  attachmentName String?
+  bandScore      Decimal  @db.Decimal(3, 1)
+  feedback       Json
+  featuresSnapshot Json
+  modelUsed      String
+  createdAt      DateTime @default(now())
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+}
+
+model PromoCode {
+  id        String            @id @default(cuid())
+  code      String            @unique
+  planId    String
+  duration  Int               @default(30)
+  isActive  Boolean           @default(true)
+  maxUses   Int?
+  usedCount Int               @default(0)
+  expiresAt DateTime?
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+  plan      Plan              @relation(fields: [planId], references: [id])
+  redemptions PromoRedemption[]
+
+  @@index([planId])
+}
+
+model PromoRedemption {
+  id        String    @id @default(cuid())
+  promoId   String
   userId    String
-  wordId    String
-  status    VocabularyProgressStatus @default(NOT_STARTED)
-  updatedAt DateTime                 @updatedAt
+  createdAt DateTime  @default(now())
+  promo     PromoCode @relation(fields: [promoId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  user User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  word VocabularyWord @relation(fields: [wordId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, wordId])
-  @@index([userId, status])
+  @@unique([promoId, userId])
+  @@index([userId])
 }
 
-model ProblemReport {
-  id           String                @id @default(cuid())
-  userId       String
-  submissionId String
-  category     ProblemReportCategory
-  message      String?
-  status       ProblemReportStatus   @default(OPEN)
-  createdAt    DateTime              @default(now())
-  updatedAt    DateTime              @updatedAt
-
-  user       User              @relation(fields: [userId], references: [id], onDelete: Restrict)
-  submission WritingSubmission @relation(fields: [submissionId], references: [id], onDelete: Restrict)
-
-  @@index([status, createdAt])
-  @@index([submissionId])
-}
-
-model AdminAuditLog {
+model AIUsage {
   id           String   @id @default(cuid())
-  adminId      String
-  action       String
-  entityType   String
-  entityId     String?
-  beforeJson   Json?
-  afterJson    Json?
-  reason       String?
-  createdAt    DateTime @default(now())
+  userId       String
+  requestCount Int      @default(1)
+  date         DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  admin User @relation("AuditActor", fields: [adminId], references: [id], onDelete: Restrict)
-
-  @@index([adminId, createdAt])
-  @@index([entityType, entityId, createdAt])
+  @@index([userId, date])
 }
 
-model AppSetting {
+model AISetting {
+  id              String   @id @default("default")
+  defaultModel    String
+  encryptedApiKey String?
+  updatedAt       DateTime @updatedAt
+}
+
+model RateLimitBucket {
   key       String   @id
-  value     Json
+  count     Int      @default(0)
+  resetAt   DateTime
   updatedAt DateTime @updatedAt
 }

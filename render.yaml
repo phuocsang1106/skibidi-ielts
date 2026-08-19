@@ -1,27 +1,33 @@
 services:
   - type: web
-    name: skibidi-ielts-v2
+    name: skibidi-ielts
     runtime: node
-    plan: free
-    region: singapore
-    buildCommand: bash scripts/render-build.sh
-    startCommand: npm start
-    healthCheckPath: /
-    autoDeploy: true
+    plan: starter
+    buildCommand: npm install --no-audit --no-fund && npm run build
+    preDeployCommand: npx prisma migrate deploy
+    initialDeployHook: npm run prisma:seed
+    startCommand: npm run start
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
         value: 22.16.0
-      - key: NODE_ENV
-        value: production
       - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
         sync: false
       - key: SESSION_SECRET
         generateValue: true
+      - key: ADMIN_SESSION_SECRET
+        generateValue: true
+      - key: CONFIG_ENCRYPTION_KEY
+        generateValue: true
       - key: OPENROUTER_API_KEY
         sync: false
-      - key: OPENROUTER_BASE_URL
-        value: https://openrouter.ai/api/v1
-      - key: OPENROUTER_MODEL
+      - key: OPENROUTER_SITE_URL
         sync: false
-      - key: APP_URL
+      - key: OPENROUTER_APP_NAME
+        value: Skibidi IELTS
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
         sync: false

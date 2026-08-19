@@ -1,22 +1,17 @@
 import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return clsx(inputs);
+  return twMerge(clsx(inputs));
 }
 
-export function normalizeUsername(value: string) {
-  return value.trim().toLowerCase();
+export function formatPrice(value: number | string) {
+  const amount = typeof value === "string" ? Number(value) : value;
+  if (amount === 0) return "Free";
+  return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND", maximumFractionDigits: 0 }).format(amount);
 }
 
-export function formatVnd(value: number) {
-  return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND", maximumFractionDigits: 0 }).format(value);
-}
-
-export function wordCount(text: string) {
-  const trimmed = text.trim();
-  return trimmed ? trimmed.split(/\s+/u).length : 0;
-}
-
-export function clamp(value: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, value));
+export function formatDate(value: Date | string | null | undefined) {
+  if (!value) return "No expiry";
+  return new Intl.DateTimeFormat("vi-VN", { day: "2-digit", month: "2-digit", year: "numeric" }).format(new Date(value));
 }

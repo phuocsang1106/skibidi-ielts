@@ -1,48 +1,69 @@
-import "server-only";
 import { cookies } from "next/headers";
+import { SignJWT, jwtVerify } from "jose";
 import { redirect } from "next/navigation";
-import { prisma } from "@/lib/db";
-import { keyedSha256, randomToken } from "@/lib/security";
-import type { UserRole } from "@/generated/prisma/client";
+import { prisma } from "@/lib/prisma";
 
-const SESSION_COOKIE = "skibidi_session";
-const SESSION_DAYS = 30;
+const USER_COOKIE = "skibidi_session";
+const ADMIN_COOKIE = "skibidi_admin_session";
+const MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 
-export async function createSession(userId: string) {
-  const token = randomToken();
-  const tokenHash = keyedSha256(token);
-  const expiresAt = new Date(Date.now() + SESSION_DAYS * 24 * 60 * 60 * 1000);
-  await prisma.session.create({ data: { userId, tokenHash, expiresAt } });
-  const jar = await cookies();
-  jar.set(SESSION_COOKIE, token, {
+function secretFor(role: "user" | "admin") {
+  const value = role === "admin" ? process.env.ADMIN_SESSION_SECRET : process.env.SESSION_SECRET;
+  if (!value || value.length < 32) {
+    throw new Error(`${role === "admin" ? "ADMIN_SESSION_SECRET" : "SESSION_SECRET"} must be at least 32 characters.`);
+  }
+  return new TextEncoder().encode(value);
+}
+
+export async function setSession(subject: string, role: "user" | "admin") {
+  const token = await new SignJWT({ role })
+    .setProtectedHeader({ alg: "HS256" })
+    .setSubject(subject)
+    .setIssuedAt()
+    .setExpirationTime(`${MAX_AGE_SECONDS}s`)
+    .sign(secretFor(role));
+
+  const store = await cookies();
+  store.set(role === "admin" ? ADMIN_COOKIE : USER_COOKIE, token, {
     httpOnly: true,
-    sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
     path: "/",
-    expires: expiresAt
+    maxAge: MAX_AGE_SECONDS
   });
 }
 
-export async function destroySession() {
-  const jar = await cookies();
-  const token = jar.get(SESSION_COOKIE)?.value;
-  if (token) await prisma.session.deleteMany({ where: { tokenHash: keyedSha256(token) } });
-  jar.set(SESSION_COOKIE, "", { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/", maxAge: 0 });
+export async function clearSession(role: "user" | "admin") {
+  const store = await cookies();
+  store.set(role === "admin" ? ADMIN_COOKIE : USER_COOKIE, "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: 0
+  });
+}
+
+async function sessionSubject(role: "user" | "admin") {
+  const store = await cookies();
+  const token = store.get(role === "admin" ? ADMIN_COOKIE : USER_COOKIE)?.value;
+  if (!token) return null;
+  try {
+    const verified = await jwtVerify(token, secretFor(role));
+    if (verified.payload.role !== role || !verified.payload.sub) return null;
+    return verified.payload.sub;
+  } catch {
+    return null;
+  }
 }
 
 export async function getCurrentUser() {
-  const jar = await cookies();
-  const token = jar.get(SESSION_COOKIE)?.value;
-  if (!token) return null;
-  const session = await prisma.session.findUnique({
-    where: { tokenHash: keyedSha256(token) },
-    include: { user: { select: { id: true, username: true, normalizedUsername: true, role: true, bonusSubmissionBalance: true } } }
+  const id = await sessionSubject("user");
+  if (!id) return null;
+  return prisma.user.findUnique({
+    where: { id },
+    include: { plan: true }
   });
-  if (!session || session.expiresAt <= new Date()) {
-    if (session) await prisma.session.delete({ where: { id: session.id } }).catch(() => undefined);
-    return null;
-  }
-  return session.user;
 }
 
 export async function requireUser() {
@@ -51,12 +72,14 @@ export async function requireUser() {
   return user;
 }
 
-export async function requireAdmin() {
-  const user = await requireUser();
-  if (user.role !== "ADMIN") redirect("/app/dashboard");
-  return user;
+export async function getCurrentAdmin() {
+  const id = await sessionSubject("admin");
+  if (!id) return null;
+  return prisma.admin.findUnique({ where: { id } });
 }
 
-export function isAdminRole(role: UserRole) {
-  return role === "ADMIN";
+export async function requireAdmin() {
+  const admin = await getCurrentAdmin();
+  if (!admin) redirect("/admin/login");
+  return admin;
 }

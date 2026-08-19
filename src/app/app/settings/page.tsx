@@ -1,4 +1,0 @@
-import { PageHeader } from "@/components/page-header";
-import { requireUser } from "@/lib/auth";
-import { getCreditSummary } from "@/lib/services/credits";
-export default async function SettingsPage(){const user=await requireUser();const credits=await getCreditSummary(user.id);return <><PageHeader title="Settings" description="Account settings and Writing balances."/><div className="grid gap-4 md:grid-cols-2"><section className="surface p-5"><div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Username</div><div className="mt-2 font-medium">{user.username}</div></section><section className="surface p-5"><div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Writing balance</div><div className="mt-2 text-2xl font-semibold">{credits.totalRemaining}</div><div className="mt-1 text-sm text-zinc-500">{credits.planRemaining} plan · {credits.bonusRemaining} bonus submissions</div></section></div></>}

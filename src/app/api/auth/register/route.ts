@@ -1,39 +1,40 @@
-import { hash } from "bcryptjs";
-import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
-import { createSession } from "@/lib/auth";
-import { assertSameOrigin, publicAppUrl } from "@/lib/security";
-import { normalizeUsername } from "@/lib/utils";
-import { snapshotFromPlan } from "@/lib/services/subscriptions";
+import { NextRequest, NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
+import { prisma } from "@/lib/prisma";
+import { registerSchema } from "@/lib/validation";
+import { setSession } from "@/lib/auth";
+import { assertRateLimit, clientAddress } from "@/lib/rate-limit";
 
-function errorRedirect(request: Request, message: string) {
-  const url = publicAppUrl("/register", request); url.searchParams.set("error", message); return NextResponse.redirect(url, 303);
-}
-
-export async function POST(request: Request) {
-  try { assertSameOrigin(request); } catch { return errorRedirect(request, "Invalid request origin."); }
-  const form = await request.formData();
-  const username = String(form.get("username") || "").trim();
-  const normalizedUsername = normalizeUsername(username);
-  const password = String(form.get("password") || "");
-  const confirm = String(form.get("confirmPassword") || "");
-  if (!/^[A-Za-z0-9._-]{3,30}$/.test(username)) return errorRedirect(request, "Username must be 3–30 characters using letters, numbers, dot, underscore or dash.");
-  if (password.length < 8) return errorRedirect(request, "Password must contain at least 8 characters.");
-  if (password !== confirm) return errorRedirect(request, "Passwords do not match.");
-  const freePlan = await prisma.plan.findFirst({ where: { isActive: true, priceVnd: 0, visibility: { in: ["PUBLIC", "HIDDEN"] } }, orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] });
-  if (!freePlan) return errorRedirect(request, "Registration is temporarily unavailable because no free plan is configured.");
+export async function POST(request: NextRequest) {
   try {
-    const passwordHash = await hash(password, 12);
-    const user = await prisma.$transaction(async (tx) => {
-      const created = await tx.user.create({ data: { username, normalizedUsername, passwordHash } });
-      const snap = snapshotFromPlan(freePlan, 0);
-      await tx.subscription.create({ data: { userId: created.id, ...snap, source: "FREE", status: "ACTIVE", remainingPlanSubmissions: snap.submissionLimitSnapshot, startsAt: new Date(), expiresAt: snap.durationDaysSnapshot == null ? null : new Date(Date.now() + snap.durationDaysSnapshot * 86400000) } });
-      return created;
+    await assertRateLimit("register", clientAddress(request.headers), 8, 15 * 60);
+    const parsed = registerSchema.safeParse(await request.json());
+    if (!parsed.success) return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "Invalid input." }, { status: 400 });
+
+    const username = parsed.data.username.toLowerCase();
+    const existing = await prisma.user.findUnique({ where: { username }, select: { id: true } });
+    if (existing) return NextResponse.json({ error: "Username is already taken." }, { status: 409 });
+
+    const freePlan = await prisma.plan.findFirst({ where: { isFree: true, isVisible: true }, orderBy: { createdAt: "asc" } });
+    if (!freePlan) return NextResponse.json({ error: "Free plan is not configured." }, { status: 503 });
+
+    const passwordHash = await bcrypt.hash(parsed.data.password, 12);
+    const user = await prisma.user.create({
+      data: {
+        username,
+        passwordHash,
+        planId: freePlan.id,
+        planStartedAt: new Date(),
+        planExpireDate: null
+      },
+      select: { id: true }
     });
-    await createSession(user.id);
-    return NextResponse.redirect(publicAppUrl("/app/dashboard", request), 303);
+
+    await setSession(user.id, "user");
+    return NextResponse.json({ ok: true }, { status: 201 });
   } catch (error) {
-    const code = typeof error === "object" && error && "code" in error ? String((error as { code: unknown }).code) : "";
-    return errorRedirect(request, code === "P2002" ? "That username is already taken." : "Could not create the account. Please try again.");
+    const status = typeof error === "object" && error && "status" in error ? Number(error.status) : 500;
+    console.error("register_error", error);
+    return NextResponse.json({ error: status === 429 ? "Too many attempts. Try again later." : "Could not create account." }, { status });
   }
 }

@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
-import { destroySession } from "@/lib/auth";
-import { assertSameOrigin, publicAppUrl } from "@/lib/security";
+import { clearSession } from "@/lib/auth";
 
-export async function POST(request: Request) {
-  try { assertSameOrigin(request); } catch { return new NextResponse("Invalid origin", { status: 403 }); }
-  await destroySession();
-  return NextResponse.redirect(publicAppUrl("/", request), 303);
+export async function POST() {
+  await clearSession("user");
+  return NextResponse.json({ ok: true });
 }

@@ -1,32 +1,26 @@
-import { compare } from "bcryptjs";
-import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
-import { createSession } from "@/lib/auth";
-import { assertSameOrigin, publicAppUrl, requestIp } from "@/lib/security";
-import { normalizeUsername } from "@/lib/utils";
-import { assertLoginAllowed, clearLoginFailures, recordLoginFailure } from "@/lib/rate-limit";
+import { NextRequest, NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
+import { prisma } from "@/lib/prisma";
+import { credentialsSchema } from "@/lib/validation";
+import { setSession } from "@/lib/auth";
+import { assertRateLimit, clientAddress } from "@/lib/rate-limit";
 
-function errorRedirect(request: Request, message: string) {
-  const url = publicAppUrl("/login", request);
-  url.searchParams.set("error", message);
-  return NextResponse.redirect(url, 303);
-}
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const parsed = credentialsSchema.safeParse(body);
+    if (!parsed.success) return NextResponse.json({ error: "Invalid username or password." }, { status: 400 });
 
-export async function POST(request: Request) {
-  try { assertSameOrigin(request); } catch { return errorRedirect(request, "Invalid request origin."); }
-  const form = await request.formData();
-  const username = String(form.get("username") || "");
-  const password = String(form.get("password") || "");
-  const normalizedUsername = normalizeUsername(username);
-  const ip = requestIp(request.headers);
-  try { await assertLoginAllowed(ip, normalizedUsername); } catch { return errorRedirect(request, "Too many login attempts. Try again later."); }
-  const user = await prisma.user.findUnique({ where: { normalizedUsername } });
-  const valid = user ? await compare(password, user.passwordHash) : false;
-  if (!user || !valid) {
-    await recordLoginFailure(ip, normalizedUsername, user?.id);
-    return errorRedirect(request, "Invalid username or password.");
+    await assertRateLimit("login", `${clientAddress(request.headers)}:${parsed.data.username.toLowerCase()}`, 10, 15 * 60);
+    const user = await prisma.user.findUnique({ where: { username: parsed.data.username.toLowerCase() } });
+    const valid = user ? await bcrypt.compare(parsed.data.password, user.passwordHash) : false;
+    if (!user || !valid) return NextResponse.json({ error: "Invalid username or password." }, { status: 401 });
+
+    await setSession(user.id, "user");
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    const status = typeof error === "object" && error && "status" in error ? Number(error.status) : 500;
+    console.error("login_error", error);
+    return NextResponse.json({ error: status === 429 ? "Too many attempts. Try again later." : "Could not sign in." }, { status });
   }
-  await clearLoginFailures(ip, normalizedUsername);
-  await createSession(user.id);
-  return NextResponse.redirect(publicAppUrl(user.role === "ADMIN" ? "/admin" : "/app/dashboard", request), 303);
 }

@@ -1,49 +1,30 @@
-import { prisma } from "@/lib/db";
-import { keyedSha256 } from "@/lib/security";
-import { withSerializableRetry } from "@/lib/transactions";
+import { createHash } from "crypto";
+import { prisma } from "@/lib/prisma";
 
-const WINDOW_MS = 15 * 60 * 1000;
-const MAX_ATTEMPTS = 5;
-const BLOCK_MS = 15 * 60 * 1000;
+export async function assertRateLimit(namespace: string, rawKey: string, limit: number, windowSeconds: number) {
+  const key = createHash("sha256").update(`${namespace}:${rawKey}`).digest("hex");
+  const now = new Date();
+  const resetAt = new Date(now.getTime() + windowSeconds * 1000);
 
-function rateKey(ip: string, normalizedUsername: string) {
-  return keyedSha256(`login:${ip}:${normalizedUsername}`);
-}
+  const bucket = await prisma.$transaction(async (tx) => {
+    const existing = await tx.rateLimitBucket.findUnique({ where: { key } });
+    if (!existing || existing.resetAt <= now) {
+      return tx.rateLimitBucket.upsert({
+        where: { key },
+        create: { key, count: 1, resetAt },
+        update: { count: 1, resetAt }
+      });
+    }
+    return tx.rateLimitBucket.update({ where: { key }, data: { count: { increment: 1 } } });
+  });
 
-export async function assertLoginAllowed(ip: string, normalizedUsername: string) {
-  const key = rateKey(ip, normalizedUsername);
-  const record = await prisma.loginRateLimit.findUnique({ where: { key } });
-  if (!record) return;
-  if (record.blockedUntil && record.blockedUntil > new Date()) {
-    throw new Error("LOGIN_RATE_LIMITED");
+  if (bucket.count > limit) {
+    const error = new Error("Too many requests. Please try again later.");
+    Object.assign(error, { status: 429 });
+    throw error;
   }
 }
 
-export async function recordLoginFailure(ip: string, normalizedUsername: string, userId?: string) {
-  const key = rateKey(ip, normalizedUsername);
-  const now = new Date();
-  await withSerializableRetry(async (tx) => {
-    const current = await tx.loginRateLimit.findUnique({ where: { key } });
-    if (!current || now.getTime() - current.windowStart.getTime() > WINDOW_MS) {
-      await tx.loginRateLimit.upsert({
-        where: { key },
-        update: { attemptCount: 1, windowStart: now, blockedUntil: null, userId: userId || null },
-        create: { key, attemptCount: 1, windowStart: now, userId: userId || null }
-      });
-      return;
-    }
-    const attempts = current.attemptCount + 1;
-    await tx.loginRateLimit.update({
-      where: { key },
-      data: {
-        attemptCount: attempts,
-        userId: userId || current.userId,
-        blockedUntil: attempts >= MAX_ATTEMPTS ? new Date(now.getTime() + BLOCK_MS) : current.blockedUntil
-      }
-    });
-  });
-}
-
-export async function clearLoginFailures(ip: string, normalizedUsername: string) {
-  await prisma.loginRateLimit.deleteMany({ where: { key: rateKey(ip, normalizedUsername) } });
+export function clientAddress(headers: Headers) {
+  return headers.get("x-forwarded-for")?.split(",")[0]?.trim() || headers.get("x-real-ip") || "unknown";
 }

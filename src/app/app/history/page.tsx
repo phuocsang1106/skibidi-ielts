@@ -1,7 +1,0 @@
-import Link from "next/link";
-import { PageHeader } from "@/components/page-header";
-import { EmptyState } from "@/components/empty-state";
-import { requireUser } from "@/lib/auth";
-import { prisma } from "@/lib/db";
-
-export default async function HistoryPage(){const user=await requireUser();const rows=await prisma.writingSubmission.findMany({where:{userId:user.id},orderBy:{createdAt:"desc"},include:{result:{select:{overallBand:true}}}});return <><PageHeader title="Writing History" description="Task 1 and Task 2 results together."/>{rows.length?<div className="surface divide-y divide-zinc-100">{rows.map(row=><Link href={`/app/history/${row.id}`} className="flex items-center gap-4 p-4 sm:p-5" key={row.id}><div className="min-w-0 flex-1"><div className="text-xs font-semibold uppercase tracking-wide text-zinc-400">{row.taskType==="TASK_1"?"Task 1":"Task 2"}</div><div className="mt-1 truncate font-medium">{row.questionTitle}</div><div className="mt-1 text-xs text-zinc-500">{row.createdAt.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})} • {row.wordCount} words</div></div><div className="shrink-0 text-sm font-semibold">BAND <span className="text-red-600">{row.result?.overallBand.toFixed(1)}</span></div></Link>)}</div>:<EmptyState title="No Writing history" description="Submit Task 1 or Task 2 and your result will appear here." action={<Link href="/app/writing" className="btn btn-primary">Start Writing</Link>}/>}</>}
