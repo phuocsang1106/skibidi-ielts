@@ -1,76 +1,146 @@
 "use client";
 
 import { useState } from "react";
-import type { FinalWritingResult } from "@/lib/ai/schemas";
 
-export function ResultTabs({ result }: { result: FinalWritingResult }) {
-  const tabs = ["Overview", "Criteria", "Errors", ...(result.improvedEssay ? ["Improved Essay"] : []), "Band 7 Sample"];
-  const [active, setActive] = useState("Overview");
-  const taskLabel = result.taskType === "TASK_1" ? "TA" : "TR";
-  const taskFull = result.taskType === "TASK_1" ? "Task Achievement" : "Task Response";
-  const c = result.criteria;
+type Criterion = { key: string; name: string; band: string; summary: string; evidence: unknown; limitingWeaknesses: unknown };
+type ErrorItem = { original?: string; issue?: string; correction?: string; explanation?: string };
+type SentenceImprovement = { original?: string; improved?: string; why?: string };
+type Props = {
+  overallBand: string;
+  mainIssue: string;
+  criteria: Criterion[];
+  errors: ErrorItem[];
+  sentenceImprovements: SentenceImprovement[];
+  priorityImprovements: string[];
+  band7Sample: string;
+  improvedEssay: string | null;
+  detailedCriterionAnalysis: Record<string, string> | null;
+  nextBandGuidance: string[];
+  features: string[];
+};
+
+export function ResultTabs(props: Props) {
+  const tabs = [
+    "Overview",
+    ...(props.features.includes("CRITERIA_BREAKDOWN") ? ["Criteria"] : []),
+    ...(props.features.includes("ERROR_ANALYSIS") || props.features.includes("SENTENCE_IMPROVEMENTS") ? ["Errors"] : []),
+    ...(props.features.includes("IMPROVED_ESSAY") && props.improvedEssay ? ["Improved Essay"] : []),
+    ...(props.features.includes("BAND7_SAMPLE") && props.band7Sample ? ["Band 7 Sample"] : [])
+  ];
+  const [active, setActive] = useState(tabs[0] || "Overview");
 
   return (
-    <div className="result-v7">
-      <div className="result-tabs-v7" role="tablist">
+    <div>
+      <div role="tablist" aria-label="Writing result sections" className="mb-5 flex gap-1 overflow-x-auto border-b border-zinc-200">
         {tabs.map((tab) => (
-          <button key={tab} type="button" role="tab" aria-selected={active === tab} onClick={() => setActive(tab)} className={active === tab ? "active" : ""}>{tab}</button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={active === tab}
+            key={tab}
+            onClick={() => setActive(tab)}
+            className={`focus-ring shrink-0 border-b-2 px-3 py-2.5 text-sm font-medium ${active === tab ? "border-zinc-900 text-zinc-950" : "border-transparent text-zinc-500"}`}
+          >
+            {tab}
+          </button>
         ))}
       </div>
 
-      <div className="result-v7-body">
-        {active === "Overview" && (
-          <div className="result-v7-stack">
-            <section className="result-score-card">
-              <div className="result-score-main"><span className="result-band-number">{result.estimatedOverallBand.toFixed(1)}</span><span className="result-band-label">Band</span></div>
-              <div className="result-criteria-grid">
-                {[[taskLabel, c.taskCriterion.band], ["CC", c.coherenceCohesion.band], ["LR", c.lexicalResource.band], ["GRA", c.grammaticalRangeAccuracy.band]].map(([label, band]) => (
-                  <div className="result-criterion" key={String(label)}><span>{label}</span><strong>{Number(band).toFixed(1)}</strong></div>
-                ))}
+      {active === "Overview" ? (
+        <div className="grid gap-4 lg:grid-cols-[220px_1fr]">
+          <div className="surface p-6">
+            <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Band</div>
+            <div className="mt-2 text-5xl font-semibold text-red-600">{props.features.includes("BAND_SCORE") ? props.overallBand : "—"}</div>
+          </div>
+          <div className="space-y-4">
+            <div className="surface p-5">
+              <h2 className="font-semibold">Main issue</h2>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">{props.mainIssue}</p>
+            </div>
+            {props.features.includes("CRITERIA_BREAKDOWN") ? (
+              <div className="surface p-5">
+                <h2 className="font-semibold">Criterion overview</h2>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {props.criteria.map((criterion) => (
+                    <div key={criterion.key} className="rounded-xl border border-zinc-200 p-3">
+                      <div className="flex items-center justify-between gap-3">
+                        <span className="text-sm font-medium">{criterion.name}</span>
+                        <span className="font-semibold text-red-600">{criterion.band}</span>
+                      </div>
+                      <p className="mt-1 line-clamp-2 text-xs leading-5 text-zinc-500">{criterion.summary}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </section>
-            <section className="result-content-card">
-              <h3>Main issue</h3>
-              <p>{result.mainIssue}</p>
-              <h3>Priority improvements</h3>
-              <ol>{result.priorityImprovements.map((item) => <li key={item}>{item}</li>)}</ol>
-              {result.nextBandGuidance && <><h3>Next-band guidance</h3><ul>{result.nextBandGuidance.map((item) => <li key={item}>{item}</li>)}</ul></>}
-            </section>
+            ) : null}
+            {props.features.includes("PRIORITY_IMPROVEMENTS") ? (
+              <div className="surface p-5">
+                <h2 className="font-semibold">Priority improvements</h2>
+                <ol className="mt-3 space-y-2 text-sm text-zinc-600">{props.priorityImprovements.map((item, index) => <li key={index}>{index + 1}. {item}</li>)}</ol>
+              </div>
+            ) : null}
+            {props.features.includes("NEXT_BAND_GUIDANCE") && props.nextBandGuidance.length ? (
+              <div className="surface p-5">
+                <h2 className="font-semibold">Next-band guidance</h2>
+                <ul className="mt-3 space-y-2 text-sm text-zinc-600">{props.nextBandGuidance.map((item, index) => <li key={index}>• {item}</li>)}</ul>
+              </div>
+            ) : null}
           </div>
-        )}
+        </div>
+      ) : null}
 
-        {active === "Criteria" && (
-          <div className="result-v7-stack">
-            {[[taskFull, c.taskCriterion, result.detailedCriterionAnalysis?.taskCriterion], ["Coherence & Cohesion", c.coherenceCohesion, result.detailedCriterionAnalysis?.coherenceCohesion], ["Lexical Resource", c.lexicalResource, result.detailedCriterionAnalysis?.lexicalResource], ["Grammatical Range & Accuracy", c.grammaticalRangeAccuracy, result.detailedCriterionAnalysis?.grammaticalRangeAccuracy]].map(([name, criterion, detail]) => {
-              const x = criterion as typeof c.taskCriterion;
-              return (
-                <section className="result-content-card" key={String(name)}>
-                  <div className="result-section-head"><h3>{String(name)}</h3><strong className="band-red">{x.band.toFixed(1)}</strong></div>
-                  <p>{x.summary}</p>
-                  {detail && <p className="result-detail-copy">{String(detail)}</p>}
-                  <div className="result-two-col"><div><h4>Evidence</h4><ul>{x.evidence.map((e) => <li key={e}>{e}</li>)}</ul></div><div><h4>Key weaknesses</h4><ul>{x.keyWeaknesses.map((e) => <li key={e}>{e}</li>)}</ul></div></div>
-                </section>
-              );
-            })}
-          </div>
-        )}
-
-        {active === "Errors" && (
-          <div className="result-v7-stack">
-            {result.errors.length ? result.errors.map((item, index) => (
-              <article className="result-content-card" key={`${index}-${item.original}`}>
-                <div className="result-error-type">{item.issue}</div>
-                <div className="result-error-grid"><div><span>Original</span><p>{item.original}</p></div><div><span>Correction</span><p>{item.correction}</p></div></div>
-                <div className="result-explanation"><span>Explanation</span><p>{item.explanation}</p></div>
+      {active === "Criteria" ? (
+        <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2">
+            {props.criteria.map((criterion) => (
+              <article className="surface p-5" key={criterion.key}>
+                <div className="flex items-center justify-between gap-3"><h2 className="font-semibold">{criterion.name}</h2><div className="text-lg font-semibold text-red-600">{criterion.band}</div></div>
+                <p className="mt-3 text-sm leading-6 text-zinc-600">{criterion.summary}</p>
+                {Array.isArray(criterion.evidence) && criterion.evidence.length > 0 ? (
+                  <div className="mt-4"><div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Evidence</div><ul className="mt-2 space-y-1 text-sm text-zinc-600">{criterion.evidence.map((evidence, index) => <li key={index}>• {String(evidence)}</li>)}</ul></div>
+                ) : null}
+                {Array.isArray(criterion.limitingWeaknesses) && criterion.limitingWeaknesses.length > 0 ? (
+                  <div className="mt-4"><div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Limiting weaknesses</div><ul className="mt-2 space-y-1 text-sm text-zinc-600">{criterion.limitingWeaknesses.map((weakness, index) => <li key={index}>• {String(weakness)}</li>)}</ul></div>
+                ) : null}
               </article>
-            )) : <div className="result-content-card">No specific errors were returned for this submission.</div>}
-            <section className="result-content-card"><h3>Sentence improvements</h3><div className="sentence-list">{result.sentenceImprovements.map((item, index) => <div key={`${index}-${item.original}`}><p><strong>Original:</strong> {item.original}</p><p><strong>Improved:</strong> {item.improved}</p><p className="muted">{item.reason}</p></div>)}</div></section>
+            ))}
           </div>
-        )}
+          {props.features.includes("DETAILED_CRITERION_ANALYSIS") && props.detailedCriterionAnalysis ? (
+            <article className="surface p-5">
+              <h2 className="font-semibold">Detailed criterion analysis</h2>
+              <div className="mt-4 grid gap-4 md:grid-cols-2">{Object.entries(props.detailedCriterionAnalysis).map(([key, value]) => <div key={key}><div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">{key.replaceAll("_", " ")}</div><p className="mt-1 text-sm leading-6 text-zinc-600">{value}</p></div>)}</div>
+            </article>
+          ) : null}
+        </div>
+      ) : null}
 
-        {active === "Improved Essay" && result.improvedEssay && <section className="result-content-card"><h3>Improved version of your essay</h3><div className="result-long-copy">{result.improvedEssay}</div></section>}
-        {active === "Band 7 Sample" && <section className="result-content-card"><h3>Band 7 sample answer</h3><div className="result-long-copy">{result.band7Sample}</div></section>}
-      </div>
+      {active === "Errors" ? (
+        <div className="space-y-4">
+          {props.features.includes("ERROR_ANALYSIS") ? (
+            <div className="space-y-3">
+              {props.errors.length ? props.errors.map((error, index) => (
+                <article className="surface p-5" key={index}>
+                  <div className="text-sm font-medium text-zinc-900">{error.original || "—"}</div>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-3">
+                    <div><div className="text-xs font-semibold text-zinc-400">Issue</div><p className="mt-1 text-sm text-zinc-600">{error.issue}</p></div>
+                    <div><div className="text-xs font-semibold text-zinc-400">Correction</div><p className="mt-1 text-sm text-zinc-600">{error.correction}</p></div>
+                    <div><div className="text-xs font-semibold text-zinc-400">Why</div><p className="mt-1 text-sm text-zinc-600">{error.explanation}</p></div>
+                  </div>
+                </article>
+              )) : <div className="surface p-6 text-sm text-zinc-500">No major errors were returned for this submission.</div>}
+            </div>
+          ) : null}
+          {props.features.includes("SENTENCE_IMPROVEMENTS") && props.sentenceImprovements.length ? (
+            <article className="surface p-5">
+              <h2 className="font-semibold">Sentence improvements</h2>
+              <div className="mt-4 space-y-4">{props.sentenceImprovements.map((item, index) => <div key={index} className="border-b border-zinc-100 pb-4 last:border-0 last:pb-0"><p className="text-sm text-zinc-500 line-through">{item.original}</p><p className="mt-1 text-sm font-medium text-zinc-900">{item.improved}</p><p className="mt-1 text-xs leading-5 text-zinc-500">{item.why}</p></div>)}</div>
+            </article>
+          ) : null}
+        </div>
+      ) : null}
+
+      {active === "Improved Essay" ? <article className="surface whitespace-pre-wrap p-6 text-sm leading-7 text-zinc-700">{props.improvedEssay}</article> : null}
+      {active === "Band 7 Sample" ? <article className="surface whitespace-pre-wrap p-6 text-sm leading-7 text-zinc-700">{props.band7Sample}</article> : null}
     </div>
   );
 }

@@ -1,10 +1,7 @@
 import Link from "next/link";
-import { AuthForm } from "@/components/auth-form";
-import { registerAction } from "@/lib/auth/actions";
-import { getCurrentUser } from "@/lib/auth/session";
-import { redirect } from "next/navigation";
+import { Brand } from "@/components/brand";
 
-export default async function RegisterPage() {
-  if (await getCurrentUser()) redirect("/app");
-  return <main className="container-page flex min-h-screen flex-col items-center justify-center py-12"><Link href="/" className="mb-8 font-semibold">Skibidi IELTS</Link><AuthForm mode="register" action={registerAction} /></main>;
+export default async function RegisterPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  const { error } = await searchParams;
+  return <main className="grid min-h-screen place-items-center px-4 py-10"><div className="w-full max-w-sm"><div className="mb-8 text-center"><Brand/></div><div className="surface p-6 sm:p-7"><h1 className="text-xl font-semibold">Create account</h1><p className="mt-1 text-sm text-zinc-500">Username and password only.</p>{error&&<p role="alert" className="mt-4 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}<form action="/api/auth/register" method="post" className="mt-5 space-y-4"><div><label className="label" htmlFor="username">Username</label><input className="input" id="username" name="username" autoComplete="username" minLength={3} maxLength={30} required/></div><div><label className="label" htmlFor="password">Password</label><input className="input" id="password" name="password" type="password" autoComplete="new-password" minLength={8} required/></div><div><label className="label" htmlFor="confirmPassword">Confirm password</label><input className="input" id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password" minLength={8} required/></div><button className="btn btn-primary w-full">Create account</button></form><p className="mt-5 text-center text-sm text-zinc-500">Already have an account? <Link className="font-semibold text-zinc-900" href="/login">Log in</Link></p></div></div></main>;
 }

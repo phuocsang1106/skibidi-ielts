@@ -1,10 +1,7 @@
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
-import path from "node:path";
 
 export default defineConfig({
-  resolve: { alias: { "@": path.resolve(process.cwd(), "src") } },
-  test: {
-    environment: "jsdom",
-    setupFiles: ["./tests/setup.ts"]
-  }
+  resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) } },
+  test: { environment: "node", setupFiles: ["./tests/setup.ts"], clearMocks: true }
 });

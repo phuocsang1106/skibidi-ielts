@@ -1,248 +1,305 @@
-# Skibidi IELTS
+# Skibidi IELTS V2
 
-Production-oriented MVP for learners progressing from approximately IELTS Band 3.5 to 6.5+. The application focuses on two products: Reading-oriented vocabulary and AI-assisted IELTS Academic Writing feedback.
+Clean production-oriented rebuild of Skibidi IELTS for IELTS Vocabulary and AI-assisted IELTS Writing Task 1/Task 2 grading.
 
-The implementation intentionally avoids generic SaaS decoration: no gradients, gamification, testimonials, fake statistics, chatbots, social login, or unnecessary dashboards.
+This codebase intentionally does **not** preserve the old Gemini-specific provider architecture, hard-coded plan names or compatibility wrappers. OpenRouter is the provider boundary; plans, features, quotas, pipeline size and model IDs are data-driven.
 
 ## Stack
 
 - Next.js App Router + React + strict TypeScript
 - Tailwind CSS
-- PostgreSQL
-- Prisma ORM with the PostgreSQL driver adapter
-- Username/password authentication with Argon2id
-- Database-backed HTTP-only sessions
-- Gemini behind a `GradingProvider` abstraction
-- Zod validation for requests and AI JSON output
-- Vitest + Testing Library scaffolding
+- PostgreSQL / Neon
+- Prisma ORM with PostgreSQL driver adapter
+- OpenRouter for all AI calls
+- Zod structured-output validation
+- Vitest
+- Render deployment
 
-## Implemented MVP flows
-
-### Authentication
-
-- Register using username, password, and password confirmation
-- Case-insensitive unique usernames using a normalized username column
-- No email, Google login, email verification, or forgot-password flow
-- Argon2id password hashes
-- Login rate limiting
-- HTTP-only, SameSite session cookies
-- User and Admin roles with server-side route/action authorization
-- Change password and log out
-- Admin password reset
-
-### Vocabulary
-
-- Level 1: IELTS 3.5 -> 5.0 learner path
-- Level 2: IELTS 5.0 -> 6.5 learner path
-- 12 core topics and 6 additional topics per level
-- Independent progress by level and word
-- `NOT_LEARNED`/`LEARNED` behavior through a boolean progress record
-- All / Not learned / Learned filters
-- Topic search
-- Compact responsive word UI and details
-- British-English browser speech synthesis behind stored audio-provider metadata
-- Full access for Free and Pro
-- Admin topic/vocabulary CRUD
-- Idempotent seed architecture with global normalized-lemma deduplication
-
-The included seed is deliberately a **starter curated dataset**, not the final full 45-75/35-60 words-per-topic content pack. Expand it before a public content-complete launch; the schema, admin CRUD, deduplication, and per-topic limits are already in place.
-
-### IELTS Writing
-
-- Academic Task 1 and Task 2
-- Separate question and Writing uploads
-- 5 MB limit per file
-- Question: JPG/JPEG/PNG/WebP/PDF
-- Writing: JPG/JPEG/PNG/WebP/PDF/TXT/DOCX
-- Direct essay editor with live word count
-- Direct Task 2 question text
-- Original uploads are processed in request memory and are never persisted as blobs/files
-- TXT/DOCX text is extracted server-side; image/PDF content is passed to the multimodal provider
-- Extracted question text, structured Task 1 data, essay text, scores, feedback, and metadata are persisted
-
-The grading pipeline is split into distinct stages:
-
-1. input extraction / Task 1 visual interpretation
-2. four independent IELTS criterion scores
-3. verification pass that checks generosity, harshness, inconsistency, and prompt misunderstanding
-4. Band 7 sample generation
-5. Pro-only detailed analysis, improved essay, and next-band guidance
-
-All model responses are requested as structured JSON and validated again with Zod before persistence. User-facing scores are labeled as estimated results, not official IELTS results.
-
-### Writing quota and entitlement rules
-
-- Free: 3 successful evaluations per 30-day Free cycle
-- Pro: 10 successful evaluations per 30-day Pro cycle
-- Pro price: 50,000 VND / 30 days
-- Quota is reserved before expensive grading and consumed only in the transaction that persists a successful completed result
-- Failed upload/extraction/model/validation/unreadable-image cases release the reservation and do not consume quota
-- PostgreSQL advisory locks plus reservation counting prevent concurrent submissions from bypassing quota
-- Reopening history never consumes quota
-- Early Pro renewals append a new 30-day period after the currently scheduled Pro expiry instead of discarding remaining time
-- Expired Pro returns to a fresh Free cycle; existing Writing history and generated Pro feedback remain stored
-
-### Manual Pro payment
-
-- Unique transfer code per payment order
-- PENDING -> AWAITING_VERIFICATION after the user says the transfer is complete
-- That user action never activates Pro
-- Admin confirm -> PAID + Pro activation/extension in a database transaction
-- Admin reject support
-- Admin can grant/extend/revoke Pro and set a custom expiry
-- Bank/QR configuration may be stored as safe app settings or initialized via environment variables
-- Secrets stay in environment variables
-
-### Admin
-
-- Users and plan/quota information
-- Manual Pro controls and password reset
-- Payments and confirmation/rejection
-- Vocabulary CRUD
-- Writing API-usage summary
-- Learner problem reports with OPEN/REVIEWED/RESOLVED state
-
-## Project structure
+## Repository map
 
 ```text
-prisma/
-  schema.prisma        Database schema
-  seed.ts              Idempotent starter vocabulary seed
-scripts/
-  promote-admin.ts     Secure CLI admin promotion
-src/app/               App Router pages and route handlers
-src/components/        Reusable accessible UI components
-src/lib/auth/          Authentication/session/rate limiting
-src/lib/ai/            GradingProvider + Gemini implementation + schemas
-src/lib/entitlements/  Free/Pro cycles and quota reservation/consumption
-src/lib/files/         Upload validation and temporary extraction
-src/lib/payments/      Manual QR order + Pro period business logic
-src/lib/vocabulary/    Vocabulary queries/progress
-src/lib/writing/       Grading orchestration, reports, band calculation
- tests/evaluation/     Calibration fixture format
+src/app/                 App Router pages and route handlers
+src/actions/             authenticated Admin Server Actions
+src/components/          learner/admin UI
+src/lib/ai/              OpenRouter client, schemas, rubric and runtime pipelines
+src/lib/services/        domain services and transaction boundaries
+prisma/schema.prisma     relational schema
+prisma/migrations/       production migrations
+prisma/seed.ts           idempotent starter records
+scripts/                 safe Admin maintenance scripts
+tests/                   unit/contract tests
+docs/                    architecture, route map and official IELTS source PDF
+render.yaml              Render blueprint
 ```
 
-## Local setup
+See `docs/ARCHITECTURE.md` for the service boundaries and quota/pipeline transaction model.
+See `VALIDATION.md` for the exact validation commands that were run in the delivery environment and the dependency/network blocker that prevented a certified production build.
 
-Requirements: Node.js 22+, npm, and PostgreSQL.
+## Official IELTS Writing rubric
 
-```bash
-npm install
-cp .env.example .env
-```
+The supplied **IELTS Writing Band Descriptors — Updated May 2023** is retained at:
 
-Create a PostgreSQL database and update `DATABASE_URL` in `.env`.
+`docs/ielts_writing_band_descriptors_may_2023.pdf`
 
-Generate the Prisma client and create the first migration:
+The backend canonical representation is versioned as `IELTS_WRITING_MAY_2023` in `src/lib/ai/rubric.ts`. Task 1 uses Task Achievement + Coherence & Cohesion + Lexical Resource + Grammatical Range & Accuracy. Task 2 uses Task Response + the same other three criteria.
 
-```bash
-npm run db:generate
-npm run db:migrate -- --name init
-npm run db:seed
-```
-
-Run development mode:
-
-```bash
-npm run dev
-```
-
-Production validation/build:
-
-```bash
-npm run audit:static
-npm run typecheck
-npm run test
-npm run lint
-npm run build
-```
-
-For production migrations use:
-
-```bash
-npm run db:deploy
-```
+The examiner must score criteria independently. Multi-request pipelines allow the verifier to raise or lower the provisional bands. Feedback stages do not have band fields and cannot silently rewrite a verified score.
 
 ## Environment variables
 
-See `.env.example`.
+Copy `.env.example` to `.env`.
+
+Required in production:
 
 ```dotenv
-DATABASE_URL=
-SESSION_SECRET=
-GEMINI_API_KEY=
-GEMINI_MODEL=gemini-3.7-flash
-APP_URL=
-BANK_NAME=
-BANK_ACCOUNT_NUMBER=
-BANK_ACCOUNT_HOLDER=
-BANK_QR_IMAGE_URL=
-PRO_PRICE_VND=50000
+DATABASE_URL=postgresql://...
+SESSION_SECRET=<long random secret>
+OPENROUTER_API_KEY=sk-or-...
+OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
+OPENROUTER_MODEL=google/gemini-3.7-flash
+APP_URL=https://your-app.example
 ```
 
-Generate a long random `SESSION_SECRET`; never commit real secrets.
+`OPENROUTER_MODEL` is only a fallback. Normal model selection is:
 
-`GEMINI_MODEL` is configuration, not business logic. The application code only depends on the `GradingProvider` interface, so the provider/model can be changed later without rewriting Writing pages, quota, history, or payment logic.
+1. per-stage `PlanAIConfig` override;
+2. `Plan.defaultModel`;
+3. `OPENROUTER_MODEL`.
 
-## Gemini setup
+API keys, passwords and session secrets are never stored in plan records.
 
-1. Create an API key in Google AI Studio / the Gemini Developer API.
-2. Put it in `GEMINI_API_KEY`.
-3. Keep `GEMINI_MODEL` set to a currently supported multimodal Flash model. The repository defaults to `gemini-3.7-flash` as of August 2026.
-4. Do not expose the API key in any `NEXT_PUBLIC_*` variable.
+## Local setup
 
-Free-tier limits are controlled by Google and may change, so check the current Gemini pricing/rate-limit pages before public launch.
-
-## Bank QR setup
-
-For the simplest MVP, set the bank fields in `.env`. `BANK_QR_IMAGE_URL` should point to a QR image you are legally allowed to serve. The payment page also shows the exact amount and generated transfer content.
-
-The database `AppSetting` model can later hold safe runtime configuration such as bank name, account number, holder, QR URL, and Pro price. API keys must remain environment-only.
-
-## Create the first Admin
-
-There is intentionally no public Create Admin page.
-
-1. Register a normal account in the app.
-2. Run:
+Prerequisites: Node 22+, npm, and a PostgreSQL/Neon database intended for V2.
 
 ```bash
-npm run admin:promote -- your_username
+cp .env.example .env
+npm install
+npm run db:generate
+npm run db:migrate
+npm run db:seed
+npm run dev
 ```
 
-The script finds the normalized username and changes its role to `ADMIN` server-side.
+Do **not** point V2 at the old production database for initial development. Start with a fresh Neon database/schema/environment. The project never runs `prisma db push` in production.
 
-## Privacy behavior
+## Neon setup
 
-Writing content may be sent to the configured AI provider to generate feedback. Uploaded originals are processed temporarily and are not retained after processing. The app stores extracted question text, structured Task 1 data where relevant, essay text, and generated feedback in Writing History. Usernames are not included in grading prompts.
+1. Create a separate Neon project/database for V2.
+2. Copy the PostgreSQL connection string into `DATABASE_URL`.
+3. Run `npm run db:deploy` on deployed environments, or `npm run db:migrate` during local development.
+4. Run `npm run db:seed` once to create initial plans, settings and starter vocabulary. Seed upserts do not overwrite later Admin plan edits.
 
-For a real launch, publish provider-specific privacy/retention terms and confirm that your selected Gemini account/tier meets your privacy requirements.
+Existing V1 data is deliberately untouched. Build explicit migration tooling later only after the V1 schema is available and a mapping has been reviewed.
 
-## Writing calibration
+## OpenRouter setup
 
-`tests/evaluation/` is reserved for developer-curated sample essays containing:
+1. Create an OpenRouter API key.
+2. Set `OPENROUTER_API_KEY` only in server-side environment variables.
+3. Set a fallback model in `OPENROUTER_MODEL`.
+4. Open **Admin → Plans → plan** and configure the plan default model or individual stage model IDs.
+5. Set `aiRequestsPerSubmission` to 1–4. The next Writing submission uses the new configuration without a redeploy.
 
-- exact IELTS task
-- learner essay
-- expected criterion bands
-- human evaluator notes
+Task 1 sends the actual image/PDF as multimodal content. The AI layer does not use OCR as its primary extraction method. Select OpenRouter models that support the required image/PDF inputs and structured output for the configured stage.
 
-Use those fixtures to track exact band match, within-0.5 match, and criterion disagreement. Do not market AI grading as perfectly accurate.
+### AI call diagnostics
 
-## Validation status in this generated workspace
+Every stage logs safe operational metadata: logical submission ID, user/plan, stage, pipeline size, model, latency, provider status, token usage/cost when supplied, error category, prompt version and rubric version.
 
-The source was statically reviewed and includes strict TypeScript/test/build scripts. This sandbox did not have working npm registry access, so dependencies could not be installed and Prisma client generation / `next build` / Vitest could not be executed here. Run the production validation commands above after `npm install` in a networked development environment and fix any version-specific diagnostics before deployment.
+It does not intentionally log full essay text, file payloads, API keys, passwords or session secrets. Failed pipelines can be inspected by logical submission ID in **Admin → AI / Models**, including failures that occurred before a `WritingSubmission` row was persisted.
 
-## Recommended pre-launch work
+## Dynamic plans
 
-1. Expand and human-review the Vocabulary seed to the desired per-topic content volume.
-2. Build a real IELTS calibration set reviewed by qualified human markers and tune the grading prompts against it.
-3. Run migrations, tests, lint, typecheck, and production build with installed dependencies.
-4. Test real Gemini image/PDF inputs and intentionally blurry/cropped Task 1 tasks.
-5. Test concurrent quota submission, payment double-confirmation, early renewal, Pro expiry, and Admin authorization against a real PostgreSQL instance.
-6. Configure production cookie/TLS settings, reverse-proxy IP handling, database backups, observability, and deployment secrets.
+`Plan` records contain:
 
-## Beginner one-click-style Render deployment
+- slug/display name/description
+- VND price and duration
+- Writing submission quota
+- feature keys
+- public/hidden/archived visibility
+- display ordering and badge
+- active state
+- AI requests per submission
+- default model and per-stage AI configuration
 
-For the prepared public-beta flow, see `PUBLISH-NO-CODE.md` and `render.yaml`.
-The Render build script automatically installs dependencies, generates Prisma Client, pushes the initial schema to PostgreSQL, seeds starter vocabulary, and builds Next.js. This is intended to remove local Terminal/database setup for a first beta deploy.
+There is no Prisma plan-name enum. Admin-created plans work on the public pricing and entitlement path without TypeScript changes.
+
+Seed defaults are created only by `prisma/seed.ts`:
+
+| Plan | Price | Writing submissions | AI requests/submission |
+|---|---:|---:|---:|
+| Free | 0 VND | 1 seed default, Admin configurable | 1 |
+| Plus | 20,000 VND | 5 | 2 |
+| Pro | 50,000 VND | 10 | 3 |
+| Max | 100,000 VND | 25 | 3 |
+| Ultra | 500,000 VND | 100 | 3 |
+
+A hidden plan cannot be normally purchased by new users, but existing subscription snapshots remain usable. A referenced plan is archived instead of physically deleted.
+
+## Commercial snapshots
+
+Payments and promo plan grants create a real `Subscription` snapshot containing:
+
+- `planId`
+- plan name at grant/purchase time
+- price paid
+- duration
+- submission limit
+- feature snapshot
+- period dates
+
+Later edits to price/quota/features do not rewrite an already-purchased entitlement. Operational AI model/pipeline settings are intentionally read from the live plan so Admin can change cost/quality strategy independently.
+
+## Writing credit accounting
+
+Plan and bonus submissions are separate balances. A successful Writing response consumes exactly one credit, plan quota first and bonus second.
+
+Persistence and credit consumption occur in the same serializable transaction. AI errors, timeout, invalid structured output, unreadable Task 1 visuals and database rollback consume zero credits. The UI uses the explicit message **“No Writing submission was deducted.”** for non-success paths where appropriate.
+
+`idempotencyKey` plus a unique constraint and a unique ledger `submissionId` prevent one logical persisted submission from consuming two credits.
+
+## Payments
+
+The V2 payment flow is manual by design:
+
+1. User chooses a public plan.
+2. Server creates an order and snapshots the real database price/quota/features.
+3. User sees bank details, transfer code and optional QR.
+4. User clicks **I've completed the transfer** → status becomes `TRANSFER_REPORTED` only.
+5. Admin approves or rejects.
+6. Approval grants the snapshotted subscription in the same transaction.
+
+Configure bank details in **Admin → Settings**. `qrUrlTemplate` supports:
+
+- `{bankCode}`
+- `{accountNumber}`
+- `{accountName}`
+- `{amount}`
+- `{reference}`
+
+The app does not trust a client-submitted price.
+
+## Promo codes
+
+Exactly two reward types exist:
+
+- `GRANT_PLAN`
+- `ADD_SUBMISSIONS`
+
+`GRANT_PLAN` creates the same subscription-snapshot entitlement model as a purchase. The safe default queues a new grant behind a current paid entitlement rather than destroying remaining paid time/quota.
+
+`ADD_SUBMISSIONS` increases only the bonus bucket and creates a ledger entry.
+
+Both global and per-user redemption limits are checked inside serializable transactions.
+
+## Vocabulary
+
+The hierarchy is database-driven:
+
+```text
+VocabularyLevel → VocabularyTopic → VocabularyWord
+```
+
+Seed data includes Level 1 (3.5→5.0), Level 2 (5.0→6.5), and Level 3 (6.5+). Admin can create additional levels. Each level/topic can use a feature gate without application changes.
+
+Learner progress states are `NOT_STARTED`, `LEARNING`, `LEARNED`.
+
+## Admin setup
+
+### Initial Admin through seed
+
+Set temporary deployment/local environment values:
+
+```dotenv
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=<at least 12 characters>
+```
+
+Then run:
+
+```bash
+npm run db:seed
+```
+
+The seed promotes/creates that user as `ADMIN`. It does not overwrite the password of an existing account on later seed runs. Remove `ADMIN_PASSWORD` from the environment after initial setup if you do not need it for future seed runs.
+
+### Promote or demote another account
+
+Do not pass passwords through command-line arguments.
+
+```bash
+ADMIN_TARGET_USERNAME=alice ADMIN_TARGET_ROLE=ADMIN npm run admin:role
+ADMIN_TARGET_USERNAME=alice ADMIN_TARGET_ROLE=USER npm run admin:role
+```
+
+The script refuses to demote the last administrator.
+
+### Reset a password and revoke sessions
+
+```bash
+ADMIN_TARGET_USERNAME=alice ADMIN_NEW_PASSWORD='<12+ character password>' npm run admin:password
+```
+
+## Testing
+
+Run:
+
+```bash
+npm run typecheck
+npm run lint
+npm test
+npm run build
+```
+
+Tests cover rubric band arithmetic/locking, runtime 1–4 request pipelines, stage model fallback, Task 1 file validation/error categorization, one-credit accounting, failure=zero-credit behavior, idempotency, hidden-plan subscriber behavior, payments, promo limits, sessions and same-origin mutation protection.
+
+Database integration tests, if added to a deployment pipeline, should use **only** a disposable `TEST_DATABASE_URL`; never point test cleanup at production. `.env.example` includes a disabled integration-test gate for that purpose.
+
+## Render deployment
+
+`render.yaml` uses:
+
+```text
+npm install
+prisma generate
+prisma migrate deploy
+next build
+npm start
+```
+
+In Render:
+
+1. Create a Web Service from this repository/blueprint.
+2. Set `DATABASE_URL` to the V2 Neon database.
+3. Set `OPENROUTER_API_KEY`, `OPENROUTER_MODEL` and `APP_URL`.
+4. Render can generate `SESSION_SECRET` from the blueprint, or set your own high-entropy value.
+5. Deploy. Migration failure stops the build; no destructive `db push` is used.
+6. Run the seed as a one-off shell command if the database is fresh: `npm run db:seed`.
+7. Configure payment bank details and operational AI models in Admin.
+
+## Security notes
+
+- passwords use bcrypt hashing;
+- session cookies are HttpOnly, SameSite=Lax and Secure in production;
+- authenticated mutation route handlers enforce same-origin checks;
+- login attempts are rate-limited by a hashed IP+normalized-username key;
+- Admin authorization is rechecked server-side for each Admin page/action;
+- file MIME/type, magic-byte/signature consistency and 5 MB limits are validated server-side;
+- the server resolves plan price, entitlements and credit consumption from database records;
+- AI/provider errors are sanitized before normal-user output;
+- raw uploaded Task 1 files are converted only for the grading request and are not stored as persistent database blobs.
+
+## Data safety and migrations
+
+- Use ordered Prisma migrations in `prisma/migrations`.
+- Production deploy uses `prisma migrate deploy`.
+- Do not run `prisma db push` against production.
+- Initial V2 deployment uses a fresh database/environment.
+- No automatic V1 migration is included because the V1 production schema/source was not supplied with this rebuild. Add an explicit import script only after source/target mappings are reviewed and backed up.
+
+## Known operational limitations
+
+- Manual transfer confirmation still requires a human Admin review; there is no bank webhook integration in V2.
+- QR rendering is template/provider-based and must be configured in Admin Settings.
+- Model quality/cost and image/PDF support depend on the OpenRouter model configured for each stage.
+- The UI was implemented from the supplied V2 requirements. No V7 repository or screenshot set was available in the rebuild input, so pixel-for-pixel V7 visual matching cannot be verified from this package alone.

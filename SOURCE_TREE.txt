@@ -1,0 +1,194 @@
+skibidi-ielts-v2/
+├── docs/
+│   ├── ARCHITECTURE.md
+│   ├── ielts_writing_band_descriptors_may_2023.pdf
+│   └── ROUTES.md
+├── prisma/
+│   ├── migrations/
+│   │   ├── 0001_init/
+│   │   │   └── migration.sql
+│   │   └── migration_lock.toml
+│   ├── schema.prisma
+│   └── seed.ts
+├── scripts/
+│   ├── admin-password.ts
+│   └── admin-role.ts
+├── src/
+│   ├── actions/
+│   │   └── admin.ts
+│   ├── app/
+│   │   ├── admin/
+│   │   │   ├── ai/
+│   │   │   │   ├── [logicalSubmissionId]/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── audit-log/
+│   │   │   │   └── page.tsx
+│   │   │   ├── payments/
+│   │   │   │   └── page.tsx
+│   │   │   ├── plans/
+│   │   │   │   ├── [id]/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── promo-codes/
+│   │   │   │   ├── [id]/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── reports/
+│   │   │   │   └── page.tsx
+│   │   │   ├── settings/
+│   │   │   │   └── page.tsx
+│   │   │   ├── users/
+│   │   │   │   ├── [id]/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── vocabulary/
+│   │   │   │   └── page.tsx
+│   │   │   ├── writing/
+│   │   │   │   ├── [id]/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   │   ├── login/
+│   │   │   │   │   └── route.ts
+│   │   │   │   ├── logout/
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── register/
+│   │   │   │       └── route.ts
+│   │   │   ├── payments/
+│   │   │   │   ├── create/
+│   │   │   │   │   └── route.ts
+│   │   │   │   └── report/
+│   │   │   │       └── route.ts
+│   │   │   ├── promo/
+│   │   │   │   └── redeem/
+│   │   │   │       └── route.ts
+│   │   │   ├── reports/
+│   │   │   │   └── route.ts
+│   │   │   ├── vocabulary/
+│   │   │   │   └── progress/
+│   │   │   │       └── route.ts
+│   │   │   └── writing/
+│   │   │       └── submit/
+│   │   │           └── route.ts
+│   │   ├── app/
+│   │   │   ├── dashboard/
+│   │   │   │   └── page.tsx
+│   │   │   ├── history/
+│   │   │   │   ├── [id]/
+│   │   │   │   │   └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── pricing/
+│   │   │   │   └── page.tsx
+│   │   │   ├── settings/
+│   │   │   │   └── page.tsx
+│   │   │   ├── vocabulary/
+│   │   │   │   ├── [levelSlug]/
+│   │   │   │   │   └── [topicSlug]/
+│   │   │   │   │       └── page.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── writing/
+│   │   │   │   └── page.tsx
+│   │   │   └── layout.tsx
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   ├── pricing/
+│   │   │   └── page.tsx
+│   │   ├── register/
+│   │   │   └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── admin/
+│   │   │   ├── credit-adjustment-form.tsx
+│   │   │   ├── plan-form.tsx
+│   │   │   ├── promo-form.tsx
+│   │   │   └── ui.tsx
+│   │   ├── admin-shell.tsx
+│   │   ├── app-shell.tsx
+│   │   ├── brand.tsx
+│   │   ├── empty-state.tsx
+│   │   ├── flashcards.tsx
+│   │   ├── page-header.tsx
+│   │   ├── promo-form.tsx
+│   │   ├── report-problem.tsx
+│   │   ├── result-tabs.tsx
+│   │   ├── user-menu.tsx
+│   │   └── writing-form.tsx
+│   └── lib/
+│       ├── ai/
+│       │   ├── task1/
+│       │   │   ├── all-in-one.ts
+│       │   │   ├── extract.ts
+│       │   │   ├── feedback.ts
+│       │   │   ├── grade.ts
+│       │   │   └── verify.ts
+│       │   ├── task2/
+│       │   │   ├── all-in-one.ts
+│       │   │   ├── feedback.ts
+│       │   │   ├── grade.ts
+│       │   │   └── verify.ts
+│       │   ├── client.ts
+│       │   ├── config.ts
+│       │   ├── helpers.ts
+│       │   ├── logging.ts
+│       │   ├── pipeline.ts
+│       │   ├── prompts.ts
+│       │   ├── rubric.ts
+│       │   ├── schemas.ts
+│       │   └── types.ts
+│       ├── services/
+│       │   ├── admin.ts
+│       │   ├── audit.ts
+│       │   ├── credits.ts
+│       │   ├── payments.ts
+│       │   ├── plans.ts
+│       │   ├── promo.ts
+│       │   ├── settings.ts
+│       │   ├── subscriptions.ts
+│       │   ├── vocabulary.ts
+│       │   └── writing.ts
+│       ├── auth.ts
+│       ├── db.ts
+│       ├── env.ts
+│       ├── errors.ts
+│       ├── features.ts
+│       ├── files.ts
+│       ├── rate-limit.ts
+│       ├── security.ts
+│       ├── transactions.ts
+│       └── utils.ts
+├── tests/
+│   ├── unit/
+│   │   ├── ai-config.test.ts
+│   │   ├── ai-helpers.test.ts
+│   │   ├── auth.test.ts
+│   │   ├── credit-consumption.test.ts
+│   │   ├── files.test.ts
+│   │   ├── payment.test.ts
+│   │   ├── pipeline.test.ts
+│   │   ├── plans.test.ts
+│   │   ├── promo.test.ts
+│   │   ├── rubric.test.ts
+│   │   ├── schema-contract.test.ts
+│   │   ├── security.test.ts
+│   │   ├── task1-extraction.test.ts
+│   │   └── writing-transaction.test.ts
+│   └── setup.ts
+├── .env.example
+├── .gitignore
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── postcss.config.mjs
+├── prisma.config.ts
+├── README.md
+├── render.yaml
+├── tsconfig.json
+├── VALIDATION.md
+└── vitest.config.ts

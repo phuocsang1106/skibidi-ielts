@@ -1,155 +1,42 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { FileImage, FileText, LoaderCircle, Upload } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-const MAX = 5 * 1024 * 1024;
-type ApiError = { code: string; message: string; quotaDeducted: boolean; resetAt?: string };
+function countWords(text: string) { const value = text.trim(); return value ? value.split(/\s+/).length : 0; }
 
-function UploadBox({
-  id,
-  name,
-  accept,
-  title,
-  helper,
-}: {
-  id: string;
-  name: string;
-  accept: string;
-  title: string;
-  helper: string;
-}) {
-  const [fileName, setFileName] = useState("");
-  return (
-    <label className="upload-box" htmlFor={id}>
-      <input
-        id={id}
-        name={name}
-        type="file"
-        accept={accept}
-        onChange={(event) => setFileName(event.target.files?.[0]?.name ?? "")}
-      />
-      <span className="upload-title">{fileName || title}</span>
-      <span className="upload-helper">{fileName ? "Click to choose a different file" : helper}</span>
-    </label>
-  );
-}
-
-export function WritingForm({ remaining, limit, resetAt }: { remaining: number; limit: number; resetAt: string }) {
+export function WritingForm({ remaining }: { remaining: number }) {
   const router = useRouter();
-  const [taskType, setTaskType] = useState<"TASK_1" | "TASK_2">("TASK_2");
+  const [taskType, setTaskType] = useState<"TASK_1"|"TASK_2">("TASK_2");
   const [essay, setEssay] = useState("");
-  const [pending, setPending] = useState(false);
-  const [error, setError] = useState<ApiError | null>(null);
-  const wordCount = useMemo(() => essay.trim() ? essay.trim().split(/\s+/).length : 0, [essay]);
-
-  function validateFile(file: File | undefined) {
-    if (file && file.size > MAX) return "File is too large. Maximum file size is 5 MB.";
-    return null;
-  }
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [key, setKey] = useState(() => crypto.randomUUID());
+  const words = useMemo(() => countWords(essay), [essay]);
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setError(null);
-    const form = event.currentTarget;
-    const fd = new FormData(form);
-    fd.set("taskType", taskType);
-    const q = fd.get("questionFile");
-    const w = fd.get("writingFile");
-    const localError = validateFile(q instanceof File ? q : undefined) || validateFile(w instanceof File ? w : undefined);
-    if (localError) {
-      setError({ code: "FILE_TOO_LARGE", message: localError, quotaDeducted: false });
-      return;
-    }
-    setPending(true);
+    event.preventDefault(); setSubmitting(true); setError("");
+    const form = new FormData(event.currentTarget);
+    form.set("taskType", taskType); form.set("idempotencyKey", key);
     try {
-      const response = await fetch("/api/writing/grade", { method: "POST", body: fd });
-      const data = await response.json() as { ok: boolean; submissionId?: string; error?: ApiError };
-      if (!response.ok || !data.ok || !data.submissionId) {
-        setError(data.error || { code: "GRADING_FAILED", message: "Your essay wasn't graded.", quotaDeducted: false });
-        return;
-      }
-      router.push(`/app/history/${data.submissionId}`);
-    } catch {
-      setError({ code: "NETWORK_ERROR", message: "The grading request could not be completed. Check your connection and try again.", quotaDeducted: false });
-    } finally {
-      setPending(false);
-    }
+      const response = await fetch("/api/writing/submit", { method: "POST", body: form });
+      const data = await response.json() as { ok?: boolean; submissionId?: string; message?: string };
+      if (!response.ok || !data.submissionId) { setError(data.message || "Writing submission failed. No Writing submission was deducted."); return; }
+      router.push(`/app/history/${data.submissionId}`); router.refresh();
+    } catch { setError("AI grading is temporarily unavailable. No Writing submission was deducted."); }
+    finally { setSubmitting(false); }
   }
 
-  return (
-    <form onSubmit={submit} className="writing-v7-form">
-      <div className="writing-v7-header">
-        <h1 className="page-title">IELTS Writing</h1>
-        <div className="task-switch" role="group" aria-label="Writing task type">
-          <button type="button" className={taskType === "TASK_1" ? "active" : ""} onClick={() => setTaskType("TASK_1")}>Task 1</button>
-          <button type="button" className={taskType === "TASK_2" ? "active" : ""} onClick={() => setTaskType("TASK_2")}>Task 2</button>
-        </div>
-      </div>
-
-      <div className="writing-v7-grid">
-        <section className="writing-v7-card">
-          <h2 className="section-title">Question</h2>
-          {taskType === "TASK_2" && (
-            <div className="writing-field">
-              <label htmlFor="questionText" className="label">Question text</label>
-              <textarea id="questionText" name="questionText" className="input writing-question-text" placeholder="Paste the Task 2 question here…" />
-            </div>
-          )}
-          <div className="writing-field">
-            <span className="label">Question file</span>
-            <UploadBox
-              id="questionFile"
-              name="questionFile"
-              accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf"
-              title="Upload question file"
-              helper="JPG, JPEG, PNG, WebP or PDF · max 5 MB"
-            />
-          </div>
-        </section>
-
-        <section className="writing-v7-card">
-          <h2 className="section-title">Your Writing</h2>
-          <div className="writing-field">
-            <label htmlFor="essayText" className="label">Essay editor</label>
-            <textarea
-              id="essayText"
-              name="essayText"
-              value={essay}
-              onChange={(event) => setEssay(event.target.value)}
-              className="input writing-essay-text"
-              placeholder="Type or paste your essay here…"
-            />
-            <div className="writing-word-count">{wordCount} words</div>
-          </div>
-          <div className="writing-field">
-            <span className="label">Writing file</span>
-            <UploadBox
-              id="writingFile"
-              name="writingFile"
-              accept=".jpg,.jpeg,.png,.webp,.pdf,.txt,.docx,image/jpeg,image/png,image/webp,application/pdf,text/plain,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-              title="Upload Writing file"
-              helper="JPG, JPEG, PNG, WebP, PDF, TXT or DOCX · max 5 MB"
-            />
-          </div>
-        </section>
-      </div>
-
-      {error && (
-        <div className="error-box writing-v7-error" role="alert">
-          <div style={{ fontWeight: 700 }}>
-            {error.code === "QUESTION_IMAGE_UNREADABLE" ? "We couldn't read this question" : error.code === "QUOTA_EXHAUSTED" ? "Writing quota used" : "Your essay wasn't graded"}
-          </div>
-          <p>{error.message}</p>
-          {!error.quotaDeducted && <p className="writing-v7-error-strong">No Writing submission was deducted.</p>}
-          {error.resetAt && <p>Next cycle: {new Date(error.resetAt).toLocaleString()}</p>}
-        </div>
-      )}
-
-      <div className="writing-submitbar">
-        <span className="muted writing-quota-copy">{remaining} / {limit} submissions remaining · resets {new Date(resetAt).toLocaleDateString("en-GB")}</span>
-        <button className="btn-primary writing-submit" disabled={pending || remaining <= 0}>{pending ? "Evaluating Writing…" : "Submit for grading"}</button>
-      </div>
-    </form>
-  );
+  return <form onSubmit={submit} className="space-y-5">
+    <div className="flex flex-wrap items-center justify-between gap-3"><div className="inline-flex rounded-xl border border-zinc-200 bg-white p-1"><button type="button" onClick={()=>setTaskType("TASK_1")} className={`rounded-lg px-4 py-2 text-sm font-semibold ${taskType==="TASK_1"?"bg-zinc-900 text-white":"text-zinc-600"}`}>Task 1</button><button type="button" onClick={()=>setTaskType("TASK_2")} className={`rounded-lg px-4 py-2 text-sm font-semibold ${taskType==="TASK_2"?"bg-zinc-900 text-white":"text-zinc-600"}`}>Task 2</button></div><span className="text-sm text-zinc-500"><strong className="text-zinc-900">{remaining}</strong> submissions remaining</span></div>
+    {error&&<div role="alert" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{error}</div>}
+    <div className="grid gap-5 lg:grid-cols-2">
+      <section className="surface p-5"><div className="mb-4 flex items-center gap-2"><FileImage size={18}/><h2 className="font-semibold">Question</h2></div>
+        {taskType==="TASK_2" ? <><label className="label" htmlFor="questionText">Task 2 question</label><textarea id="questionText" name="questionText" rows={11} className="input resize-y" placeholder="Paste the exact Task 2 question here." required/><div className="mt-4"><label className="label" htmlFor="questionFile">Optional question file</label><input id="questionFile" name="questionFile" type="file" accept=".txt,.docx,text/plain,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="block w-full text-sm text-zinc-600 file:mr-3 file:rounded-lg file:border file:border-zinc-200 file:bg-white file:px-3 file:py-2"/><p className="mt-1 text-xs text-zinc-500">TXT or DOCX, up to 5 MB.</p></div></> : <><label className="label" htmlFor="questionFileTask1">Task 1 image or PDF</label><div className="rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-5"><Upload size={20} className="mb-2 text-zinc-500"/><input id="questionFileTask1" name="questionFile" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" required className="block w-full text-sm"/><p className="mt-2 text-xs text-zinc-500">JPG, PNG, WebP or PDF, up to 5 MB. The grading model inspects the actual visual.</p></div><div className="mt-4"><label className="label" htmlFor="task1QuestionText">Optional question text</label><textarea id="task1QuestionText" name="questionText" rows={4} className="input" placeholder="Add the written instruction if useful."/></div></>}
+      </section>
+      <section className="surface p-5"><div className="mb-4 flex items-center justify-between gap-3"><div className="flex items-center gap-2"><FileText size={18}/><h2 className="font-semibold">Your Writing</h2></div><span className="text-xs font-medium text-zinc-500">{words} words</span></div><label className="sr-only" htmlFor="essayText">Your Writing response</label><textarea id="essayText" name="essayText" rows={17} value={essay} onChange={(e)=>setEssay(e.target.value)} className="input min-h-[370px] resize-y" placeholder="Write or paste your response here."/><div className="mt-4"><label className="label" htmlFor="essayFile">Or upload a response file</label><input id="essayFile" name="essayFile" type="file" accept=".txt,.docx,text/plain,application/vnd.openxmlformats-officedocument.wordprocessingml.document" className="block w-full text-sm text-zinc-600 file:mr-3 file:rounded-lg file:border file:border-zinc-200 file:bg-white file:px-3 file:py-2"/><p className="mt-1 text-xs text-zinc-500">TXT or DOCX, up to 5 MB. Typed text takes priority when both are provided.</p></div></section>
+    </div>
+    <div className="flex justify-end"><button className="btn btn-primary min-w-40" disabled={submitting||remaining<1}>{submitting?<><LoaderCircle size={16} className="animate-spin"/>Grading…</>:"Submit for grading"}</button></div>
+  </form>;
 }

@@ -1,37 +1,7 @@
 import Link from "next/link";
-import { requireUser } from "@/lib/auth/session";
-import { prisma } from "@/lib/db/prisma";
+import { PageHeader } from "@/components/page-header";
+import { EmptyState } from "@/components/empty-state";
+import { requireUser } from "@/lib/auth";
+import { prisma } from "@/lib/db";
 
-function questionTitle(text: string) {
-  const cleaned = text.replace(/\s+/g, " ").trim();
-  if (!cleaned) return "Writing submission";
-  return cleaned.length > 92 ? `${cleaned.slice(0, 89)}…` : cleaned;
-}
-
-export default async function HistoryPage() {
-  const user = await requireUser();
-  const items = await prisma.writingSubmission.findMany({ where: { userId: user.id, status: "COMPLETED" }, orderBy: { completedAt: "desc" } });
-
-  return (
-    <div>
-      <h1 className="page-title">Writing History</h1>
-      <div className="history-list">
-        {items.length ? items.map((item) => (
-          <Link href={`/app/history/${item.id}`} key={item.id} className="history-item">
-            <span className="history-main">
-              <span className="history-task">{item.taskType === "TASK_1" ? "Task 1" : "Task 2"}</span>
-              <span className="history-title">{questionTitle(item.questionText)}</span>
-              <span className="history-meta">{item.completedAt?.toLocaleDateString("en-GB")} · {item.wordCount} words</span>
-            </span>
-            <span className="history-band"><span className="history-band-label">Band</span><span className="history-band-number">{item.estimatedOverallBand?.toFixed(1)}</span></span>
-          </Link>
-        )) : (
-          <div className="product-card" style={{ marginTop: 26 }}>
-            <div style={{ fontSize: 14, fontWeight: 680 }}>No Writing submissions yet</div>
-            <Link href="/app/writing" className="btn-primary" style={{ marginTop: 16 }}>Start Writing</Link>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
+export default async function HistoryPage(){const user=await requireUser();const rows=await prisma.writingSubmission.findMany({where:{userId:user.id},orderBy:{createdAt:"desc"},include:{result:{select:{overallBand:true}}}});return <><PageHeader title="Writing History" description="Task 1 and Task 2 results together."/>{rows.length?<div className="surface divide-y divide-zinc-100">{rows.map(row=><Link href={`/app/history/${row.id}`} className="flex items-center gap-4 p-4 sm:p-5" key={row.id}><div className="min-w-0 flex-1"><div className="text-xs font-semibold uppercase tracking-wide text-zinc-400">{row.taskType==="TASK_1"?"Task 1":"Task 2"}</div><div className="mt-1 truncate font-medium">{row.questionTitle}</div><div className="mt-1 text-xs text-zinc-500">{row.createdAt.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})} • {row.wordCount} words</div></div><div className="shrink-0 text-sm font-semibold">BAND <span className="text-red-600">{row.result?.overallBand.toFixed(1)}</span></div></Link>)}</div>:<EmptyState title="No Writing history" description="Submit Task 1 or Task 2 and your result will appear here." action={<Link href="/app/writing" className="btn btn-primary">Start Writing</Link>}/>}</>}
