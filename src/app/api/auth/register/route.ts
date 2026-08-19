@@ -2,12 +2,12 @@ import { hash } from "bcryptjs";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { createSession } from "@/lib/auth";
-import { assertSameOrigin } from "@/lib/security";
+import { assertSameOrigin, publicAppUrl } from "@/lib/security";
 import { normalizeUsername } from "@/lib/utils";
 import { snapshotFromPlan } from "@/lib/services/subscriptions";
 
 function errorRedirect(request: Request, message: string) {
-  const url = new URL("/register", request.url); url.searchParams.set("error", message); return NextResponse.redirect(url, 303);
+  const url = publicAppUrl("/register", request); url.searchParams.set("error", message); return NextResponse.redirect(url, 303);
 }
 
 export async function POST(request: Request) {
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
       return created;
     });
     await createSession(user.id);
-    return NextResponse.redirect(new URL("/app/dashboard", request.url), 303);
+    return NextResponse.redirect(publicAppUrl("/app/dashboard", request), 303);
   } catch (error) {
     const code = typeof error === "object" && error && "code" in error ? String((error as { code: unknown }).code) : "";
     return errorRedirect(request, code === "P2002" ? "That username is already taken." : "Could not create the account. Please try again.");

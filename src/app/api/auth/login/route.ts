@@ -2,12 +2,12 @@ import { compare } from "bcryptjs";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { createSession } from "@/lib/auth";
-import { assertSameOrigin, requestIp } from "@/lib/security";
+import { assertSameOrigin, publicAppUrl, requestIp } from "@/lib/security";
 import { normalizeUsername } from "@/lib/utils";
 import { assertLoginAllowed, clearLoginFailures, recordLoginFailure } from "@/lib/rate-limit";
 
 function errorRedirect(request: Request, message: string) {
-  const url = new URL("/login", request.url);
+  const url = publicAppUrl("/login", request);
   url.searchParams.set("error", message);
   return NextResponse.redirect(url, 303);
 }
@@ -28,5 +28,5 @@ export async function POST(request: Request) {
   }
   await clearLoginFailures(ip, normalizedUsername);
   await createSession(user.id);
-  return NextResponse.redirect(new URL(user.role === "ADMIN" ? "/admin" : "/app/dashboard", request.url), 303);
+  return NextResponse.redirect(publicAppUrl(user.role === "ADMIN" ? "/admin" : "/app/dashboard", request), 303);
 }

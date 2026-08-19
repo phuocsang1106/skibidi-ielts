@@ -20,6 +20,13 @@ export function safeEqual(a: string, b: string) {
   return left.length === right.length && timingSafeEqual(left, right);
 }
 
+
+export function publicAppUrl(path: string, request?: Request) {
+  const base = process.env.APP_URL || request?.url;
+  if (!base) throw new Error("APP_URL is required to build public URLs");
+  return new URL(path, base);
+}
+
 export function requestIp(headers: Headers) {
   const forwarded = headers.get("x-forwarded-for");
   return forwarded?.split(",")[0]?.trim() || headers.get("x-real-ip") || "unknown";
