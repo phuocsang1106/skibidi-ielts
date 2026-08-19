@@ -2,9 +2,9 @@ services:
   - type: web
     name: skibidi-ielts
     runtime: node
-    plan: starter
-    buildCommand: npm install --no-audit --no-fund && npm run build
-    preDeployCommand: npx prisma migrate deploy
+    plan: free
+    region: singapore
+    buildCommand: npm install --no-audit --no-fund && npx prisma migrate deploy && npm run build
     initialDeployHook: npm run prisma:seed
     startCommand: npm run start
     healthCheckPath: /api/health

@@ -9,18 +9,19 @@ datasource db {
 }
 
 model User {
-  id               String              @id @default(cuid())
-  username         String              @unique
+  id               String               @id @default(cuid())
+  username         String               @unique
   passwordHash     String
   planId           String
-  planStartedAt    DateTime            @default(now())
+  planStartedAt    DateTime             @default(now())
   planExpireDate   DateTime?
-  createdAt        DateTime            @default(now())
-  updatedAt        DateTime            @updatedAt
-  plan             Plan                @relation(fields: [planId], references: [id])
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
+  plan             Plan                 @relation(fields: [planId], references: [id])
   submissions      WritingSubmission[]
   aiUsage          AIUsage[]
   promoRedemptions PromoRedemption[]
+  paymentRequests  BankPaymentRequest[]
 
   @@index([planId])
 }
@@ -34,19 +35,20 @@ model Admin {
 }
 
 model Plan {
-  id               String            @id @default(cuid())
-  name             String            @unique
-  price            Decimal           @db.Decimal(10, 2)
-  durationDays     Int               @default(30)
-  aiRequestLimit   Int               @default(1)
+  id               String               @id @default(cuid())
+  name             String               @unique
+  price            Decimal              @db.Decimal(10, 2)
+  durationDays     Int                  @default(30)
+  aiRequestLimit   Int                  @default(1)
   aiModel          String
   features         Json
-  isVisible        Boolean           @default(true)
-  isFree           Boolean           @default(false)
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  isVisible        Boolean              @default(true)
+  isFree           Boolean              @default(false)
+  createdAt        DateTime             @default(now())
+  updatedAt        DateTime             @updatedAt
   users            User[]
   promoCodes       PromoCode[]
+  paymentRequests  BankPaymentRequest[]
 
   @@index([isVisible])
 }
@@ -91,34 +93,36 @@ model VocabularyWord {
 }
 
 model WritingSubmission {
-  id             String   @id @default(cuid())
-  userId         String
-  taskType       String
-  input          String
-  imageUrl       String?
-  attachmentName String?
-  bandScore      Decimal  @db.Decimal(3, 1)
-  feedback       Json
-  featuresSnapshot Json
-  modelUsed      String
-  createdAt      DateTime @default(now())
-  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                   String   @id @default(cuid())
+  userId               String
+  taskType             String
+  taskPrompt           String?
+  promptAttachmentName String?
+  input                String
+  imageUrl             String?
+  attachmentName       String?
+  bandScore            Decimal  @db.Decimal(3, 1)
+  feedback             Json
+  featuresSnapshot     Json
+  modelUsed            String
+  createdAt            DateTime @default(now())
+  user                 User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, createdAt])
 }
 
 model PromoCode {
-  id        String            @id @default(cuid())
-  code      String            @unique
-  planId    String
-  duration  Int               @default(30)
-  isActive  Boolean           @default(true)
-  maxUses   Int?
-  usedCount Int               @default(0)
-  expiresAt DateTime?
-  createdAt DateTime          @default(now())
-  updatedAt DateTime          @updatedAt
-  plan      Plan              @relation(fields: [planId], references: [id])
+  id          String            @id @default(cuid())
+  code        String            @unique
+  planId      String
+  duration    Int               @default(30)
+  isActive    Boolean           @default(true)
+  maxUses     Int?
+  usedCount   Int               @default(0)
+  expiresAt   DateTime?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  plan        Plan              @relation(fields: [planId], references: [id])
   redemptions PromoRedemption[]
 
   @@index([planId])
@@ -158,4 +162,23 @@ model RateLimitBucket {
   count     Int      @default(0)
   resetAt   DateTime
   updatedAt DateTime @updatedAt
+}
+
+model BankPaymentRequest {
+  id           String   @id @default(cuid())
+  userId       String
+  planId       String
+  amount       Decimal  @db.Decimal(10, 2)
+  transferCode String   @unique
+  status       String   @default("PENDING")
+  adminNote    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  reviewedAt   DateTime?
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan         Plan     @relation(fields: [planId], references: [id], onDelete: Restrict)
+
+  @@index([userId, createdAt])
+  @@index([planId])
+  @@index([status, createdAt])
 }

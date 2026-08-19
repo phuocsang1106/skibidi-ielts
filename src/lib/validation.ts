@@ -17,10 +17,8 @@ export const registerSchema = credentialsSchema
     path: ["confirmPassword"]
   });
 
-export const writingTextSchema = z.object({
-  taskType: z.enum(["TASK_1", "TASK_2"]),
-  input: z.string().trim().min(40, "Please provide enough text for the examiner to assess.").max(30000)
-});
+export const writingEssaySchema = z.string().trim().min(40, "Bài làm cần dài hơn để AI có thể chấm.").max(30000);
+export const writingPromptSchema = z.string().trim().max(12000, "Đề bài quá dài.");
 
 export const promoSchema = z.object({
   code: z.string().trim().min(3).max(40).transform((value) => value.toUpperCase())

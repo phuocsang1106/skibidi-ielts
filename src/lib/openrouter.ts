@@ -77,8 +77,9 @@ type OpenRouterPart =
 
 type GradeInput = {
   taskType: "TASK_1" | "TASK_2";
-  text?: string;
-  file?: { name: string; type: string; dataUrl: string };
+  taskPrompt?: string;
+  responseText: string;
+  taskFile?: { name: string; type: string; dataUrl: string };
   features: PlanFeatures;
   model: string;
 };
@@ -90,7 +91,35 @@ type OpenRouterResponse = {
 
 function buildPrompt(input: GradeInput) {
   const enabled = Object.entries(input.features).filter(([, value]) => value).map(([key]) => key).join(", ");
-  return `You are a strict but constructive IELTS Writing examiner. Grade this ${input.taskType === "TASK_1" ? "IELTS Writing Task 1" : "IELTS Writing Task 2"} response using official-style band descriptors.\n\nReturn four criteria exactly: ${input.taskType === "TASK_1" ? "Task Achievement" : "Task Response"}, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy. Use half-band increments where appropriate. Explain evidence, identify concrete mistakes, and provide a correction for each criterion.\n\nEnabled feature flags: ${enabled}. The premium fields are errorCorrection, band7Sample, improvedEssay, nextBandGuidance. Return each premium field only when its corresponding feature is enabled; when using a schema that requires all keys, return null for disabled premium fields.\n\nReturn JSON only.\n\n${input.text ? `Candidate response:\n${input.text}` : "The candidate response is supplied in the attached file/image. Read it carefully before grading."}`;
+  const firstCriterion = input.taskType === "TASK_1" ? "Task Achievement" : "Task Response";
+  const taskSource = input.taskPrompt?.trim()
+    ? `IELTS task/question:\n${input.taskPrompt.trim()}`
+    : "The IELTS task/question is supplied in the attached image or PDF. Treat the attachment as the QUESTION/CHART only, not as the candidate response.";
+
+  return `You are a strict, evidence-based IELTS Writing examiner. Grade the candidate response for ${input.taskType === "TASK_1" ? "IELTS Writing Task 1" : "IELTS Writing Task 2"} using official-style band descriptors.
+
+${taskSource}
+
+Candidate response:\n${input.responseText}
+
+Return exactly four criteria in this exact order and keep the criterion names in English for stable UI mapping:
+1. ${firstCriterion}
+2. Coherence and Cohesion
+3. Lexical Resource
+4. Grammatical Range and Accuracy
+
+LANGUAGE RULES — IMPORTANT:
+- All examiner commentary must be in natural Vietnamese: summary, criterion explanation, mistakes, criterion correction/guidance, errorCorrection.explanation, and nextBandGuidance.
+- When pointing out a mistake, quote the relevant English phrase/sentence from the essay, then explain the issue in Vietnamese.
+- errorCorrection.original and errorCorrection.corrected must stay in English.
+- band7Sample and improvedEssay are IELTS sample/rewritten essays, so they must stay in English.
+- Do not translate the candidate's essay into Vietnamese.
+
+Use half-band increments where appropriate. Base every score on evidence from the submitted task and essay. Do not reward ideas or language that are not present. For Task 1, check whether the response actually covers the visual/task information visible in the attachment or prompt.
+
+Enabled feature flags: ${enabled}. The premium fields are errorCorrection, band7Sample, improvedEssay, nextBandGuidance. Return each premium field only when its corresponding feature is enabled; when the schema requires every key, return null for disabled premium fields.
+
+Return JSON only.`;
 }
 
 export async function resolveOpenRouterApiKey() {
@@ -119,11 +148,11 @@ async function requestOpenRouter(apiKey: string, body: Record<string, unknown>) 
 
 export async function gradeWriting(input: GradeInput): Promise<WritingFeedback> {
   const content: OpenRouterPart[] = [{ type: "text", text: buildPrompt(input) }];
-  if (input.file) {
-    if (input.file.type === "application/pdf") {
-      content.push({ type: "file", file: { filename: input.file.name, file_data: input.file.dataUrl } });
+  if (input.taskFile) {
+    if (input.taskFile.type === "application/pdf") {
+      content.push({ type: "file", file: { filename: input.taskFile.name, file_data: input.taskFile.dataUrl } });
     } else {
-      content.push({ type: "image_url", image_url: { url: input.file.dataUrl } });
+      content.push({ type: "image_url", image_url: { url: input.taskFile.dataUrl } });
     }
   }
 
@@ -131,7 +160,7 @@ export async function gradeWriting(input: GradeInput): Promise<WritingFeedback> 
   const baseBody = {
     model: input.model,
     messages: [
-      { role: "system", content: "Return accurate IELTS feedback as JSON only. Do not invent essay content that is not visible in the supplied input." },
+      { role: "system", content: "Return accurate IELTS assessment as JSON only. Examiner feedback must be in Vietnamese; English corrections and sample essays remain in English. Never invent content that is not visible in the supplied task or essay." },
       { role: "user", content }
     ],
     temperature: 0.2
@@ -147,7 +176,6 @@ export async function gradeWriting(input: GradeInput): Promise<WritingFeedback> 
     plugins: [{ id: "response-healing" }]
   });
 
-  // Admins may choose a model/provider without structured-output support. Retry once with prompt-enforced JSON.
   if (!result.response.ok && [400, 404, 422].includes(result.response.status)) {
     result = await requestOpenRouter(apiKey, baseBody);
   }

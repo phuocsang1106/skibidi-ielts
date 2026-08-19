@@ -7,28 +7,12 @@ const features = {
   free: {
     bandScore: true,
     criteria: true,
-    errorCorrection: false,
+    errorCorrection: true,
     band7Sample: false,
-    improvedEssay: false,
+    improvedEssay: true,
     nextBandGuidance: false
   },
-  plus: {
-    bandScore: true,
-    criteria: true,
-    errorCorrection: true,
-    band7Sample: false,
-    improvedEssay: false,
-    nextBandGuidance: true
-  },
-  pro: {
-    bandScore: true,
-    criteria: true,
-    errorCorrection: true,
-    band7Sample: true,
-    improvedEssay: true,
-    nextBandGuidance: true
-  },
-  premium: {
+  paid: {
     bandScore: true,
     criteria: true,
     errorCorrection: true,
@@ -41,15 +25,15 @@ const features = {
 async function main() {
   const planRows = [
     { name: "Free", price: 0, aiRequestLimit: 1, aiModel: "openrouter/auto", features: features.free, isFree: true },
-    { name: "Plus", price: 79000, aiRequestLimit: 2, aiModel: "openrouter/auto", features: features.plus, isFree: false },
-    { name: "Pro", price: 149000, aiRequestLimit: 3, aiModel: "openrouter/auto", features: features.pro, isFree: false },
-    { name: "Premium", price: 249000, aiRequestLimit: 4, aiModel: "openrouter/auto", features: features.premium, isFree: false }
+    { name: "Plus", price: 20000, aiRequestLimit: 3, aiModel: "openrouter/auto", features: features.paid, isFree: false },
+    { name: "Pro", price: 50000, aiRequestLimit: 10, aiModel: "openrouter/auto", features: features.paid, isFree: false },
+    { name: "Max", price: 100000, aiRequestLimit: 30, aiModel: "openrouter/auto", features: features.paid, isFree: false }
   ];
 
   for (const plan of planRows) {
     await prisma.plan.upsert({
       where: { name: plan.name },
-      update: plan,
+      update: {},
       create: { ...plan, durationDays: 30, isVisible: true }
     });
   }
