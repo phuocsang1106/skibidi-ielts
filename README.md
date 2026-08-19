@@ -5,14 +5,13 @@ Nền tảng IELTS Learning Platform production-oriented được xây bằng Ne
 ## Tính năng
 
 ### Public
-- Landing page responsive: Vocabulary, Writing AI, Pricing; tự nhận biết session khi user đã đăng nhập.
+- Landing page responsive: Vocabulary, Writing AI, Pricing, FAQ.
 - Login / Register chỉ bằng `username + password`.
 - Pricing đọc trực tiếp từ database.
 
 ### User dashboard
 - Current plan, AI requests còn lại, expiry date, quick actions.
 - Responsive sidebar/mobile navigation.
-- Profile menu chứa Account + Logout, username hiển thị với user icon.
 - Account: đổi password và redeem promo code.
 
 ### Vocabulary
@@ -23,11 +22,9 @@ Nền tảng IELTS Learning Platform production-oriented được xây bằng Ne
 
 ### IELTS Writing AI
 - IELTS Writing Task 1 / Task 2.
-- Form tách riêng `Đề bài` và `Bài làm`; Task 1/2 dùng compact switch.
-- Đề bài có thể paste text hoặc upload JPG/JPEG/PNG/WEBP/PDF tối đa 5 MB; bài làm nhập text riêng.
+- Paste text hoặc upload JPG/JPEG/PNG/WEBP/PDF tối đa 5 MB.
 - Validate MIME type, size và file signature phía server.
-- Gửi multimodal task prompt + essay đến OpenRouter.
-- Nhận xét, lỗi, giải thích và hướng dẫn tăng band được yêu cầu trả bằng tiếng Việt; correction/sample essay vẫn giữ tiếng Anh khi phù hợp.
+- Gửi multimodal request đến OpenRouter.
 - Structured feedback gồm:
   - Overall Band Score.
   - Task Achievement / Task Response.
@@ -49,18 +46,14 @@ Nền tảng IELTS Learning Platform production-oriented được xây bằng Ne
 - Plan có duration, price, quota, model và feature flags.
 - Paid subscription mặc định seed là 30 ngày.
 - Promo code có plan reward, duration, max uses, expiry, active state và chống redeem trùng.
-- Hỗ trợ chuyển khoản ngân hàng bằng QR tĩnh, tạo `transferCode` riêng cho từng yêu cầu.
-- User gửi yêu cầu mua plan -> trạng thái `PENDING`; admin duyệt/từ chối thủ công.
-- Khi `APPROVED`, backend tự gán plan, reset kỳ quota và set ngày hết hạn theo `durationDays`.
-- Revenue admin được tính từ các bank payment đã duyệt.
+- Chưa tích hợp payment gateway vì yêu cầu chưa chỉ định cổng thanh toán. Admin và promo code đã có thể cấp plan đầy đủ; `Revenue` hiện là `0` cho đến khi nối payment/order/webhook.
 
 ### Admin
 Admin có route và session riêng tại `/admin`.
 
-- Dashboard: total users, active paid subscriptions, Writing usage và doanh thu đã duyệt.
+- Dashboard: total users, active paid subscriptions, AI requests used, revenue placeholder.
 - Users: xem user và đổi plan.
 - Plans: CRUD, hide/show, price, duration, quota, model slug và từng feature flag.
-- Payments: xem transfer code, số tiền, user/plan và Approve/Reject thủ công.
 - Promo codes: CRUD.
 - Vocabulary: CRUD Group / Topic / Word + bulk import mỗi dòng một từ.
 - AI Settings: model fallback + OpenRouter API key.
@@ -128,9 +121,8 @@ Schema có các model chính:
 - `AIUsage`
 - `AISetting`
 - `RateLimitBucket`
-- `BankPaymentRequest`
 
-Các model bổ sung (`Admin`, `PromoRedemption`, `AISetting`, `RateLimitBucket`, `BankPaymentRequest`) phục vụ separation of privilege, idempotency, encrypted configuration, rate limiting và manual bank-transfer review.
+Các model bổ sung (`Admin`, `PromoRedemption`, `AISetting`, `RateLimitBucket`) phục vụ separation of privilege, idempotency, encrypted configuration và rate limiting.
 
 ## Chạy local
 
@@ -210,9 +202,9 @@ Trong môi trường tạo artifact hiện tại, npm registry không truy cập
 
 Repository có `render.yaml`:
 
-- Node web service Free tại region Singapore.
+- Node web service.
 - Build Next.js server app.
-- `prisma migrate deploy` chạy trong build trước mỗi deploy (Free tier không hỗ trợ pre-deploy command).
+- `prisma migrate deploy` trước mỗi deploy.
 - `prisma:seed` sau lần deploy thành công đầu tiên.
 - `/api/health` làm health check.
 - Secrets được khai báo bằng `sync: false` hoặc generated values.
@@ -228,7 +220,7 @@ Flow đề xuất:
 
 ## Production follow-ups nên làm trước khi thu tiền thật
 
-- Nếu cần tự động hóa thanh toán, có thể thay manual QR review bằng PayOS/MoMo/Stripe webhook mà không đổi Plan/quota core.
+- Tích hợp payment provider cụ thể (Stripe, Lemon Squeezy, Paddle hoặc cổng nội địa) bằng `Order/Payment` model + verified webhook; cập nhật `Revenue` từ payment ledger thay vì placeholder.
 - Thêm S3/R2 nếu muốn lưu ảnh/PDF gốc để xem lại trong history.
 - Cấu hình error monitoring/observability và database backups/retention.
 - Review exact OpenRouter models, cost ceilings và data/privacy policy của provider trước khi mở production traffic.
@@ -238,8 +230,8 @@ Flow đề xuất:
 
 Seed tạo sẵn:
 
-- Free / Plus / Pro / Max.
-- Seed baseline: Free 1 lượt, Plus 3 lượt, Pro 10 lượt, Max 30 lượt. Existing plan settings are not overwritten when seed runs again.
+- Free / Plus / Pro / Premium.
+- AI request limits lần lượt 1 / 2 / 3 / 4.
 - Academic Vocabulary -> Environment.
 - `sustainable`, `pollution`, `biodiversity`.
 - AI fallback: `openrouter/auto`.
@@ -247,4 +239,4 @@ Seed tạo sẵn:
 
 ---
 
-Skibidi IELTS includes a manual QR bank-transfer workflow and keeps automated payment providers/object storage as isolated upgrade points.
+Skibidi IELTS is ready to be used as the application baseline; payment and persistent object storage are deliberately isolated integration points rather than hard-coded assumptions.

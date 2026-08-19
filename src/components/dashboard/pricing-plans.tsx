@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { Check, Clipboard, Clock3, Crown, Loader2, ShieldCheck, Sparkles, X } from "lucide-react";
+import { Check, Clipboard, Clock3, Loader2, ShieldCheck, X } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -102,65 +102,43 @@ export function PricingPlans({ plans, pendingPayments, latestStatuses }: { plans
 
   return (
     <>
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {plans.map((plan) => {
-          const name = plan.name.toLowerCase();
-          const isPro = name === "pro";
-          const isMax = name === "max" || name === "premium";
-          const isPlus = name === "plus";
           const pending = pendingByPlan.get(plan.id);
           const latestStatus = statusByPlan.get(plan.id);
           return (
             <Card
               key={plan.id}
               className={cn(
-                "relative flex min-h-[520px] flex-col overflow-hidden p-7 transition duration-300 hover:-translate-y-1 hover:shadow-xl",
-                isPlus && "border-indigo-200 bg-gradient-to-b from-indigo-50/80 to-white shadow-md",
-                isPro && "border-slate-950 bg-slate-950 text-white shadow-2xl xl:-translate-y-3 xl:hover:-translate-y-4",
-                isMax && "border-amber-300 bg-gradient-to-b from-amber-50 to-white shadow-lg",
-                plan.active && !isPro && "ring-2 ring-slate-950"
+                "flex min-h-[500px] flex-col bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg",
+                plan.active && "border-slate-950 ring-1 ring-slate-950"
               )}
             >
-              {isPro && <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" />}
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="flex items-center gap-2">
-                    {isMax && <Crown className="h-5 w-5 text-amber-600" />}
-                    {isPlus && <Sparkles className="h-5 w-5 text-indigo-600" />}
-                    <h2 className="text-xl font-black">{plan.name}</h2>
-                  </div>
-                  {isPro && <Badge className="mt-3 bg-white text-slate-950">Phổ biến nhất</Badge>}
-                  {isMax && <Badge className="mt-3 border border-amber-300 bg-amber-100 text-amber-900">Nhiều lượt nhất</Badge>}
-                  {isPlus && <Badge className="mt-3 border border-indigo-200 bg-white text-indigo-700">Nâng cấp tiết kiệm</Badge>}
-                </div>
-                {plan.active && <Badge className={isPro ? "bg-white/10 text-white" : "bg-slate-950 text-white"}>Hiện tại</Badge>}
+              <div className="flex items-center justify-between gap-3">
+                <h2 className="text-lg font-bold">{plan.name}</h2>
+                {plan.active && <Badge className="bg-slate-950 text-white">Hiện tại</Badge>}
               </div>
 
-              <p className="mt-7 text-3xl font-black tracking-tight">{formatPrice(plan.price)}</p>
-              {!plan.isFree && <p className={cn("mt-1 text-sm font-medium", isPro ? "text-slate-400" : "text-slate-500")}>{plan.durationDays} ngày</p>}
+              <p className="mt-6 text-3xl font-black tracking-tight">{formatPrice(plan.price)}</p>
+              <p className="mt-1 text-sm text-slate-500">{plan.isFree ? "Gói miễn phí" : `${plan.durationDays} ngày`}</p>
 
-              <div className={cn("my-6 h-px", isPro ? "bg-white/10" : "bg-slate-200/80")} />
-              <div className={cn("space-y-3 text-sm", isPro ? "text-slate-200" : "text-slate-700")}>
+              <div className="my-6 h-px bg-slate-100" />
+              <div className="space-y-3 text-sm text-slate-700">
                 {featureLabels(plan).map((label) => (
                   <p key={label} className="flex gap-2.5">
-                    <Check className={cn("mt-0.5 h-4 w-4 shrink-0", isPro ? "text-emerald-400" : "text-emerald-600")} />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                     {label}
                   </p>
                 ))}
               </div>
 
               <div className="mt-auto pt-8">
-                {pending && <p className={cn("mb-3 flex items-center gap-2 text-xs font-semibold", isPro ? "text-amber-300" : "text-amber-700")}><Clock3 className="h-3.5 w-3.5" />Đang chờ admin xác nhận</p>}
-                {!pending && latestStatus === "REJECTED" && <p className={cn("mb-3 text-xs font-semibold", isPro ? "text-red-300" : "text-red-600")}>Yêu cầu gần nhất đã bị từ chối</p>}
+                {pending && <p className="mb-3 flex items-center gap-2 text-xs font-semibold text-amber-700"><Clock3 className="h-3.5 w-3.5" />Đang chờ admin xác nhận</p>}
+                {!pending && latestStatus === "REJECTED" && <p className="mb-3 text-xs font-semibold text-red-600">Yêu cầu gần nhất đã bị từ chối</p>}
                 {plan.isFree || plan.active ? (
-                  <Button disabled className={cn("w-full", isPro && "border-white/20 bg-white/10 text-white")} variant="outline">{plan.active ? "Gói hiện tại" : "Gói miễn phí"}</Button>
+                  <Button disabled className="w-full" variant="outline">{plan.active ? "Gói hiện tại" : "Gói miễn phí"}</Button>
                 ) : (
-                  <Button
-                    type="button"
-                    onClick={() => openPlan(plan)}
-                    className={cn("w-full", isPro && "bg-white text-slate-950 hover:bg-slate-100")}
-                    variant={isPro ? "default" : "outline"}
-                  >
+                  <Button type="button" onClick={() => openPlan(plan)} className="w-full" variant="outline">
                     {pending ? "Xem thanh toán" : `Chọn ${plan.name}`}
                   </Button>
                 )}

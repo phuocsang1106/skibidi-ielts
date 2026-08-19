@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type { PlanFeatures, WritingFeedback } from "@/types/feedback";
 import { decryptSecret } from "@/lib/crypto";
+import { getIeltsBandDescriptorPrompt } from "@/lib/ielts-band-descriptors";
 import { prisma } from "@/lib/prisma";
 
 const optionalArray = <T extends z.ZodTypeAny>(schema: T) => z.preprocess((value) => value === null ? undefined : value, z.array(schema).optional());
@@ -95,12 +96,22 @@ function buildPrompt(input: GradeInput) {
   const taskSource = input.taskPrompt?.trim()
     ? `IELTS task/question:\n${input.taskPrompt.trim()}`
     : "The IELTS task/question is supplied in the attached image or PDF. Treat the attachment as the QUESTION/CHART only, not as the candidate response.";
+  const officialRubric = getIeltsBandDescriptorPrompt(input.taskType);
 
-  return `You are a strict, evidence-based IELTS Writing examiner. Grade the candidate response for ${input.taskType === "TASK_1" ? "IELTS Writing Task 1" : "IELTS Writing Task 2"} using official-style band descriptors.
+  return `You are a strict, evidence-based IELTS Writing examiner. Grade the candidate response for ${input.taskType === "TASK_1" ? "IELTS Writing Task 1" : "IELTS Writing Task 2"} using the official IELTS Writing Band Descriptors (Updated May 2023) supplied below.
 
 ${taskSource}
 
 Candidate response:\n${input.responseText}
+
+OFFICIAL IELTS WRITING BAND DESCRIPTORS - SCORING REFERENCE:\n${officialRubric}
+
+SCORING METHOD:
+- Compare the response against the descriptor evidence criterion by criterion.
+- Do not choose a band first and justify it afterward. Identify evidence, find the highest descriptor fully supported, then assign the score.
+- If a limiting feature from a lower band is clearly present, do not award a higher band that conflicts with it.
+- Use the task/question itself when scoring ${firstCriterion}; do not score this criterion from language quality alone.
+- The final overall band for this single task will be recalculated by the server as the mean of the four criterion bands, rounded to the nearest 0.5.
 
 Return exactly four criteria in this exact order and keep the criterion names in English for stable UI mapping:
 1. ${firstCriterion}
@@ -108,14 +119,14 @@ Return exactly four criteria in this exact order and keep the criterion names in
 3. Lexical Resource
 4. Grammatical Range and Accuracy
 
-LANGUAGE RULES — IMPORTANT:
-- All examiner commentary must be in natural Vietnamese: summary, criterion explanation, mistakes, criterion correction/guidance, errorCorrection.explanation, and nextBandGuidance.
+LANGUAGE RULES - MANDATORY:
+- ALL examiner commentary must be written in natural Vietnamese, even though the essay and rubric are English: summary, criterion explanation, mistakes, criterion correction/guidance, errorCorrection.explanation, and nextBandGuidance.
 - When pointing out a mistake, quote the relevant English phrase/sentence from the essay, then explain the issue in Vietnamese.
 - errorCorrection.original and errorCorrection.corrected must stay in English.
 - band7Sample and improvedEssay are IELTS sample/rewritten essays, so they must stay in English.
 - Do not translate the candidate's essay into Vietnamese.
 
-Use half-band increments where appropriate. Base every score on evidence from the submitted task and essay. Do not reward ideas or language that are not present. For Task 1, check whether the response actually covers the visual/task information visible in the attachment or prompt.
+Use half-band increments only when the evidence genuinely lies between adjacent descriptor levels. Base every score on evidence from the submitted task and essay. Do not reward ideas or language that are not present. For Task 1, check whether the response actually covers the visual/task information visible in the attachment or prompt.
 
 Enabled feature flags: ${enabled}. The premium fields are errorCorrection, band7Sample, improvedEssay, nextBandGuidance. Return each premium field only when its corresponding feature is enabled; when the schema requires every key, return null for disabled premium fields.
 
@@ -160,10 +171,10 @@ export async function gradeWriting(input: GradeInput): Promise<WritingFeedback> 
   const baseBody = {
     model: input.model,
     messages: [
-      { role: "system", content: "Return accurate IELTS assessment as JSON only. Examiner feedback must be in Vietnamese; English corrections and sample essays remain in English. Never invent content that is not visible in the supplied task or essay." },
+      { role: "system", content: "Apply the supplied IELTS Writing Band Descriptors strictly. Return JSON only. All examiner commentary must be Vietnamese; English corrections and sample essays remain English. Never invent content that is not visible in the supplied task or essay." },
       { role: "user", content }
     ],
-    temperature: 0.2
+    temperature: 0.15
   };
 
   let result = await requestOpenRouter(apiKey, {
@@ -196,5 +207,17 @@ export async function gradeWriting(input: GradeInput): Promise<WritingFeedback> 
     parsed = JSON.parse(fenced);
   }
 
-  return feedbackSchema.parse(parsed);
+  const feedback = feedbackSchema.parse(parsed);
+  const expectedNames = input.taskType === "TASK_1"
+    ? ["Task Achievement", "Coherence and Cohesion", "Lexical Resource", "Grammatical Range and Accuracy"]
+    : ["Task Response", "Coherence and Cohesion", "Lexical Resource", "Grammatical Range and Accuracy"];
+  const roundHalf = (value: number) => Math.min(9, Math.max(0, Math.round(value * 2) / 2));
+  const criteria = feedback.criteria.map((criterion, index) => ({
+    ...criterion,
+    name: expectedNames[index] ?? criterion.name,
+    band: roundHalf(criterion.band)
+  }));
+  const overallBand = roundHalf(criteria.reduce((sum, criterion) => sum + criterion.band, 0) / criteria.length);
+
+  return { ...feedback, criteria, overallBand };
 }

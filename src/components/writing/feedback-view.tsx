@@ -17,10 +17,18 @@ function criterionLabel(name: string) {
 export function FeedbackView({ feedback, features }: { feedback: WritingFeedback; features: PlanFeatures }) {
   return (
     <div className="space-y-6">
-      <Card className="overflow-hidden border-0 bg-slate-950 text-white">
+      <Card className="overflow-hidden border border-slate-200 bg-white text-slate-950 shadow-sm">
         <div className="grid gap-6 p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
-          <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Nhận xét tổng quan</p><p className="mt-3 max-w-3xl leading-7 text-slate-300">{feedback.summary}</p></div>
-          {features.bandScore && <div className="w-fit rounded-2xl bg-red-500/10 px-6 py-4 text-center ring-1 ring-red-400/20"><p className="text-xs font-semibold text-red-300">Overall Band Score</p><p className="mt-1 text-4xl font-black text-red-400">{feedback.overallBand.toFixed(1)}</p></div>}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Nhận xét tổng quan</p>
+            <p className="mt-3 max-w-3xl leading-7 text-slate-700">{feedback.summary}</p>
+          </div>
+          {features.bandScore && (
+            <div className="w-fit rounded-2xl border border-red-100 bg-red-50 px-6 py-4 text-center">
+              <p className="text-xs font-semibold text-red-600">Overall Band Score</p>
+              <p className="mt-1 text-4xl font-black text-red-500">{feedback.overallBand.toFixed(1)}</p>
+            </div>
+          )}
         </div>
       </Card>
 

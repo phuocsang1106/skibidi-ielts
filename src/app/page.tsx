@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BrainCircuit, Check, ChevronRight, Crown, FileCheck2, Layers3, Sparkles, UserRound } from "lucide-react";
+import { ArrowRight, BrainCircuit, Check, ChevronRight, FileCheck2, Layers3, Sparkles, UserRound } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import { formatPrice } from "@/lib/utils";
@@ -118,27 +118,22 @@ export default async function LandingPage() {
             <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:items-stretch">
               {plans.map((plan) => {
                 const feature = plan.features as unknown as PlanFeatures;
-                const name = plan.name.toLowerCase();
-                const isPro = name === "pro";
-                const isMax = name === "max" || name === "premium";
-                const isPlus = name === "plus";
                 return (
-                  <Card key={plan.id} className={`relative flex flex-col overflow-hidden p-7 transition hover:-translate-y-1 hover:shadow-xl ${isPro ? "border-slate-950 bg-slate-950 text-white shadow-2xl xl:-translate-y-3" : isMax ? "border-amber-300 bg-gradient-to-b from-amber-50 to-white shadow-lg" : isPlus ? "border-indigo-200 bg-gradient-to-b from-indigo-50/80 to-white shadow-md" : ""}`}>
-                    {isPro && <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400" />}
-                    <div className="flex items-center justify-between"><div className="flex items-center gap-2">{isMax && <Crown className="h-5 w-5 text-amber-600" />}<h3 className="text-lg font-black">{plan.name}</h3></div>{isPro && <Badge className="bg-white text-slate-950">Popular</Badge>}</div>
+                  <Card key={plan.id} className="flex flex-col bg-white p-7 transition hover:-translate-y-1 hover:shadow-lg">
+                    <h3 className="text-lg font-bold">{plan.name}</h3>
                     <p className="mt-6 text-3xl font-black tracking-tight">{formatPrice(plan.price.toString())}</p>
-                    <p className={`mt-1 text-xs ${isPro ? "text-slate-400" : "text-slate-500"}`}>{plan.isFree ? "Free" : `${plan.durationDays} days`}</p>
-                    <div className={`my-6 h-px ${isPro ? "bg-white/10" : "bg-slate-100"}`} />
-                    <div className={`space-y-3 text-sm ${isPro ? "text-slate-200" : "text-slate-600"}`}>
-                      <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-500" />{plan.aiRequestLimit} lượt chấm Writing</p>
-                      {feature.bandScore && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-500" />Overall band score</p>}
-                      {feature.criteria && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-500" />4 IELTS criteria</p>}
-                      {feature.errorCorrection && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-500" />Error correction</p>}
-                      {feature.band7Sample && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-500" />Band 7 sample</p>}
-                      {feature.improvedEssay && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-500" />Improved essay</p>}
-                      {feature.nextBandGuidance && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-500" />Next-band guidance</p>}
+                    <p className="mt-1 text-xs text-slate-500">{plan.isFree ? "Free" : `${plan.durationDays} days`}</p>
+                    <div className="my-6 h-px bg-slate-100" />
+                    <div className="space-y-3 text-sm text-slate-600">
+                      <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />{plan.aiRequestLimit} lượt chấm Writing</p>
+                      {feature.bandScore && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Overall band score</p>}
+                      {feature.criteria && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />4 IELTS criteria</p>}
+                      {feature.errorCorrection && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Error correction</p>}
+                      {feature.band7Sample && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Band 7 sample</p>}
+                      {feature.improvedEssay && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Improved essay</p>}
+                      {feature.nextBandGuidance && <p className="flex gap-2"><Check className="h-4 w-4 text-emerald-600" />Next-band guidance</p>}
                     </div>
-                    <Button asChild className={`mt-8 w-full ${isPro ? "bg-white text-slate-950 hover:bg-slate-100" : ""}`} variant={isPro ? "default" : "outline"}><Link href={user ? "/dashboard/pricing" : "/register"}>{user ? "Choose plan" : `Get ${plan.name}`}<ChevronRight className="h-4 w-4" /></Link></Button>
+                    <Button asChild className="mt-8 w-full" variant="outline"><Link href={user ? "/dashboard/pricing" : "/register"}>{user ? "Choose plan" : `Get ${plan.name}`}<ChevronRight className="h-4 w-4" /></Link></Button>
                   </Card>
                 );
               })}
