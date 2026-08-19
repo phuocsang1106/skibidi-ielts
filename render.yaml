@@ -2,7 +2,7 @@ services:
   - type: web
     name: skibidi-ielts
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm install --no-audit --no-fund && npm run build
     preDeployCommand: npx prisma migrate deploy
     initialDeployHook: npm run prisma:seed
